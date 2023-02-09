@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainMenuController">
+   <children>
+      <Label text="Main Menu">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Button fx:id="MainMenuCustomers" mnemonicParsing="false" onAction="#MainMenuCustomers" text="Customers">
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="MainMenuAppointments" mnemonicParsing="false" onAction="#MainMenuAppointments" text="Appointments">
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="MainMenuRecords" mnemonicParsing="false" onAction="#MainMenuRecords" text="Records">
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="MainMenuLogout" mnemonicParsing="false" onAction="#MainMenuLogout" text="Logout">
+         <VBox.margin>
+            <Insets left="10.0" top="200.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>

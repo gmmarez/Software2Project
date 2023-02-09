@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CustomersController">
+   <children>
+      <Label text="Customers">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Button fx:id="CustomersAddCustomer" mnemonicParsing="false" onAction="#CustomersAddCustomer" text="Add Customer">
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="CustomersEditCustomer" mnemonicParsing="false" onAction="#CustomersEditCustomer" text="Edit Customer">
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="CustomersDeleteCustomer" mnemonicParsing="false" onAction="#CustomersDeleteCustomer" text="Delete Customer">
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="CustomersBack" mnemonicParsing="false" onAction="#CustomersBack" text="Back">
+         <VBox.margin>
+            <Insets left="10.0" top="200.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>

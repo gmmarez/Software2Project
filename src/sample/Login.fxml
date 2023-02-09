@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
+   <children>
+      <Label text="Login">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <TextField fx:id="UsernameTextBox" maxWidth="-Infinity" onAction="#UsernameTextBox" prefWidth="200.0" promptText="Username">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </TextField>
+      <TextField fx:id="PasswordTextBox" maxWidth="-Infinity" minWidth="-Infinity" onAction="#PasswordTextBox" prefWidth="200.0" promptText="Password">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </TextField>
+      <Button fx:id="LoginSubmit" mnemonicParsing="false" onAction="#LoginSubmit" text="Submit">
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="LoginClose" mnemonicParsing="false" onAction="#LoginClose" text="Close">
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>

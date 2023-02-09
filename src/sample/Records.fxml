@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RecordsController">
+   <children>
+      <Label text="Records">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Button fx:id="RecordsBack" mnemonicParsing="false" onAction="#RecordsBack" text="Back">
+         <VBox.margin>
+            <Insets left="10.0" top="200.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>
