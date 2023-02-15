@@ -17,10 +17,14 @@ public class RecordsController {
     public void RecordsBack(ActionEvent event) throws IOException {
         // Goes back to Main Menu
 
-        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("sample.MainMenu.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
+        try {
+            stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+            scene = FXMLLoader.load(getClass().getResource("sample.MainMenu.fxml"));
+            stage.setScene(new Scene(scene));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
