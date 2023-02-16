@@ -9,12 +9,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class RecordsController {
-    public Button RecordsBack;
+public class ReportsController {
+    public Button ReportsBack;
     Stage stage;
     Parent scene;
 
-    public void RecordsBack(ActionEvent event) throws IOException {
+    public void ReportsBack(ActionEvent event) throws IOException {
         // Goes back to Main Menu
 
         try {

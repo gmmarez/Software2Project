@@ -21,7 +21,7 @@ public class MainMenuController implements Initializable {
     private Button MainMenuAppointments;
 
     @FXML
-    private Button MainMenuRecords;
+    private Button MainMenuReports;
 
     @FXML
     private Button MainMenuLogout;
@@ -50,11 +50,11 @@ public class MainMenuController implements Initializable {
     }
 
     @FXML
-    void MainMenuRecords(ActionEvent event) throws IOException {
-        // Goes to Records screen
+    void MainMenuReports(ActionEvent event) throws IOException {
+        // Goes to Reports screen
 
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("sample.Records.fxml"));
+        scene = FXMLLoader.load(getClass().getResource("sample.Reports.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
     }
