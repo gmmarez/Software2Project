@@ -18,7 +18,10 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        JDBC.makeConnection();
+        // JDBC.makeConnection();
         launch(args);
+
+        JDBC.openConnection();
+        JDBC.closeConnection();
     }
 }
