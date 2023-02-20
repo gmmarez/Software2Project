@@ -1,11 +1,16 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Optional;
 
 public class LoginController {
@@ -13,6 +18,8 @@ public class LoginController {
     public TextField PasswordTextBox;
     public Button LoginSubmit;
     public Button LoginClose;
+    Stage stage;
+    Parent scene;
 
     public void UsernameTextBox(ActionEvent actionEvent) {
     }
@@ -20,8 +27,12 @@ public class LoginController {
     public void PasswordTextBox(ActionEvent actionEvent) {
     }
 
-    public void LoginSubmit(ActionEvent actionEvent) {
+    public void LoginSubmit(ActionEvent event) throws IOException {
         // Successful goes to Main Menu
+        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("sample.MainMenu.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
         // Fail goes to Error Message
     }
 
