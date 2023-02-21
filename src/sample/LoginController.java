@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.Optional;
 
@@ -41,12 +40,10 @@ public class LoginController {
     @FXML
     void LoginSubmit(ActionEvent event)  {
         // Successful goes to Main Menu
-        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("sample.MainMenu.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
+        System.out.println("Submit Clicked");
         // Fail goes to Error Message
     }
+
     @FXML
     void LoginClose(ActionEvent actionEvent) {
         // Closes entire application

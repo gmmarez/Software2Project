@@ -30,9 +30,5 @@ public class AppointmentsController {
     public void AppointmentsBack(ActionEvent event) throws IOException {
         // Go back to Main Menu
 
-        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("sample.MainMenu.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
     }
 }
