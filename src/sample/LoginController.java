@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,20 +15,31 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class LoginController {
-    public TextField UsernameTextBox;
-    public TextField PasswordTextBox;
-    public Button LoginSubmit;
-    public Button LoginClose;
+    @FXML
+    private TextField UsernameTextBox;
+
+    @FXML
+    private TextField PasswordTextBox;
+
+    @FXML
+    private Button LoginSubmit;
+
+    @FXML
+    private Button LoginClose;
+
     Stage stage;
     Parent scene;
 
-    public void UsernameTextBox(ActionEvent actionEvent) {
+    @FXML
+    void UsernameTextBox(ActionEvent event) {
     }
 
-    public void PasswordTextBox(ActionEvent actionEvent) {
+    @FXML
+    void PasswordTextBox(ActionEvent event) {
     }
 
-    public void LoginSubmit(ActionEvent event) throws IOException {
+    @FXML
+    void LoginSubmit(ActionEvent event)  {
         // Successful goes to Main Menu
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("sample.MainMenu.fxml"));
@@ -35,8 +47,8 @@ public class LoginController {
         stage.show();
         // Fail goes to Error Message
     }
-
-    public void LoginClose(ActionEvent actionEvent) {
+    @FXML
+    void LoginClose(ActionEvent actionEvent) {
         // Closes entire application
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "This will close the entire program, are you sure you want to continue?");
@@ -46,7 +58,6 @@ public class LoginController {
             System.exit(0);
         }
     }
-
 
     // Time Zone
     // ZoneId.getAvailableZoneIds().stream().sorted().forEach(System.out::println);
