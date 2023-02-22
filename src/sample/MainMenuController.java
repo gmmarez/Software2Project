@@ -32,24 +32,38 @@ public class MainMenuController implements Initializable {
     @FXML
     void MainMenuCustomers(ActionEvent event) throws IOException {
         // Goes to Customers screen
-
+        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("Customers.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
     }
 
     @FXML
     void MainMenuAppointments(ActionEvent event) throws IOException {
         // Goes to Appointments screen
-
+        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("Appointments.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
     }
 
     @FXML
     void MainMenuReports(ActionEvent event) throws IOException {
         // Goes to Reports screen
+        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("Reports.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
 
     }
 
     @FXML
     void MainMenuLogout(ActionEvent event) throws IOException {
         // Goes back to Login screen
+        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
 
     }
 

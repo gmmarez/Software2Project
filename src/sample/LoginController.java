@@ -38,16 +38,17 @@ public class LoginController {
     }
 
     @FXML
-    void LoginSubmit(ActionEvent event)  {
+    void LoginSubmit(ActionEvent event) throws IOException {
         // Successful goes to Main Menu
-        System.out.println("Submit Clicked");
-        // Fail goes to Error Message
+        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
     }
 
     @FXML
     void LoginClose(ActionEvent actionEvent) {
         // Closes entire application
-
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "This will close the entire program, are you sure you want to continue?");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {

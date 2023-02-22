@@ -2,6 +2,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,24 +12,47 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AppointmentsController {
-    public Button AppointmentsAddAppointment;
-    public Button AppointmentsEditAppointment;
-    public Button AppointmentsDeleteAppointment;
-    public Button AppointmentsBack;
+
+    @FXML
+    private Button AppointmentsAddAppointment;
+
+    @FXML
+    private Button AppointmentsEditAppointment;
+
+    @FXML
+    private Button AppointmentsDeleteAppointment;
+
+    @FXML
+    private Button AppointmentsBack;
+
     Stage stage;
     Parent scene;
 
-    public void AppointmentsAddAppointment(ActionEvent actionEvent) {
+    @FXML
+    void AppointmentsAddAppointment(ActionEvent event) throws IOException {
+        // Go to Add Appointment Screen
+        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("AddAppointments.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
     }
 
-    public void AppointmentsEditAppointment(ActionEvent actionEvent) {
+    @FXML
+    void AppointmentsEditAppointment(ActionEvent actionEvent) {
+        // Go to Edit Appointment Screen
     }
 
-    public void AppointmentsDeleteAppointment(ActionEvent actionEvent) {
+    @FXML
+    void AppointmentsDeleteAppointment(ActionEvent actionEvent) {
     }
 
-    public void AppointmentsBack(ActionEvent event) throws IOException {
+    @FXML
+    void AppointmentsBack(ActionEvent event) throws IOException {
         // Go back to Main Menu
+        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
 
     }
 }
