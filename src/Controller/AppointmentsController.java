@@ -1,7 +1,6 @@
-package sample;
+package Controller;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,7 +31,7 @@ public class AppointmentsController {
     void AppointmentsAddAppointment(ActionEvent event) throws IOException {
         // Go to Add Appointment Screen
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("AddAppointments.fxml"));
+        scene = FXMLLoader.load(getClass().getResource("../View/AddAppointments.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
     }
@@ -50,7 +49,7 @@ public class AppointmentsController {
     void AppointmentsBack(ActionEvent event) throws IOException {
         // Go back to Main Menu
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+        scene = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
 

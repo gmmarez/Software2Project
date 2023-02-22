@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddCustomersController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AppointmentsController">
    <children>
-      <Label text="Add Customer">
+      <Label text="Appointments">
          <font>
             <Font size="26.0" />
          </font>
@@ -23,9 +23,19 @@
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="AddCustomersAdd" mnemonicParsing="false" onAction="#AddCustomersAdd" text="Add">
+                  <Button fx:id="AppointmentsAddAppointment" mnemonicParsing="false" onAction="#AppointmentsAddAppointment" text="Add">
                      <VBox.margin>
                         <Insets left="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="AppointmentsEditAppointment" mnemonicParsing="false" onAction="#AppointmentsEditAppointment" text="Edit">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="AppointmentsDeleteAppointment" mnemonicParsing="false" onAction="#AppointmentsDeleteAppointment" text="Delete">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
                </children>
@@ -41,7 +51,7 @@
             </TableView>
          </children>
       </HBox>
-      <Button fx:id="AddCustomersBack" mnemonicParsing="false" onAction="#AddCustomersBack" text="Back">
+      <Button fx:id="AppointmentsBack" mnemonicParsing="false" onAction="#AppointmentsBack" text="Back">
          <VBox.margin>
             <Insets left="10.0" top="10.0" />
          </VBox.margin>

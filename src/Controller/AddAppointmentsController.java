@@ -1,4 +1,4 @@
-package sample;
+package Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,29 +7,30 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
-public class AddCustomersController {
+public class AddAppointmentsController {
 
     @FXML
-    private Button AddCustomersBack;
+    private Button AddAppointmentsBack;
 
     @FXML
-    private Button AddCustomersAdd;
+    private Button AddAppointmentsAdd;
 
     Stage stage;
     Parent scene;
 
     @FXML
-    void AddCustomersBack(ActionEvent event) throws IOException {
-        // Go back to Customers screen
+    void AddAppointmentsBack(ActionEvent event) throws IOException {
+        // Go back to Appointments screen
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("Customers.fxml"));
+        scene = FXMLLoader.load(getClass().getResource("../View/Appointments.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
     }
 
     @FXML
-    void AddCustomersAdd(ActionEvent event) {
+    void AddAppointmentsAdd(ActionEvent event) {
     }
 }

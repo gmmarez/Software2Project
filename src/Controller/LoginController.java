@@ -1,4 +1,4 @@
-package sample;
+package Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,7 +41,7 @@ public class LoginController {
     void LoginSubmit(ActionEvent event) throws IOException {
         // Successful goes to Main Menu
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+        scene = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
     }

@@ -1,4 +1,4 @@
-package sample;
+package Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,7 +29,7 @@ public class CustomersController {
     void CustomersAddCustomer(ActionEvent event) throws IOException {
         // Go to Add Customer screen
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("AddCustomers.fxml"));
+        scene = FXMLLoader.load(getClass().getResource("../View/AddCustomers.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
     }
@@ -47,7 +47,7 @@ public class CustomersController {
     void CustomersBack(ActionEvent event) throws IOException {
         // Go back to Main Menu
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+        scene = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
 

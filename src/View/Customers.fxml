@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddAppointmentsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CustomersController">
    <children>
-      <Label text="Add Appointment">
+      <Label text="Customers">
          <font>
             <Font size="26.0" />
          </font>
@@ -19,13 +19,23 @@
             <Insets left="10.0" top="10.0" />
          </VBox.margin>
       </Label>
-      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0">
+      <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="AddAppointmentsAdd" mnemonicParsing="false" onAction="#AddAppointmentsAdd" text="Add">
+                  <Button fx:id="CustomersAddCustomer" mnemonicParsing="false" onAction="#CustomersAddCustomer" text="Add">
                      <VBox.margin>
-                        <Insets left="10.0" />
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="CustomersEditCustomer" mnemonicParsing="false" onAction="#CustomersEditCustomer" text="Edit">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="CustomersDeleteCustomer" mnemonicParsing="false" onAction="#CustomersDeleteCustomer" text="Delete">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
                </children>
@@ -41,9 +51,9 @@
             </TableView>
          </children>
       </HBox>
-      <Button fx:id="AddAppointmentsBack" mnemonicParsing="false" onAction="#AddAppointmentsBack" text="Back">
+      <Button fx:id="CustomersBack" mnemonicParsing="false" onAction="#CustomersBack" text="Back">
          <VBox.margin>
-            <Insets left="10.0" top="10.0" />
+            <Insets left="10.0" top="200.0" />
          </VBox.margin>
       </Button>
    </children>
