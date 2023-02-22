@@ -47,7 +47,7 @@ public class LoginController {
     }
 
     @FXML
-    void LoginClose(ActionEvent actionEvent) {
+    void LoginClose(ActionEvent event) {
         // Closes entire application
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "This will close the entire program, are you sure you want to continue?");
         Optional<ButtonType> result = alert.showAndWait();
