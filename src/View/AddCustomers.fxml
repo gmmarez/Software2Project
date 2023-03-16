@@ -3,7 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -17,19 +17,50 @@
             <Insets left="10.0" top="10.0" />
          </VBox.margin>
       </Label>
-      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0">
+      <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Button fx:id="AddCustomersAdd" mnemonicParsing="false" onAction="#AddCustomersAdd" text="Add">
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </Button>
-               </children>
-            </VBox>
+            <TextField fx:id="AddCustomerCustomerId" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddCustomerCustomerId" prefWidth="200.0" promptText="Customer ID">
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="AddCustomerName" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddCustomerName" prefWidth="200.0" promptText="Name">
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="AddCustomerAddress" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddCustomerAddress" prefWidth="200.0" promptText="Address">
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="AddCustomerPostalCode" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddCustomerPostalCode" prefWidth="200.0" promptText="Postal Code">
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="AddCustomerPhone" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddCustomerPhone" prefWidth="200.0" promptText="Phone Number">
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="AddCustomerDivisionId" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddCustomerDivisionId" prefWidth="200.0" promptText="Division ID">
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="AddCustomerCountryId" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddCustomerCountryId" prefWidth="200.0" promptText="Country ID">
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
          </children>
-      </HBox>
+      </VBox>
+      <Button fx:id="AddCustomersAdd" mnemonicParsing="false" onAction="#AddCustomersAdd" text="Add">
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Button>
       <Button fx:id="AddCustomersBack" mnemonicParsing="false" onAction="#AddCustomersBack" text="Back">
          <VBox.margin>
             <Insets left="10.0" top="10.0" />
