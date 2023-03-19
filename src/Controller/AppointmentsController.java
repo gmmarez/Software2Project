@@ -37,8 +37,12 @@ public class AppointmentsController {
     }
 
     @FXML
-    void AppointmentsEditAppointment(ActionEvent actionEvent) {
+    void AppointmentsEditAppointment(ActionEvent event) throws IOException {
         // Go to Edit Appointment Screen
+        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("../View/EditAppointments.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
     }
 
     @FXML
