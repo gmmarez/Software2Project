@@ -18,13 +18,14 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        // JDBC.makeConnection();
-        launch(args);
-
         // Test French Location
         // Locale.setDefault(new Locale("fr"));
 
         JDBC.openConnection();
+
+        // JDBC.makeConnection();
+        launch(args);
+
         JDBC.closeConnection();
     }
 }
