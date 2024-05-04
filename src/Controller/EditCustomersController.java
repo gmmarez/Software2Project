@@ -27,16 +27,16 @@ public class EditCustomersController {
     @FXML
     private TextField EditCustomerPhone;
 
-    @FMXL
+    @FXML
     public TextField EditCustomerLastUpdatedBy;
 
-    @FMXL@FMXL
+    @FXML
     public TextField EditCustomerLastUpdate;
 
-    @FMXL
+    @FXML
     public TextField EditCustomerCreatedBy;
 
-    @FMXL
+    @FXML
     public TextField EditCustomerCreateDate;
 
     @FXML
