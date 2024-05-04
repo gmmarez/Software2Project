@@ -28,6 +28,18 @@ public class AddCustomersController {
     private TextField AddCustomerPhone;
 
     @FXML
+    public TextField AddCustomerCreateDate;
+
+    @FXML
+    public TextField AddCustomerCreatedBy;
+
+    @FXML
+    public TextField AddCustomerLastUpdate;
+
+    @FXML
+    public TextField AddCustomerLastUpdatedBy;
+
+    @FXML
     private TextField AddCustomerDivisionId;
 
     @FXML
@@ -74,6 +86,22 @@ public class AddCustomersController {
 
     @FXML
     void AddCustomerPhone(ActionEvent event) {
+    }
+
+    @FXML
+    public void AddCustomerCreateDate(ActionEvent event) {
+    }
+
+    @FXML
+    public void AddCustomerCreatedBy(ActionEvent event) {
+    }
+
+    @FXML
+    public void AddCustomerLastUpdate(ActionEvent event) {
+    }
+
+    @FXML
+    public void AddCustomerLastUpdatedBy(ActionEvent event) {
     }
 
     @FXML

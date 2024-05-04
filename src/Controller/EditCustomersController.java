@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class EditCustomersController {
+
     @FXML
     private TextField EditCustomerCustomerId;
 
@@ -25,6 +26,18 @@ public class EditCustomersController {
 
     @FXML
     private TextField EditCustomerPhone;
+
+    @FMXL
+    public TextField EditCustomerLastUpdatedBy;
+
+    @FMXL@FMXL
+    public TextField EditCustomerLastUpdate;
+
+    @FMXL
+    public TextField EditCustomerCreatedBy;
+
+    @FMXL
+    public TextField EditCustomerCreateDate;
 
     @FXML
     private TextField EditCustomerDivisionId;
@@ -71,6 +84,22 @@ public class EditCustomersController {
 
     @FXML
     void AddCustomersSave(ActionEvent event) {
+    }
+
+    @FXML
+    public void EditCustomerLastUpdatedBy(ActionEvent event) {
+    }
+
+    @FXML
+    public void EditCustomerLastUpdate(ActionEvent event) {
+    }
+
+    @FXML
+    public void EditCustomerCreatedBy(ActionEvent event) {
+    }
+
+    @FXML
+    public void EditCustomerCreateDate(ActionEvent event) {
     }
 
     @FXML

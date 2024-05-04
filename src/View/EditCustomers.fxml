@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -14,7 +15,7 @@
             <Font size="26.0" />
          </font>
          <VBox.margin>
-            <Insets left="10.0" top="10.0" />
+            <Insets left="10.0" top="5.0" />
          </VBox.margin>
       </Label>
       <VBox prefHeight="200.0" prefWidth="100.0">
@@ -26,45 +27,72 @@
             </TextField>
             <TextField fx:id="EditCustomerName" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerName" prefWidth="200.0" promptText="Name">
                <VBox.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="10.0" top="5.0" />
                </VBox.margin>
             </TextField>
             <TextField fx:id="EditCustomerAddress" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerAddress" prefWidth="200.0" promptText="Address">
                <VBox.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="10.0" top="5.0" />
                </VBox.margin>
             </TextField>
             <TextField fx:id="EditCustomerPostalCode" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerPostalCode" prefWidth="200.0" promptText="Postal Code">
                <VBox.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="10.0" top="5.0" />
                </VBox.margin>
             </TextField>
             <TextField fx:id="EditCustomerPhone" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerPhone" prefWidth="200.0" promptText="Phone Number">
                <VBox.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="10.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="EditCustomerCreateDate" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerCreateDate" prefWidth="200.0" promptText="Create Date">
+               <VBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="EditCustomerCreatedBy" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerCreatedBy" prefWidth="200.0" promptText="Created By">
+               <VBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="EditCustomerLastUpdate" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerLastUpdate" prefWidth="200.0" promptText="Last Update">
+               <VBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="EditCustomerLastUpdatedBy" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerLastUpdatedBy" prefWidth="200.0" promptText="Last Updated By">
+               <VBox.margin>
+                  <Insets left="10.0" top="5.0" />
                </VBox.margin>
             </TextField>
             <TextField fx:id="EditCustomerDivisionId" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerDivisionId" prefWidth="200.0" promptText="Division ID">
                <VBox.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="10.0" top="5.0" />
                </VBox.margin>
             </TextField>
             <TextField fx:id="EditCustomerCountryId" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerCountryId" prefWidth="200.0" promptText="Country ID">
                <VBox.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="10.0" top="5.0" />
                </VBox.margin>
             </TextField>
          </children>
       </VBox>
-      <Button fx:id="EditCustomersSave" mnemonicParsing="false" onAction="#AddCustomersSave" text="Save">
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="EditCustomersSave" mnemonicParsing="false" onAction="#AddCustomersSave" text="Save">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="EditCustomersBack" mnemonicParsing="false" onAction="#EditCustomersBack" text="Back">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
          <VBox.margin>
-            <Insets left="10.0" top="10.0" />
+            <Insets top="5.0" />
          </VBox.margin>
-      </Button>
-      <Button fx:id="EditCustomersBack" mnemonicParsing="false" onAction="#EditCustomersBack" text="Back">
-         <VBox.margin>
-            <Insets left="10.0" top="10.0" />
-         </VBox.margin>
-      </Button>
+      </HBox>
    </children>
 </VBox>
