@@ -15,7 +15,7 @@
             <Font size="26.0" />
          </font>
          <VBox.margin>
-            <Insets left="10.0" top="10.0" />
+            <Insets left="10.0" top="5.0" />
          </VBox.margin>
       </Label>
       <HBox prefHeight="100.0" prefWidth="200.0">
@@ -47,6 +47,16 @@
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
+                  <TextField fx:id="AddAppointmentCreateDate" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddAppointmentCreateDate" prefWidth="200.0" promptText="Create Date">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="AddAppointmentCreatedBy" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddAppointmentCreatedBy" prefWidth="200.0" promptText="Created By">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
@@ -72,6 +82,16 @@
                      </VBox.margin>
                   </TextField>
                   <TextField fx:id="AddAppointmentUserId" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddAppointmentUserId" prefWidth="200.0" promptText="User ID">
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="AddAppointmentLastUpdate" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddAppointmentLastUpdate" prefWidth="200.0" promptText="Last Update">
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="AddAppointmentLastUpdatedBy" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddAppointmentLastUpdatedBy" prefWidth="200.0" promptText="Last Updated By">
                      <VBox.margin>
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>

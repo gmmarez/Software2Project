@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AddAppointmentsController {
-
     @FXML
     private TextField AddAppointmentAppointmentId;
 
@@ -32,6 +31,18 @@ public class AddAppointmentsController {
 
     @FXML
     private TextField AddAppointmentEndTime;
+
+    @FXML
+    public TextField AddAppointmentCreateDate;
+
+    @FXML
+    public TextField AddAppointmentCreatedBy;
+
+    @FXML
+    public TextField AddAppointmentLastUpdate;
+
+    @FXML
+    public TextField AddAppointmentLastUpdatedBy;
 
     @FXML
     private TextField AddAppointmentContactId;
@@ -91,6 +102,22 @@ public class AddAppointmentsController {
 
     @FXML
     void AddAppointmentEndTime(ActionEvent event) {
+    }
+
+    @FXML
+    public void AddAppointmentCreateDate(ActionEvent event) {
+    }
+
+    @FXML
+    public void AddAppointmentCreatedBy(ActionEvent event) {
+    }
+
+    @FXML
+    public void AddAppointmentLastUpdate(ActionEvent event) {
+    }
+
+    @FXML
+    public void AddAppointmentLastUpdatedBy(ActionEvent event) {
     }
 
     @FXML

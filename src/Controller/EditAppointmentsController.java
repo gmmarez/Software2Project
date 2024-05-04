@@ -33,6 +33,18 @@ public class EditAppointmentsController {
     private TextField EditAppointmentEndTime;
 
     @FXML
+    public TextField EditAppointmentCreateDate;
+
+    @FXML
+    public TextField EditAppointmentCreatedBy;
+
+    @FXML
+    public TextField EditAppointmentLastUpdate;
+
+    @FXML
+    public TextField EditAppointmentLastUpdatedBy;
+
+    @FXML
     private TextField EditAppointmentContactId;
 
     @FXML
@@ -90,6 +102,21 @@ public class EditAppointmentsController {
     void EditAppointmentUserId(ActionEvent event) {
     }
 
+    @FXML
+    public void EditAppointmentCreateDate(ActionEvent event) {
+    }
+
+    @FXML
+    public void EditAppointmentCreatedBy(ActionEvent event) {
+    }
+
+    @FXML
+    public void EditAppointmentLastUpdate(ActionEvent event) {
+    }
+
+    @FXML
+    public void EditAppointmentLastUpdatedBy(ActionEvent event) {
+    }
     @FXML
     void AddAppointmentsSave(ActionEvent event) {
     }
