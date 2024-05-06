@@ -1,17 +1,19 @@
 package Model;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class Country {
 
     private int countryId;
     private String countryName;
-    private LocalDateTime createDate;
+    private Date createDate;
     private String createdBy;
-    private LocalDateTime lastUpdate;
+    private Timestamp lastUpdate;
     private String lastUpdatedBy;
 
-    public Country(int countryId, String countryName, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate,
+    public Country(int countryId, String countryName, Date createDate, String createdBy, Timestamp lastUpdate,
                    String lastUpdatedBy) {
         this.countryId = countryId;
         this.countryName = countryName;

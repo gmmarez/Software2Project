@@ -1,5 +1,7 @@
 package Model;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class Appointment {
@@ -9,19 +11,19 @@ public class Appointment {
     private String appointmentDescription;
     private String appointmentLocation;
     private String appointmentType;
-    private LocalDateTime appointmentStartTime;
-    private LocalDateTime appointmentEndTime;
-    private LocalDateTime createDate;
+    private Timestamp appointmentStartTime;
+    private Timestamp appointmentEndTime;
+    private Date createDate;
     private String createdBy;
-    private LocalDateTime lastUpdate;
+    private Timestamp lastUpdate;
     private String lastUpdatedBy;
     private int contactId;
     private int customerId;
     private int userId;
 
     public Appointment(int appointmentId, String appointmentTitle, String appointmentDescription, String appointmentLocation,
-                       String appointmentType, LocalDateTime appointmentStartTime, LocalDateTime appointmentEndTime,
-                       LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, String lastUpdatedBy,
+                       String appointmentType, Timestamp appointmentStartTime, Timestamp appointmentEndTime,
+                       Date createDate, String createdBy, Timestamp lastUpdate, String lastUpdatedBy,
                        int contactId, int customerId, int userId) {
         this.appointmentId = appointmentId;
         this.appointmentTitle = appointmentTitle;
