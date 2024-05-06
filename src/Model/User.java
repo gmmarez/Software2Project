@@ -1,38 +1,27 @@
 package Model;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 public class User {
 
     private int userId;
     private String userName;
     private String userPassword;
+    private LocalDateTime createDate;
+    private String createdBy;
+    private LocalDateTime lastUpdate;
+    private String lastUpdatedBy;
 
-    public User(int userId, String userName, String userPassword) {
+    public User(int userId, String userName, String userPassword, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate,
+    String lastUpdatedBy) {
         this.userId = userId;
         this.userName = userName;
         this.userPassword = userPassword;
+        this.createDate = createDate;
+        this.createdBy = createdBy;
+        this.lastUpdate = lastUpdate;
+        this.lastUpdatedBy = lastUpdatedBy;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
 }

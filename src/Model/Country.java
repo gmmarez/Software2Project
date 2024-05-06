@@ -1,28 +1,24 @@
 package Model;
 
+import java.time.LocalDateTime;
+
 public class Country {
 
     private int countryId;
     private String countryName;
+    private LocalDateTime createDate;
+    private String createdBy;
+    private LocalDateTime lastUpdate;
+    private String lastUpdatedBy;
 
-    public Country(int countryId, String countryName) {
+    public Country(int countryId, String countryName, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate,
+                   String lastUpdatedBy) {
         this.countryId = countryId;
         this.countryName = countryName;
+        this.createDate = createDate;
+        this.createdBy = createdBy;
+        this.lastUpdate = lastUpdate;
+        this.lastUpdatedBy = lastUpdatedBy;
     }
 
-    public int getCountryId() {
-        return countryId;
-    }
-
-    public void setCountryId(int countryId) {
-        this.countryId = countryId;
-    }
-
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
-    }
 }
