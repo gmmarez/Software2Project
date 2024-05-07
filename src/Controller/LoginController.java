@@ -16,6 +16,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LoginController {
+
+    @FXML
+    public TextField ZoneID;
     @FXML
     private TextField UsernameTextBox;
 
@@ -42,15 +45,15 @@ public class LoginController {
     @FXML
     private void LoginSubmit(ActionEvent event) throws IOException {
 
-        String username = UsernameTextBox.getText();
-        String password = PasswordTextBox.getText();
-        ResourceBundle rb = ResourceBundle.getBundle("Resources/Login", Locale.getDefault());
+        // String username = UsernameTextBox.getText();
+        //String password = PasswordTextBox.getText();
+        //ResourceBundle rb = ResourceBundle.getBundle("Resources/Login", Locale.getDefault());
 
-        if (username.equals("") || password.equals("")) {
-        Alert alert = new Alert(Alert.AlertType.ERROR, "Either Username/Password is empty, please correct.");
-        alert.showAndWait();
-            return;
-        }
+        //if (username.equals("") || password.equals("")) {
+        //Alert alert = new Alert(Alert.AlertType.ERROR, "Either Username/Password is empty, please correct.");
+        //alert.showAndWait();
+           // return;
+        //}
 
 
         // Successful goes to Main Menu
@@ -70,6 +73,10 @@ public class LoginController {
 
             System.exit(0);
         }
+    }
+
+    @FXML
+    private void ZoneID(ActionEvent event) {
     }
 
     // Time Zone
