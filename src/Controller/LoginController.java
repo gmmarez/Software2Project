@@ -11,7 +11,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 public class LoginController {
     @FXML
@@ -38,7 +40,19 @@ public class LoginController {
     }
 
     @FXML
-    void LoginSubmit(ActionEvent event) throws IOException {
+    private void LoginSubmit(ActionEvent event) throws IOException {
+
+        String username = UsernameTextBox.getText();
+        String password = PasswordTextBox.getText();
+        ResourceBundle rb = ResourceBundle.getBundle("Resources/Login", Locale.getDefault());
+
+        if (username.equals("") || password.equals("")) {
+        Alert alert = new Alert(Alert.AlertType.ERROR, "Either Username/Password is empty, please correct.");
+        alert.showAndWait();
+            return;
+        }
+
+
         // Successful goes to Main Menu
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
@@ -46,8 +60,9 @@ public class LoginController {
         stage.show();
     }
 
+    // Closes entire application
     @FXML
-    void LoginClose(ActionEvent event) {
+    private void LoginClose(ActionEvent event) {
         // Closes entire application
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "This will close the entire program, are you sure you want to continue?");
         Optional<ButtonType> result = alert.showAndWait();
