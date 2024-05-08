@@ -6,12 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AddCustomersController {
-
     @FXML
     private TextField AddCustomerCustomerId;
 
@@ -40,10 +40,10 @@ public class AddCustomersController {
     public TextField AddCustomerLastUpdatedBy;
 
     @FXML
-    private TextField AddCustomerDivisionId;
+    public ComboBox AddCustomerDivisionId;
 
     @FXML
-    private TextField AddCustomerCountryId;
+    public ComboBox AddCustomerCountryId;
 
     @FXML
     private Button AddCustomersBack;
@@ -53,20 +53,6 @@ public class AddCustomersController {
 
     Stage stage;
     Parent scene;
-
-    @FXML
-    void AddCustomersBack(ActionEvent event) throws IOException {
-        // Go back to Customers screen
-        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("../View/Customers.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
-    }
-
-    @FXML
-    void AddCustomersAdd(ActionEvent event) {
-        // Will grab what is in text boxes and create a new customer
-    }
 
     @FXML
     void AddCustomerCustomerId(ActionEvent event) {
@@ -105,10 +91,24 @@ public class AddCustomersController {
     }
 
     @FXML
-    void AddCustomerDivisionId(ActionEvent event) {
+    public void AddCustomerDivisionId(ActionEvent event) {
     }
 
     @FXML
-    void AddCustomerCountryId(ActionEvent event) {
+    public void AddCustomerCountryId(ActionEvent event) {
+    }
+
+    @FXML
+    void AddCustomersBack(ActionEvent event) throws IOException {
+        // Go back to Customers screen
+        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("../View/Customers.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
+    }
+
+    @FXML
+    void AddCustomersAdd(ActionEvent event) {
+        // Will grab what is in text boxes and create a new customer
     }
 }

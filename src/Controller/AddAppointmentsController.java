@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -45,13 +46,13 @@ public class AddAppointmentsController {
     public TextField AddAppointmentLastUpdatedBy;
 
     @FXML
-    private TextField AddAppointmentContactId;
+    public ComboBox AddAppointmentCustomerId;
 
     @FXML
-    private TextField AddAppointmentCustomerId;
+    public ComboBox AddAppointmentUserId;
 
     @FXML
-    private TextField AddAppointmentUserId;
+    public ComboBox AddAppointmentContactId;
 
     @FXML
     private Button AddAppointmentsBack;
@@ -121,14 +122,15 @@ public class AddAppointmentsController {
     }
 
     @FXML
-    void AddAppointmentContactId(ActionEvent event) {
+    public void AddAppointmentCustomerId(ActionEvent event) {
+    }
+
+
+    @FXML
+    public void AddAppointmentUserId(ActionEvent event) {
     }
 
     @FXML
-    void AddAppointmentCustomerId(ActionEvent event) {
-    }
-
-    @FXML
-    void AddAppointmentUserId(ActionEvent event) {
+    public void AddAppointmentContactId(ActionEvent event) {
     }
 }

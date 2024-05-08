@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -45,13 +46,13 @@ public class EditAppointmentsController {
     public TextField EditAppointmentLastUpdatedBy;
 
     @FXML
-    private TextField EditAppointmentContactId;
+    public ComboBox EditAppointmentCustomerId;
 
     @FXML
-    private TextField EditAppointmentCustomerId;
+    public ComboBox EditAppointmentUserId;
 
     @FXML
-    private TextField EditAppointmentUserId;
+    public ComboBox EditAppointmentContactId;
 
     @FXML
     private Button EditAppointmentsSave;
@@ -90,17 +91,7 @@ public class EditAppointmentsController {
     void EditAppointmentEndTime(ActionEvent event) {
     }
 
-    @FXML
-    void EditAppointmentContactId(ActionEvent event) {
-    }
 
-    @FXML
-    void EditAppointmentCustomerId(ActionEvent event) {
-    }
-
-    @FXML
-    void EditAppointmentUserId(ActionEvent event) {
-    }
 
     @FXML
     public void EditAppointmentCreateDate(ActionEvent event) {
@@ -117,6 +108,19 @@ public class EditAppointmentsController {
     @FXML
     public void EditAppointmentLastUpdatedBy(ActionEvent event) {
     }
+
+    @FXML
+    public void EditAppointmentCustomerId(ActionEvent event) {
+    }
+
+    @FXML
+    public void EditAppointmentUserId(ActionEvent event) {
+    }
+
+    @FXML
+    public void EditAppointmentContactId(ActionEvent event) {
+    }
+
     @FXML
     void AddAppointmentsSave(ActionEvent event) {
     }

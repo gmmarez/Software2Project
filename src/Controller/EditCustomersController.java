@@ -6,12 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 
 public class EditCustomersController {
-
     @FXML
     private TextField EditCustomerCustomerId;
 
@@ -40,10 +40,9 @@ public class EditCustomersController {
     public TextField EditCustomerCreateDate;
 
     @FXML
-    private TextField EditCustomerDivisionId;
-
+    public ComboBox EditCustomerDivisionId;
     @FXML
-    private TextField EditCustomerCountryId;
+    public ComboBox EditCustomerCountryId;
 
     @FXML
     private Button EditCustomersSave;
@@ -75,18 +74,6 @@ public class EditCustomersController {
     }
 
     @FXML
-    void EditCustomerDivisionId(ActionEvent event) {
-    }
-
-    @FXML
-    void EditCustomerCountryId(ActionEvent event) {
-    }
-
-    @FXML
-    void AddCustomersSave(ActionEvent event) {
-    }
-
-    @FXML
     public void EditCustomerLastUpdatedBy(ActionEvent event) {
     }
 
@@ -100,6 +87,18 @@ public class EditCustomersController {
 
     @FXML
     public void EditCustomerCreateDate(ActionEvent event) {
+    }
+
+    @FXML
+    public void EditCustomerDivisionId(ActionEvent event) {
+    }
+
+    @FXML
+    public void EditCustomerCountryId(ActionEvent event) {
+    }
+
+    @FXML
+    void AddCustomersSave(ActionEvent event) {
     }
 
     @FXML
