@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditAppointmentsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="303.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditAppointmentsController">
    <children>
       <Label text="Edit Appointment">
          <font>
@@ -47,16 +47,6 @@
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="EditAppointmentCreateDate" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditAppointmentCreateDate" prefWidth="200.0" promptText="Create Date">
-                     <VBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="EditAppointmentCreatedBy" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditAppointmentCreatedBy" prefWidth="200.0" promptText="Created By">
-                     <VBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </VBox.margin>
-                  </TextField>
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
@@ -82,16 +72,6 @@
                      </VBox.margin>
                   </TextField>
                   <TextField fx:id="EditAppointmentUserId" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditAppointmentUserId" prefWidth="200.0" promptText="User ID">
-                     <VBox.margin>
-                        <Insets left="20.0" top="10.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="EditAppointmentLastUpdate" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditAppointmentLastUpdate" prefWidth="200.0" promptText="Last Update">
-                     <VBox.margin>
-                        <Insets left="20.0" top="10.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="EditAppointmentLastUpdatedBy" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditAppointmentLastUpdatedBy" prefWidth="200.0" promptText="Last Updated By">
                      <VBox.margin>
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>

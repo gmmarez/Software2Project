@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddCustomersController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="315.0" prefWidth="251.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddCustomersController">
    <children>
       <Label text="Add Customer">
          <font>
@@ -41,26 +41,6 @@
                </VBox.margin>
             </TextField>
             <TextField fx:id="AddCustomerPhone" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddCustomerPhone" prefWidth="200.0" promptText="Phone Number">
-               <VBox.margin>
-                  <Insets left="10.0" top="5.0" />
-               </VBox.margin>
-            </TextField>
-            <TextField fx:id="AddCustomerCreateDate" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddCustomerCreateDate" prefWidth="200.0" promptText="Create Date">
-               <VBox.margin>
-                  <Insets left="10.0" top="5.0" />
-               </VBox.margin>
-            </TextField>
-            <TextField fx:id="AddCustomerCreatedBy" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddCustomerCreatedBy" prefWidth="200.0" promptText="Created By">
-               <VBox.margin>
-                  <Insets left="10.0" top="5.0" />
-               </VBox.margin>
-            </TextField>
-            <TextField fx:id="AddCustomerLastUpdate" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddCustomerLastUpdate" prefWidth="200.0" promptText="Last Update">
-               <VBox.margin>
-                  <Insets left="10.0" top="5.0" />
-               </VBox.margin>
-            </TextField>
-            <TextField fx:id="AddCustomerLastUpdatedBy" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddCustomerLastUpdatedBy" prefWidth="200.0" promptText="Last Updated By">
                <VBox.margin>
                   <Insets left="10.0" top="5.0" />
                </VBox.margin>
