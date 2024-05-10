@@ -9,15 +9,15 @@ public class Customer {
     private int customerId;
     private String customerName;
     private String customerAddress;
-    private int customerPostalCode;
-    private int customerPhone;
+    private String customerPostalCode;
+    private String customerPhone;
     private Date createDate;
     private String createdBy;
     private Timestamp lastUpdate;
     private String lastUpdateBy;
     private int divisionId;
 
-    public Customer(int customerId, String customerName, String customerAddress, int customerPostalCode, int customerPhone,
+    public Customer(int customerId, String customerName, String customerAddress, String customerPostalCode, String customerPhone,
                     Date createDate, String createdBy, Timestamp lastUpdate, String lastUpdateBy, int divisionId) {
         this.customerId = customerId;
         this.customerName = customerName;

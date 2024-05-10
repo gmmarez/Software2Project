@@ -24,5 +24,4 @@ public class Division {
         this.lastUpdatedBy = lastUpdatedBy;
         this.countryId = countryId;
     }
-
 }

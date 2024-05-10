@@ -22,5 +22,4 @@ public class Country {
         this.lastUpdate = lastUpdate;
         this.lastUpdatedBy = lastUpdatedBy;
     }
-
 }

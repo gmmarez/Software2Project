@@ -24,5 +24,4 @@ public class User {
         this.lastUpdate = lastUpdate;
         this.lastUpdatedBy = lastUpdatedBy;
     }
-
 }
