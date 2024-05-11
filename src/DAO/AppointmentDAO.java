@@ -24,6 +24,7 @@ public class AppointmentDAO {
             int contactId = rs.getInt("Contact_ID");
             int customerId = rs.getInt("Customer_ID");
             int userId = rs.getInt("User_ID");
+
             Appointments appointments = new Appointments(appointmentId, appointmentTitle, appointmentDescription, appointmentLocation,
                     appointmentType, appointmentStartTime, appointmentEndTime, contactId, customerId, userId);
             appointmentsObservableList.add(appointments);

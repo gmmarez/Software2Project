@@ -21,7 +21,7 @@ public class UserDAO {
             String userPassword = rs.getString("Password");
 
             Users users = new Users(userId, userName, userPassword);
-
+            usersObservableList.add(users);
         }
 
         return usersObservableList;

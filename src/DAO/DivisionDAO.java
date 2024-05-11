@@ -21,7 +21,7 @@ public class DivisionDAO {
             int countryId = rs.getInt("Country_ID");
 
             Divisions divisions = new Divisions(divisionId,divisionName, countryId);
-
+            divisionsObservableList.add(divisions);
         }
 
         return divisionsObservableList;

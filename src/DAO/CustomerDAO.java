@@ -24,7 +24,7 @@ public class CustomerDAO {
             int divisionId = rs.getInt("Division_ID");
 
             Customers customers = new Customers(customerId, customerName, customerAddress, customerPostalCode, customerPhone, divisionId);
-
+            customersObservableList.add(customers);
         }
 
         return customersObservableList;

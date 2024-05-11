@@ -17,7 +17,9 @@ public class CountryDAO {
         while (rs.next()) {
             int countryId =rs.getInt("Country_ID");
             String countryName = rs.getString("Country_Name");
+
             Country country = new Country(countryId, countryName);
+            countryObservableList.add(country);
         }
 
         return countryObservableList;

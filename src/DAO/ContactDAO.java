@@ -20,8 +20,9 @@ public class ContactDAO {
             int contactId = rs.getInt("Contact_ID");
             String contactName = rs.getString("Contact_Name");
             String contactEmail = rs.getString("Email");
-            Contacts contacts = new Contacts(contactId, contactName, contactEmail);
 
+            Contacts contacts = new Contacts(contactId, contactName, contactEmail);
+            contactsObservableList.add(contacts);
         }
 
         return contactsObservableList;
