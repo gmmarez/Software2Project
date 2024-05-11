@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class DivisionDAO {
     ObservableList<Divisions> getAllDivisions() throws SQLException {
         ObservableList<Divisions> divisionsObservableList = FXCollections.observableArrayList();
-        String sql = "SELECT * from first-level divisions";
+        String sql = "SELECT * from first_level_divisions";
         PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {

@@ -11,7 +11,7 @@ import java.sql.*;
 public class CountryDAO {
     ObservableList<Country> getAllCountries() throws SQLException {
         ObservableList<Country> countryObservableList = FXCollections.observableArrayList();
-        String sql = "SELECT * from countries";
+        String sql = "SELECT Country_ID, Country from countries";
         PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
