@@ -1,11 +1,9 @@
 package DAO;
 
-import com.mysql.cj.jdbc.JdbcConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import Model.Appointments;
 import Main.JDBC;
-import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
 
