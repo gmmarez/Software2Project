@@ -24,7 +24,7 @@ public class Main extends Application {
         JDBC.openConnection();
 
         // JDBC.makeConnection();
-        // launch(args);
+        launch(args);
 
         JDBC.closeConnection();
     }
