@@ -40,21 +40,22 @@
                   </Button>
                </children>
             </VBox>
-            <TableView prefHeight="300.0" prefWidth="861.0">
+            <TableView fx:id="AppointmentsTable" onSort="#AppointmentsTable" prefHeight="300.0" prefWidth="861.0">
               <columns>
-                <TableColumn prefWidth="22.0" text="ID" />
-                <TableColumn prefWidth="41.0" text="Title" />
-                  <TableColumn prefWidth="82.0" text="Description" />
-                  <TableColumn prefWidth="41.0" text="Type" />
-                  <TableColumn prefWidth="51.0" text="Start" />
-                  <TableColumn prefWidth="50.0" text="End" />
-                  <TableColumn prefWidth="87.0" text="Create Date" />
-                  <TableColumn prefWidth="82.0" text="Created By" />
-                  <TableColumn prefWidth="77.0" text="Last Update" />
-                  <TableColumn prefWidth="103.0" text="Last Updated By" />
-                  <TableColumn minWidth="0.0" prefWidth="78.0" text="Customer ID" />
-                  <TableColumn minWidth="0.0" prefWidth="66.0" text="User ID" />
-                  <TableColumn text="Contact ID" />
+                <TableColumn fx:id="AppointmentsId" prefWidth="22.0" text="ID" />
+                <TableColumn fx:id="AppointmentsTitle" prefWidth="41.0" text="Title" />
+                  <TableColumn fx:id="AppointmentsDescription" prefWidth="82.0" text="Description" />
+                  <TableColumn fx:id="AppointmentsLocation" prefWidth="82.0" text="Location" />
+                  <TableColumn fx:id="AppointmentsType" prefWidth="41.0" text="Type" />
+                  <TableColumn fx:id="AppointmentsStart" prefWidth="51.0" text="Start" />
+                  <TableColumn fx:id="AppointmentsEnd" prefWidth="50.0" text="End" />
+                  <TableColumn fx:id="AppointmentsCreateDate" prefWidth="87.0" text="Create Date" />
+                  <TableColumn fx:id="AppointmentsCreatedBy" prefWidth="82.0" text="Created By" />
+                  <TableColumn fx:id="AppointmentsLastUpdate" prefWidth="77.0" text="Last Update" />
+                  <TableColumn fx:id="AppointmentsLastUpdatedBy" prefWidth="103.0" text="Last Updated By" />
+                  <TableColumn fx:id="AppointmentsCustomerId" minWidth="0.0" prefWidth="78.0" text="Customer ID" />
+                  <TableColumn fx:id="AppointmentsUserId" minWidth="0.0" prefWidth="66.0" text="User ID" />
+                  <TableColumn fx:id="AppointmentsContactId" text="Contact ID" />
               </columns>
                <HBox.margin>
                   <Insets left="10.0" />

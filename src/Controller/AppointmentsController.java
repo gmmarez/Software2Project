@@ -1,17 +1,53 @@
 package Controller;
 
+import DAO.AppointmentDAO;
+import Model.Appointments;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class AppointmentsController {
-
+    @FXML
+    public TableView AppointmentsTable;
+    @FXML
+    public TableColumn AppointmentsId;
+    @FXML
+    public TableColumn AppointmentsTitle;
+    @FXML
+    public TableColumn AppointmentsDescription;
+    @FXML
+    public TableColumn AppointmentsType;
+    @FXML
+    public TableColumn AppointmentsStart;
+    @FXML
+    public TableColumn AppointmentsEnd;
+    @FXML
+    public TableColumn AppointmentsCreateDate;
+    @FXML
+    public TableColumn AppointmentsCreatedBy;
+    @FXML
+    public TableColumn AppointmentsLastUpdate;
+    @FXML
+    public TableColumn AppointmentsLastUpdatedBy;
+    @FXML
+    public TableColumn AppointmentsCustomerId;
+    @FXML
+    public TableColumn AppointmentsUserId;
+    @FXML
+    public TableColumn AppointmentsContactId;
+    @FXML
+    public TableColumn AppointmentsLocation;
     @FXML
     private Button AppointmentsAddAppointment;
 
@@ -27,6 +63,23 @@ public class AppointmentsController {
     Stage stage;
     Parent scene;
 
+    public void initialize() throws SQLException {
+
+        ObservableList<Appointments> allAppointmentsList = AppointmentDAO.getAllAppointments();
+
+        AppointmentsId.setCellValueFactory(new PropertyValueFactory<>("appointmentId"));
+        AppointmentsTitle.setCellValueFactory(new PropertyValueFactory<>("appointmentTitle"));
+        AppointmentsDescription.setCellValueFactory(new PropertyValueFactory<>("appointmentDescription"));
+        AppointmentsLocation.setCellValueFactory(new PropertyValueFactory<>("appointmentLocation"));
+        AppointmentsType.setCellValueFactory(new PropertyValueFactory<>("appointmentType"));
+        AppointmentsStart.setCellValueFactory(new PropertyValueFactory<>("appointmentStart"));
+        AppointmentsEnd.setCellValueFactory(new PropertyValueFactory<>("appointmentEnd"));
+        AppointmentsCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        AppointmentsUserId.setCellValueFactory(new PropertyValueFactory<>("contactId"));
+        AppointmentsUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
+
+        AppointmentsTable.setItems(allAppointmentsList);
+    }
     @FXML
     void AppointmentsAddAppointment(ActionEvent event) throws IOException {
         // Go to Add Appointment Screen

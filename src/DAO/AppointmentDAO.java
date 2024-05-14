@@ -8,7 +8,7 @@ import java.sql.*;
 import java.time.LocalDateTime;
 
 public class AppointmentDAO {
-    ObservableList<Appointments> getAllAppointments() throws SQLException {
+    public static ObservableList<Appointments> getAllAppointments() throws SQLException {
         ObservableList<Appointments> appointmentsObservableList = FXCollections.observableArrayList();
         String sql = "SELECT * from appointments";
         PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
