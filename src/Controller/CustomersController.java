@@ -1,26 +1,29 @@
 package Controller;
 
+import Model.Customers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import java.io.IOException;
 
 public class CustomersController {
-    @FXML
-    private Button CustomersAddCustomer;
-
-    @FXML
-    private Button CustomersEditCustomer;
-
-    @FXML
-    private Button CustomersDeleteCustomer;
-
-    @FXML
-    private Button CustomersBack;
+    @FXML private TableView <Customers> CustomersTable;
+    @FXML private TableColumn<?, ?> CustomersId;
+    @FXML private TableColumn<?, ?> CustomersName;
+    @FXML private TableColumn<?, ?> CustomersAddress;
+    @FXML private TableColumn<?, ?> CustomersZip;
+    @FXML private TableColumn<?, ?> CustomersPhone;
+    @FXML private TableColumn<?, ?> CustomersDivisionId;
+    @FXML private Button CustomersAddCustomer;
+    @FXML private Button CustomersEditCustomer;
+    @FXML private Button CustomersDeleteCustomer;
+    @FXML private Button CustomersBack;
 
     Stage stage;
     Parent scene;
