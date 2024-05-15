@@ -23,27 +23,19 @@ public class AppointmentsController {
     @FXML public TableColumn<?, ?> AppointmentsTitle;
     @FXML public TableColumn<?, ?> AppointmentsDescription;
     @FXML public TableColumn<?, ?> AppointmentsType;
-    @FXML public TableColumn<?, ?> AppointmentsStart;
-    @FXML public TableColumn<?, ?> AppointmentsEnd;
-    @FXML public TableColumn<?, ?> AppointmentsCreateDate;
-    @FXML public TableColumn<?, ?> AppointmentsCreatedBy;
-    @FXML public TableColumn<?, ?> AppointmentsLastUpdate;
-    @FXML public TableColumn<?, ?> AppointmentsLastUpdatedBy;
+    @FXML public TableColumn<?, ?> AppointmentsStartTime;
+    @FXML public TableColumn<?, ?> AppointmentsEndTime;
     @FXML public TableColumn<?, ?> AppointmentsCustomerId;
     @FXML public TableColumn<?, ?> AppointmentsUserId;
     @FXML public TableColumn<?, ?> AppointmentsContactId;
     @FXML public TableColumn<?, ?> AppointmentsLocation;
-    @FXML
-    private Button AppointmentsAddAppointment;
+    @FXML private Button AppointmentsAddAppointment;
 
-    @FXML
-    private Button AppointmentsEditAppointment;
+    @FXML private Button AppointmentsEditAppointment;
 
-    @FXML
-    private Button AppointmentsDeleteAppointment;
+    @FXML private Button AppointmentsDeleteAppointment;
 
-    @FXML
-    private Button AppointmentsBack;
+    @FXML private Button AppointmentsBack;
 
     Stage stage;
     Parent scene;
@@ -57,8 +49,8 @@ public class AppointmentsController {
         AppointmentsDescription.setCellValueFactory(new PropertyValueFactory<>("appointmentDescription"));
         AppointmentsLocation.setCellValueFactory(new PropertyValueFactory<>("appointmentLocation"));
         AppointmentsType.setCellValueFactory(new PropertyValueFactory<>("appointmentType"));
-        AppointmentsStart.setCellValueFactory(new PropertyValueFactory<>("appointmentStart"));
-        AppointmentsEnd.setCellValueFactory(new PropertyValueFactory<>("appointmentEnd"));
+        AppointmentsStartTime.setCellValueFactory(new PropertyValueFactory<>("appointmentStartTime"));
+        AppointmentsEndTime.setCellValueFactory(new PropertyValueFactory<>("appointmentEndTime"));
         AppointmentsCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
         AppointmentsContactId.setCellValueFactory(new PropertyValueFactory<>("contactId"));
         AppointmentsUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));

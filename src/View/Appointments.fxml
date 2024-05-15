@@ -47,12 +47,8 @@
                   <TableColumn fx:id="AppointmentsDescription" prefWidth="82.0" text="Description" />
                   <TableColumn fx:id="AppointmentsLocation" prefWidth="82.0" text="Location" />
                   <TableColumn fx:id="AppointmentsType" prefWidth="41.0" text="Type" />
-                  <TableColumn fx:id="AppointmentsStart" prefWidth="51.0" text="Start" />
-                  <TableColumn fx:id="AppointmentsEnd" prefWidth="50.0" text="End" />
-                  <TableColumn fx:id="AppointmentsCreateDate" prefWidth="87.0" text="Create Date" />
-                  <TableColumn fx:id="AppointmentsCreatedBy" prefWidth="82.0" text="Created By" />
-                  <TableColumn fx:id="AppointmentsLastUpdate" prefWidth="77.0" text="Last Update" />
-                  <TableColumn fx:id="AppointmentsLastUpdatedBy" prefWidth="103.0" text="Last Updated By" />
+                  <TableColumn fx:id="AppointmentsStartTime" prefWidth="51.0" text="Start" />
+                  <TableColumn fx:id="AppointmentsEndTime" prefWidth="50.0" text="End" />
                   <TableColumn fx:id="AppointmentsCustomerId" minWidth="0.0" prefWidth="78.0" text="Customer ID" />
                   <TableColumn fx:id="AppointmentsUserId" minWidth="0.0" prefWidth="66.0" text="User ID" />
                   <TableColumn fx:id="AppointmentsContactId" text="Contact ID" />
