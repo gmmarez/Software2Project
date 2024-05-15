@@ -18,36 +18,21 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class AppointmentsController {
-    @FXML
-    public TableView AppointmentsTable;
-    @FXML
-    public TableColumn AppointmentsId;
-    @FXML
-    public TableColumn AppointmentsTitle;
-    @FXML
-    public TableColumn AppointmentsDescription;
-    @FXML
-    public TableColumn AppointmentsType;
-    @FXML
-    public TableColumn AppointmentsStart;
-    @FXML
-    public TableColumn AppointmentsEnd;
-    @FXML
-    public TableColumn AppointmentsCreateDate;
-    @FXML
-    public TableColumn AppointmentsCreatedBy;
-    @FXML
-    public TableColumn AppointmentsLastUpdate;
-    @FXML
-    public TableColumn AppointmentsLastUpdatedBy;
-    @FXML
-    public TableColumn AppointmentsCustomerId;
-    @FXML
-    public TableColumn AppointmentsUserId;
-    @FXML
-    public TableColumn AppointmentsContactId;
-    @FXML
-    public TableColumn AppointmentsLocation;
+    @FXML public TableView <Appointments> AppointmentsTable;
+    @FXML public TableColumn<?, ?> AppointmentsId;
+    @FXML public TableColumn<?, ?> AppointmentsTitle;
+    @FXML public TableColumn<?, ?> AppointmentsDescription;
+    @FXML public TableColumn<?, ?> AppointmentsType;
+    @FXML public TableColumn<?, ?> AppointmentsStart;
+    @FXML public TableColumn<?, ?> AppointmentsEnd;
+    @FXML public TableColumn<?, ?> AppointmentsCreateDate;
+    @FXML public TableColumn<?, ?> AppointmentsCreatedBy;
+    @FXML public TableColumn<?, ?> AppointmentsLastUpdate;
+    @FXML public TableColumn<?, ?> AppointmentsLastUpdatedBy;
+    @FXML public TableColumn<?, ?> AppointmentsCustomerId;
+    @FXML public TableColumn<?, ?> AppointmentsUserId;
+    @FXML public TableColumn<?, ?> AppointmentsContactId;
+    @FXML public TableColumn<?, ?> AppointmentsLocation;
     @FXML
     private Button AppointmentsAddAppointment;
 
