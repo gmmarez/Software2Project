@@ -67,16 +67,16 @@ public class AppointmentsController {
 
         ObservableList<Appointments> allAppointmentsList = AppointmentDAO.getAllAppointments();
 
-        AppointmentsId.setCellValueFactory(allAppointmentsList.appointmentId);
-        AppointmentsTitle.setCellValueFactory();
-        AppointmentsDescription.setCellValueFactory();
-        AppointmentsLocation.setCellValueFactory();
-        AppointmentsType.setCellValueFactory();
-        AppointmentsStart.setCellValueFactory();
-        AppointmentsEnd.setCellValueFactory();
-        AppointmentsCustomerId.setCellValueFactory();
-        AppointmentsUserId.setCellValueFactory();
-        AppointmentsUserId.setCellValueFactory();
+        AppointmentsId.setCellValueFactory(new PropertyValueFactory<>("appointmentId"));
+        AppointmentsTitle.setCellValueFactory(new PropertyValueFactory<>("appointmentTitle"));
+        AppointmentsDescription.setCellValueFactory(new PropertyValueFactory<>("appointmentDescription"));
+        AppointmentsLocation.setCellValueFactory(new PropertyValueFactory<>("appointmentLocation"));
+        AppointmentsType.setCellValueFactory(new PropertyValueFactory<>("appointmentType"));
+        AppointmentsStart.setCellValueFactory(new PropertyValueFactory<>("appointmentStart"));
+        AppointmentsEnd.setCellValueFactory(new PropertyValueFactory<>("appointmentEnd"));
+        AppointmentsCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        AppointmentsContactId.setCellValueFactory(new PropertyValueFactory<>("contactId"));
+        AppointmentsUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
 
         AppointmentsTable.setItems(allAppointmentsList);
     }
