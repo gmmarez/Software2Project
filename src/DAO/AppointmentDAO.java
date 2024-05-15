@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class AppointmentDAO {
     public static ObservableList<Appointments> getAllAppointments() throws SQLException {
         ObservableList<Appointments> appointmentsObservableList = FXCollections.observableArrayList();
-        String sql = "SELECT * from appointments";
+        String sql = "SELECT Appointment_ID, Title, Description, Location, Type, Start, End, Customer_ID, User_ID, Contact_ID from appointments";
         PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
@@ -25,9 +25,9 @@ public class AppointmentDAO {
             int customerId = rs.getInt("Customer_ID");
             int userId = rs.getInt("User_ID");
 
-            Appointments appointments = new Appointments(appointmentId, appointmentTitle, appointmentDescription, appointmentLocation,
+            Appointments appointment = new Appointments(appointmentId, appointmentTitle, appointmentDescription, appointmentLocation,
                     appointmentType, appointmentStartTime, appointmentEndTime, contactId, customerId, userId);
-            appointmentsObservableList.add(appointments);
+            appointmentsObservableList.add(appointment);
 
         }
 

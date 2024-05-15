@@ -18,23 +18,20 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class AppointmentsController {
-    @FXML public TableView <Appointments> AppointmentsTable;
-    @FXML public TableColumn<?, ?> AppointmentsId;
-    @FXML public TableColumn<?, ?> AppointmentsTitle;
-    @FXML public TableColumn<?, ?> AppointmentsDescription;
-    @FXML public TableColumn<?, ?> AppointmentsType;
-    @FXML public TableColumn<?, ?> AppointmentsStartTime;
-    @FXML public TableColumn<?, ?> AppointmentsEndTime;
-    @FXML public TableColumn<?, ?> AppointmentsCustomerId;
-    @FXML public TableColumn<?, ?> AppointmentsUserId;
-    @FXML public TableColumn<?, ?> AppointmentsContactId;
-    @FXML public TableColumn<?, ?> AppointmentsLocation;
+    @FXML private TableView <Appointments> AppointmentsTable;
+    @FXML private TableColumn<?, ?> AppointmentsId;
+    @FXML private TableColumn<?, ?> AppointmentsTitle;
+    @FXML private TableColumn<?, ?> AppointmentsDescription;
+    @FXML private TableColumn<?, ?> AppointmentsType;
+    @FXML private TableColumn<?, ?> AppointmentsStartTime;
+    @FXML private TableColumn<?, ?> AppointmentsEndTime;
+    @FXML private TableColumn<?, ?> AppointmentsCustomerId;
+    @FXML private TableColumn<?, ?> AppointmentsUserId;
+    @FXML private TableColumn<?, ?> AppointmentsContactId;
+    @FXML private TableColumn<?, ?> AppointmentsLocation;
     @FXML private Button AppointmentsAddAppointment;
-
     @FXML private Button AppointmentsEditAppointment;
-
     @FXML private Button AppointmentsDeleteAppointment;
-
     @FXML private Button AppointmentsBack;
 
     Stage stage;

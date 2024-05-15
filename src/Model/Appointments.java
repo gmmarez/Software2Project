@@ -1,7 +1,5 @@
 package Model;
 
-import java.sql.Date;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class Appointments {
@@ -51,9 +49,7 @@ public class Appointments {
         return appointmentDescription;
     }
 
-    public void setAppointmentDescription(String appointmentDescription) {
-        this.appointmentDescription = appointmentDescription;
-    }
+    public void setAppointmentDescription(String appointmentDescription) { this.appointmentDescription = appointmentDescription; }
 
     public String getAppointmentLocation() {
         return appointmentLocation;
@@ -83,9 +79,7 @@ public class Appointments {
         return appointmentEndTime;
     }
 
-    public void setAppointmentEndTime(LocalDateTime appointmentEndTime) {
-        this.appointmentEndTime = appointmentEndTime;
-    }
+    public void setAppointmentEndTime(LocalDateTime appointmentEndTime) { this.appointmentEndTime = appointmentEndTime; }
 
     public int getContactId() {
         return contactId;
