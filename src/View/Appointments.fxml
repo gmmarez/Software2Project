@@ -42,16 +42,16 @@
             </VBox>
             <TableView fx:id="AppointmentsTable" onSort="#AppointmentsTable" prefHeight="300.0" prefWidth="861.0">
               <columns>
-                <TableColumn fx:id="AppointmentsId" prefWidth="22.0" text="ID" />
-                <TableColumn fx:id="AppointmentsTitle" prefWidth="41.0" text="Title" />
-                  <TableColumn fx:id="AppointmentsDescription" prefWidth="82.0" text="Description" />
-                  <TableColumn fx:id="AppointmentsLocation" prefWidth="82.0" text="Location" />
-                  <TableColumn fx:id="AppointmentsType" prefWidth="41.0" text="Type" />
-                  <TableColumn fx:id="AppointmentsStartTime" prefWidth="51.0" text="Start" />
-                  <TableColumn fx:id="AppointmentsEndTime" prefWidth="50.0" text="End" />
-                  <TableColumn fx:id="AppointmentsCustomerId" minWidth="0.0" prefWidth="78.0" text="Customer ID" />
-                  <TableColumn fx:id="AppointmentsUserId" minWidth="0.0" prefWidth="66.0" text="User ID" />
-                  <TableColumn fx:id="AppointmentsContactId" text="Contact ID" />
+                <TableColumn fx:id="AppointmentsIdCol" prefWidth="22.0" text="ID" />
+                <TableColumn fx:id="AppointmentsTitleCol" prefWidth="41.0" text="Title" />
+                  <TableColumn fx:id="AppointmentsDescriptionCol" prefWidth="82.0" text="Description" />
+                  <TableColumn fx:id="AppointmentsLocationCol" prefWidth="82.0" text="Location" />
+                  <TableColumn fx:id="AppointmentsTypeCol" prefWidth="41.0" text="Type" />
+                  <TableColumn fx:id="AppointmentsStartTimeCol" prefWidth="51.0" text="Start" />
+                  <TableColumn fx:id="AppointmentsEndTimeCol" prefWidth="50.0" text="End" />
+                  <TableColumn fx:id="AppointmentsCustomerIdCol" minWidth="0.0" prefWidth="78.0" text="Customer ID" />
+                  <TableColumn fx:id="AppointmentsUserIdCol" minWidth="0.0" prefWidth="66.0" text="User ID" />
+                  <TableColumn fx:id="AppointmentsContactIdCol" text="Contact ID" />
               </columns>
                <HBox.margin>
                   <Insets left="10.0" />

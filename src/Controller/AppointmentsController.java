@@ -15,20 +15,23 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.ResourceBundle;
 
 public class AppointmentsController {
     @FXML private TableView <Appointments> AppointmentsTable;
-    @FXML private TableColumn<?, ?> AppointmentsId;
-    @FXML private TableColumn<?, ?> AppointmentsTitle;
-    @FXML private TableColumn<?, ?> AppointmentsDescription;
-    @FXML private TableColumn<?, ?> AppointmentsType;
-    @FXML private TableColumn<?, ?> AppointmentsStartTime;
-    @FXML private TableColumn<?, ?> AppointmentsEndTime;
-    @FXML private TableColumn<?, ?> AppointmentsCustomerId;
-    @FXML private TableColumn<?, ?> AppointmentsUserId;
-    @FXML private TableColumn<?, ?> AppointmentsContactId;
-    @FXML private TableColumn<?, ?> AppointmentsLocation;
+    @FXML private TableColumn<Appointments, Integer> AppointmentsIdCol;
+    @FXML private TableColumn<Appointments, String> AppointmentsTitleCol;
+    @FXML private TableColumn<Appointments, String> AppointmentsDescriptionCol;
+    @FXML private TableColumn<Appointments, String> AppointmentsTypeCol;
+    @FXML private TableColumn<Appointments, LocalDateTime> AppointmentsStartTimeCol;
+    @FXML private TableColumn<Appointments, LocalDateTime> AppointmentsEndTimeCol;
+    @FXML private TableColumn<Appointments, Integer> AppointmentsCustomerIdCol;
+    @FXML private TableColumn<Appointments, Integer> AppointmentsUserIdCol;
+    @FXML private TableColumn<Appointments, Integer> AppointmentsContactIdCol;
+    @FXML private TableColumn<Appointments, String> AppointmentsLocationCol;
     @FXML private Button AppointmentsAddAppointment;
     @FXML private Button AppointmentsEditAppointment;
     @FXML private Button AppointmentsDeleteAppointment;
@@ -37,22 +40,22 @@ public class AppointmentsController {
     Stage stage;
     Parent scene;
 
-    public void initialize() throws SQLException {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) throws SQLException {
 
-        ObservableList<Appointments> allAppointmentsList = AppointmentDAO.getAllAppointments();
+        AppointmentsTable.setItems(AppointmentDAO.getAllAppointments());
 
-        AppointmentsId.setCellValueFactory(new PropertyValueFactory<>("appointmentId"));
-        AppointmentsTitle.setCellValueFactory(new PropertyValueFactory<>("appointmentTitle"));
-        AppointmentsDescription.setCellValueFactory(new PropertyValueFactory<>("appointmentDescription"));
-        AppointmentsLocation.setCellValueFactory(new PropertyValueFactory<>("appointmentLocation"));
-        AppointmentsType.setCellValueFactory(new PropertyValueFactory<>("appointmentType"));
-        AppointmentsStartTime.setCellValueFactory(new PropertyValueFactory<>("appointmentStartTime"));
-        AppointmentsEndTime.setCellValueFactory(new PropertyValueFactory<>("appointmentEndTime"));
-        AppointmentsCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
-        AppointmentsContactId.setCellValueFactory(new PropertyValueFactory<>("contactId"));
-        AppointmentsUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
+        AppointmentsIdCol.setCellValueFactory(new PropertyValueFactory<>("appointmentId"));
+        AppointmentsTitleCol.setCellValueFactory(new PropertyValueFactory<>("appointmentTitle"));
+        AppointmentsDescriptionCol.setCellValueFactory(new PropertyValueFactory<>("appointmentDescription"));
+        AppointmentsLocationCol.setCellValueFactory(new PropertyValueFactory<>("appointmentLocation"));
+        AppointmentsTypeCol.setCellValueFactory(new PropertyValueFactory<>("appointmentType"));
+        AppointmentsStartTimeCol.setCellValueFactory(new PropertyValueFactory<>("appointmentStartTime"));
+        AppointmentsEndTimeCol.setCellValueFactory(new PropertyValueFactory<>("appointmentEndTime"));
+        AppointmentsCustomerIdCol.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        AppointmentsContactIdCol.setCellValueFactory(new PropertyValueFactory<>("contactId"));
+        AppointmentsUserIdCol.setCellValueFactory(new PropertyValueFactory<>("userId"));
 
-        AppointmentsTable.setItems(allAppointmentsList);
     }
     @FXML
     void AppointmentsAddAppointment(ActionEvent event) throws IOException {

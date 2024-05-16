@@ -19,12 +19,12 @@ import java.sql.SQLException;
 
 public class CustomersController {
     @FXML private TableView <Customers> CustomersTable;
-    @FXML private TableColumn<?, ?> CustomersId;
-    @FXML private TableColumn<?, ?> CustomersName;
-    @FXML private TableColumn<?, ?> CustomersAddress;
-    @FXML private TableColumn<?, ?> CustomersZip;
-    @FXML private TableColumn<?, ?> CustomersPhone;
-    @FXML private TableColumn<?, ?> CustomersDivisionId;
+    @FXML private TableColumn<?, ?> CustomersIdCol;
+    @FXML private TableColumn<?, ?> CustomersNameCol;
+    @FXML private TableColumn<?, ?> CustomersAddressCol;
+    @FXML private TableColumn<?, ?> CustomersZipCol;
+    @FXML private TableColumn<?, ?> CustomersPhoneCol;
+    @FXML private TableColumn<?, ?> CustomersDivisionIdCol;
     @FXML private Button CustomersAddCustomer;
     @FXML private Button CustomersEditCustomer;
     @FXML private Button CustomersDeleteCustomer;
@@ -37,12 +37,12 @@ public class CustomersController {
 
         ObservableList<Appointments> allCustomersList = CustomerDAO.getAllCustomers();
 
-        CustomersId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
-        CustomersName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
-        CustomersAddress.setCellValueFactory(new PropertyValueFactory<>("customerAddress"));
-        CustomersZip.setCellValueFactory(new PropertyValueFactory<>("customerZip"));
-        CustomersPhone.setCellValueFactory(new PropertyValueFactory<>("customerPhone"));
-        CustomersDivisionId.setCellValueFactory(new PropertyValueFactory<>("customerDivisionId"));
+        CustomersIdCol.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        CustomersNameCol.setCellValueFactory(new PropertyValueFactory<>("customerName"));
+        CustomersAddressCol.setCellValueFactory(new PropertyValueFactory<>("customerAddress"));
+        CustomersZipCol.setCellValueFactory(new PropertyValueFactory<>("customerZip"));
+        CustomersPhoneCol.setCellValueFactory(new PropertyValueFactory<>("customerPhone"));
+        CustomersDivisionIdCol.setCellValueFactory(new PropertyValueFactory<>("customerDivisionId"));
 
         CustomersTable.setItems(allAppointmentsList);
     }
