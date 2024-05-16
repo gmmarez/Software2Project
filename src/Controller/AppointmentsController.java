@@ -40,7 +40,7 @@ public class AppointmentsController {
     Stage stage;
     Parent scene;
 
-    @Override
+
     public void initialize(URL url, ResourceBundle resourceBundle) throws SQLException {
 
         AppointmentsTable.setItems(AppointmentDAO.getAllAppointments());
