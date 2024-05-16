@@ -1,6 +1,9 @@
 package Controller;
 
+import DAO.AppointmentDAO;
+import Model.Appointments;
 import Model.Customers;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,8 +12,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class CustomersController {
     @FXML private TableView <Customers> CustomersTable;
@@ -27,7 +32,21 @@ public class CustomersController {
 
     Stage stage;
     Parent scene;
+/*
+    public void initialize() throws SQLException {
 
+        ObservableList<Appointments> allCustomersList = CustomerDAO.getAllCustomers();
+
+        CustomersId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        CustomersName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
+        CustomersAddress.setCellValueFactory(new PropertyValueFactory<>("customerAddress"));
+        CustomersZip.setCellValueFactory(new PropertyValueFactory<>("customerZip"));
+        CustomersPhone.setCellValueFactory(new PropertyValueFactory<>("customerPhone"));
+        CustomersDivisionId.setCellValueFactory(new PropertyValueFactory<>("customerDivisionId"));
+
+        CustomersTable.setItems(allAppointmentsList);
+    }
+    */
     @FXML
     void CustomersAddCustomer(ActionEvent event) throws IOException {
         // Go to Add Customer screen
