@@ -13,24 +13,21 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.ZoneId;
 import java.util.Locale;
+import java.util.MissingResourceException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LoginController {
-
-    @FXML
-    public TextField ZoneIdTextBox;
     @FXML
     private TextField UsernameTextBox;
-
     @FXML
     private TextField PasswordTextBox;
-
     @FXML
     private Button LoginSubmit;
-
     @FXML
     private Button LoginClose;
+    @FXML
+    private TextField ZoneIdTextBox;
 
     Stage stage;
     Parent scene;
@@ -53,7 +50,15 @@ public class LoginController {
             ZoneIdTextBox.setText(String.valueOf(zone));
 
             rb = ResourceBundle.getBundle("Languages.login", Locale.getDefault());
-            UsernameTextBox.setText(rb.getString(""));
+            UsernameTextBox.setText(rb.getString("username"));
+            PasswordTextBox.setText(rb.getString("password"));
+            LoginSubmit.setText(rb.getString("submit"));
+            LoginClose.setText(rb.getString("close"));
+
+        } catch (MissingResourceException e) {
+            System.out.println("Resource file missing: " + e);
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
     @FXML
