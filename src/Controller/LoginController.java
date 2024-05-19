@@ -52,7 +52,8 @@ public class LoginController {
 
             ZoneIdTextBox.setText(String.valueOf(zone));
 
-            rb = ResourceBundle.getBundle("Languafe")
+            rb = ResourceBundle.getBundle("Languages.login", Locale.getDefault());
+            UsernameTextBox.setText(rb.getString(""));
         }
     }
     @FXML
