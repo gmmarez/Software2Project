@@ -11,6 +11,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.time.ZoneId;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -18,7 +19,7 @@ import java.util.ResourceBundle;
 public class LoginController {
 
     @FXML
-    public TextField ZoneID;
+    public TextField ZoneIdTextBox;
     @FXML
     private TextField UsernameTextBox;
 
@@ -42,6 +43,18 @@ public class LoginController {
     void PasswordTextBox(ActionEvent event) {
     }
 
+    public void initialize(URL url, ResourceBundle rb) {
+        try {
+            Locale locale = Locale.getDefault();
+            Locale.setDefault(locale);
+
+            ZoneId zone = ZoneId.systemDefault();
+
+            ZoneIdTextBox.setText(String.valueOf(zone));
+
+            rb = ResourceBundle.getBundle("Languafe")
+        }
+    }
     @FXML
     private void LoginSubmit(ActionEvent event) throws IOException {
 
@@ -74,11 +87,4 @@ public class LoginController {
             System.exit(0);
         }
     }
-
-    @FXML
-    private void ZoneID(ActionEvent event) {
-    }
-
-    // Time Zone
-    // ZoneId.getAvailableZoneIds().stream().sorted().forEach(System.out::println);
 }
