@@ -40,7 +40,7 @@ public class AppointmentsController {
     Stage stage;
     Parent scene;
 
-
+/**
     public void initialize(URL url, ResourceBundle resourceBundle) throws SQLException {
 
         AppointmentsTable.setItems(AppointmentDAO.getAllAppointments());
@@ -57,6 +57,7 @@ public class AppointmentsController {
         AppointmentsUserIdCol.setCellValueFactory(new PropertyValueFactory<>("userId"));
 
     }
+ **/
     @FXML
     void AppointmentsAddAppointment(ActionEvent event) throws IOException {
         // Go to Add Appointment Screen

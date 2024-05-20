@@ -40,7 +40,7 @@ public class LoginController {
     @FXML
     void PasswordTextBox(ActionEvent event) {
     }
-
+/**
     public void initialize(URL url, ResourceBundle rb) {
         try {
             Locale locale = Locale.getDefault();
@@ -62,6 +62,7 @@ public class LoginController {
             System.out.println(e);
         }
     }
+ **/
     @FXML
     private void LoginSubmit(ActionEvent event) throws IOException {
 
