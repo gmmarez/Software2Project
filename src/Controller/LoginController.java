@@ -3,6 +3,7 @@ package Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -18,7 +19,7 @@ import java.util.MissingResourceException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class LoginController {
+public class LoginController implements Initializable {
     @FXML
     private TextField UsernameTextBox;
     @FXML
@@ -40,7 +41,7 @@ public class LoginController {
     @FXML
     void PasswordTextBox(ActionEvent event) {
     }
-/**
+
     public void initialize(URL url, ResourceBundle rb) {
         try {
             Locale locale = Locale.getDefault();
@@ -62,7 +63,7 @@ public class LoginController {
             System.out.println(e);
         }
     }
- **/
+
     @FXML
     private void LoginSubmit(ActionEvent event) throws IOException {
 
