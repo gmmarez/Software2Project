@@ -36,7 +36,6 @@ public class CustomersController implements Initializable {
     Stage stage;
     Parent scene;
 
-    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             ObservableList<Customers> allCustomersList = CustomerDAO.getAllCustomers();
