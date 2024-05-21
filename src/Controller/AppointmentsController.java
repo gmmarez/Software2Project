@@ -42,7 +42,6 @@ public class AppointmentsController  implements Initializable {
     Stage stage;
     Parent scene;
 
-
     public void initialize(URL url, ResourceBundle resourceBundle) {
 try {
         AppointmentsTable.setItems(AppointmentDAO.getAllAppointments());
