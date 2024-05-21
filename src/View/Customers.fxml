@@ -42,12 +42,12 @@
             </VBox>
             <TableView fx:id="CustomersTable" prefHeight="293.0" prefWidth="641.0">
               <columns>
-                <TableColumn fx:id="CustomersIdCol" prefWidth="22.0" text="ID" />
-                <TableColumn fx:id="CustomersNameCol" prefWidth="45.0" text="Name" />
-                  <TableColumn fx:id="CustomersAddressCol" prefWidth="55.0" text="Address" />
-                  <TableColumn fx:id="CustomersPostalCodeCol" prefWidth="29.0" text="Postal Code" />
-                  <TableColumn fx:id="CustomersPhoneCol" prefWidth="46.0" text="Phone" />
-                  <TableColumn fx:id="CustomersDivisionIdCol" prefWidth="86.0" text="Division ID" />
+                <TableColumn fx:id="CustomersIdCol" prefWidth="26.0" text="ID" />
+                <TableColumn fx:id="CustomersNameCol" prefWidth="130.0" text="Name" />
+                  <TableColumn fx:id="CustomersAddressCol" prefWidth="95.0" text="Address" />
+                  <TableColumn fx:id="CustomersPostalCodeCol" prefWidth="120.0" text="Postal Code" />
+                  <TableColumn fx:id="CustomersPhoneCol" minWidth="0.0" prefWidth="171.0" text="Phone" />
+                  <TableColumn fx:id="CustomersDivisionIdCol" prefWidth="96.0" text="Division ID" />
               </columns>
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
