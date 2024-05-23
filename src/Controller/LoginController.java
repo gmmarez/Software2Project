@@ -1,5 +1,6 @@
 package Controller;
 
+import DAO.LoginDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -66,16 +67,35 @@ public class LoginController implements Initializable {
 
     @FXML
     private void LoginSubmit(ActionEvent event) throws IOException {
+        try {
 
-        // String username = UsernameTextBox.getText();
-        //String password = PasswordTextBox.getText();
-        //ResourceBundle rb = ResourceBundle.getBundle("Resources/Login", Locale.getDefault());
+            // Still need to input write file for tacking logins
 
-        //if (username.equals("") || password.equals("")) {
-        //Alert alert = new Alert(Alert.AlertType.ERROR, "Either Username/Password is empty, please correct.");
-        //alert.showAndWait();
-           // return;
-        //}
+            String username = UsernameTextBox.getText();
+            String password = PasswordTextBox.getText();
+            int userId = LoginDAO.validateUser(String username, String password);
+            ResourceBundle rb = ResourceBundle.getBundle("Resources/Login", Locale.getDefault());
+
+            if (userId > 0) {
+                // Successful goes to Main Menu
+                stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+                scene = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
+                stage.setScene(new Scene(scene));
+                stage.show();
+                // Log successful login attempt
+
+            } else if (userId == 0) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle(rb.getString("Error"));
+                alert.setContentText(rb.getString("Incorrect"));
+                alert.show();
+                // Log incorrect login attempt
+            }
+        } catch (IOException exception) {
+            exception.printStack
+        }
+
+
 
 
         // Successful goes to Main Menu
