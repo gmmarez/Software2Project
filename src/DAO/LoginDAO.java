@@ -3,6 +3,7 @@ package DAO;
 import Main.JDBC;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginDAO {
@@ -14,10 +15,11 @@ public class LoginDAO {
         try {
             String query = "SELECT * FROM users WHERE user_name = '\" + username + \"' AND password = '\" + password +\"'\";\n";
             PreparedStatement ps = JDBC.getConnection().prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
             rs.next();
             if (rs.getString("User_name").equals(username)) {
                 if (rs.getString("Password").equals(password)){
-                    return rs.getInt("user_ID")
+                    return rs.getInt("user_ID");
                 }
             }
         } catch (SQLException exception) {

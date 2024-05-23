@@ -73,7 +73,7 @@ public class LoginController implements Initializable {
 
             String username = UsernameTextBox.getText();
             String password = PasswordTextBox.getText();
-            int userId = LoginDAO.validateUser(String username, String password);
+            int userId = LoginDAO.validateUser(username, password);
             ResourceBundle rb = ResourceBundle.getBundle("Resources/Login", Locale.getDefault());
 
             if (userId > 0) {
@@ -92,7 +92,7 @@ public class LoginController implements Initializable {
                 // Log incorrect login attempt
             }
         } catch (IOException exception) {
-            exception.printStack
+            exception.printStackTrace();
         }
 
 
