@@ -84,7 +84,7 @@ public class LoginController implements Initializable {
                 stage.show();
                 // Log successful login attempt
 
-            } else if (userId == 0) {
+            } else if (userId < 0) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(rb.getString("Error"));
                 alert.setContentText(rb.getString("Incorrect"));
