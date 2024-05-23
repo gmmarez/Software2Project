@@ -1,6 +1,6 @@
 package Controller;
 
-import DAO.LoginDAO;
+import DAO.UserDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -73,7 +73,7 @@ public class LoginController implements Initializable {
 
             String username = UsernameTextBox.getText();
             String password = PasswordTextBox.getText();
-            int userId = LoginDAO.validateUser(username, password);
+            int userId = UserDAO.validateUser(username, password);
             ResourceBundle rb = ResourceBundle.getBundle("Resources/Login", Locale.getDefault());
 
             if (userId > 0) {

@@ -51,7 +51,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="ZoneIdTextBox" onAction="#ZoneIdTextBox">
+      <TextField fx:id="ZoneIdTextBox">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
