@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class UserDAO {
 
-    public UserDAO(int userId, String userName, String userPassword) {
+    public UserDAO(int userID, String userName, String userPassword) {
         super();
     }
     public static int validateUser(String username, String password){
