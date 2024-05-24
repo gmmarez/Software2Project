@@ -16,13 +16,13 @@ public class UserDAO {
     }
     public static int validateUser(String username, String password){
         try {
-            String query = "SELECT * FROM users WHERE user_name = '\" + username + \"' AND password = '\" + password +\"'\";\n";
+            String query = "SELECT * FROM users WHERE user_name = " + username + " AND password = " + password + "";
             PreparedStatement ps = JDBC.getConnection().prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             rs.next();
             if (rs.getString("User_name").equals(username)) {
                 if (rs.getString("Password").equals(password)){
-                    return rs.getInt("user_ID");
+                    return rs.getInt("User_ID");
                 }
             }
         } catch (SQLException exception) {
