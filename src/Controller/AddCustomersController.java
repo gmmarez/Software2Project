@@ -71,24 +71,23 @@ public class AddCustomersController {
                 alert.setTitle("Error");
                 alert.setContentText("Missing Customer Phone");
                 alert.show();
-            }  else {
-                else {
-                    String customerName = AddCustomerName.getText();
-                    String customerAddress = AddCustomerAddress.getText();
-                    String customerPostalCode = AddCustomerPostalCode.getText();
-                    String customerPhone = AddCustomerPhone.getText();
+            }  else if (AddCustomerDivisionId.isBlank()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Missing Division ID");
+                alert.show();
+            } else {
+                String customerName = AddCustomerName.getText();
+                String customerAddress = AddCustomerAddress.getText();
+                String customerPostalCode = AddCustomerPostalCode.getText();
+                String customerPhone = AddCustomerPhone.getText();
+                LocalDateTime createdDate = LocalDateTime.now();
+                LocalDateTime lastUpdated = LocalDateTime.now();
+                int divisionId = AddCustomerDivisionId;
 
-                    LocalDateTime createdDate = LocalDateTime.now();
-                    LocalDateTime lastUpdated = LocalDateTime.now();
-                    int divisionId = divId.getDivisionID();
-                    CustomerDAO.addCustomer(customerName, customerAddress, customerPostalCode, customerPhone, createdDate, lastUpdated, divisionId);
-                    System.out.println("Customer Added");
-                    backToCustomers(actionEvent);
-                }
+                CustomerDAO.addCustomer(customerName, customerAddress, customerPostalCode, customerPhone, createdDate, lastUpdated, divisionId);
+                System.out.println("Customer Added");
             }
-
-        } catch (SQLException exception) {
-            System.out.println(exception);
-        }
+        } catch (SQLException exception) {System.out.println(exception);}
     }
 }

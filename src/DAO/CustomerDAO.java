@@ -47,6 +47,7 @@ public class CustomerDAO {
         insertCustomer.setTimestamp(5, Timestamp.valueOf(createdDate));
         insertCustomer.setTimestamp(6, Timestamp.valueOf(lastUpdated));
         insertCustomer.setInt(7, divisionId);
+
         insertCustomer.executeUpdate();
     }
 
