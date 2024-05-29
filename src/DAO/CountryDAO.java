@@ -9,7 +9,7 @@ import javafx.collections.ObservableList;
 import java.sql.*;
 
 public class CountryDAO {
-    ObservableList<Country> getAllCountries() throws SQLException {
+    public static ObservableList<Country> getAllCountries() throws SQLException {
         ObservableList<Country> countryObservableList = FXCollections.observableArrayList();
         String sql = "SELECT Country_ID, Country from countries";
         PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);

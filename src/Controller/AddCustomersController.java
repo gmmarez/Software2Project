@@ -1,5 +1,6 @@
 package Controller;
 
+import DAO.CountryDAO;
 import DAO.CustomerDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,8 +13,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ResourceBundle;
 
 public class AddCustomersController {
     @FXML private TextField AddCustomerCustomerId;
@@ -50,6 +53,7 @@ public class AddCustomersController {
 
     @FXML
     void AddCustomersAdd(ActionEvent event) {
+        /*
         try {
             if (AddCustomerName.getText().isEmpty() || AddCustomerName.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -83,11 +87,17 @@ public class AddCustomersController {
                 String customerPhone = AddCustomerPhone.getText();
                 LocalDateTime createdDate = LocalDateTime.now();
                 LocalDateTime lastUpdated = LocalDateTime.now();
-                int divisionId = AddCustomerDivisionId;
+                // int divisionId = AddCustomerDivisionId;
 
                 CustomerDAO.addCustomer(customerName, customerAddress, customerPostalCode, customerPhone, createdDate, lastUpdated, divisionId);
                 System.out.println("Customer Added");
             }
         } catch (SQLException exception) {System.out.println(exception);}
+        */
+    }
+
+
+    public void initialize(URL url, ResourceBundle resourceBundle) throws SQLException {
+        AddCustomerCountryId.setItems(CountryDAO.getAllCountries());
     }
 }
