@@ -2,9 +2,15 @@ package Controller;
 
 import DAO.CountryDAO;
 import DAO.CustomerDAO;
+import DAO.DivisionDAO;
+import Model.Country;
+import Model.Divisions;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -18,7 +24,7 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
-public class AddCustomersController {
+public class AddCustomersController implements Initializable {
     @FXML private TextField AddCustomerCustomerId;
 
     @FXML private TextField AddCustomerName;
@@ -32,8 +38,8 @@ public class AddCustomersController {
     @FXML public TextField AddCustomerCreatedBy;
     @FXML public TextField AddCustomerLastUpdate;
     @FXML public TextField AddCustomerLastUpdatedBy;
-    @FXML public ComboBox AddCustomerDivisionId;
-    @FXML public ComboBox AddCustomerCountryId;
+    @FXML public ComboBox <Divisions> AddCustomerDivisionId;
+    @FXML public ComboBox <Country>AddCustomerCountryId;
 
     @FXML private Button AddCustomersBack;
 
@@ -53,7 +59,7 @@ public class AddCustomersController {
 
     @FXML
     void AddCustomersAdd(ActionEvent event) {
-
+/*
         try {
             if (AddCustomerName.getText().isEmpty() || AddCustomerName.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -93,11 +99,28 @@ public class AddCustomersController {
                 System.out.println("Customer Added");
             }
         } catch (SQLException exception) {System.out.println(exception);}
-
+*/
     }
 
 
-    public void initialize(URL url, ResourceBundle resourceBundle) throws SQLException {
-        AddCustomerCountryId.setItems(CountryDAO.getAllCountries());
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            System.out.println("Country" + CountryDAO.getAllCountries().size());
+            AddCustomerCountryId.setItems(CountryDAO.getAllCountries());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void EnableDivisions(ActionEvent event) throws SQLException {
+        ObservableList <Divisions> filterDivisions = FXCollections.observableArrayList();
+        AddCustomerDivisionId.setDisable(false);
+        for (Divisions div: DivisionDAO.getAllDivisions()) {
+            if (div.getCountryId()==AddCustomerCountryId.getValue().getCountryId()) {
+                filterDivisions.add(div);
+            }
+        }
+        AddCustomerDivisionId.setValue(null);
+        AddCustomerDivisionId.setItems(filterDivisions);
     }
 }

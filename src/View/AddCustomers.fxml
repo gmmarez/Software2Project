@@ -21,7 +21,7 @@
       </Label>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
-            <TextField fx:id="AddCustomerCustomerId" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Customer ID">
+            <TextField fx:id="AddCustomerCustomerId" disable="true" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Customer ID">
                <VBox.margin>
                   <Insets left="10.0" />
                </VBox.margin>
@@ -46,12 +46,12 @@
                   <Insets left="10.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <ComboBox fx:id="AddCustomerDivisionId" prefWidth="200.0" promptText="Division ID">
+            <ComboBox fx:id="AddCustomerDivisionId" disable="true" prefWidth="200.0" promptText="Division">
                <VBox.margin>
                   <Insets left="10.0" top="5.0" />
                </VBox.margin>
             </ComboBox>
-            <ComboBox fx:id="AddCustomerCountryId" prefWidth="200.0" promptText="Country ID">
+            <ComboBox fx:id="AddCustomerCountryId" onAction="#EnableDivisions" prefWidth="200.0" promptText="Country">
                <VBox.margin>
                   <Insets left="10.0" top="5.0" />
                </VBox.margin>

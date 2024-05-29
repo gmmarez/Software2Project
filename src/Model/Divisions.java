@@ -38,4 +38,8 @@ public class Divisions {
     public void setCountryId(int countryId) {
         this.countryId = countryId;
     }
+
+    public String toString() {
+        return this.divisionName;
+    }
 }

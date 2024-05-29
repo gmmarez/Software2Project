@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DivisionDAO {
-    ObservableList<Divisions> getAllDivisions() throws SQLException {
+    public static ObservableList<Divisions> getAllDivisions() throws SQLException {
         ObservableList<Divisions> divisionsObservableList = FXCollections.observableArrayList();
         String sql = "SELECT * from first_level_divisions";
         PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
