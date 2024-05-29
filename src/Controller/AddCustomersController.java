@@ -53,7 +53,7 @@ public class AddCustomersController {
 
     @FXML
     void AddCustomersAdd(ActionEvent event) {
-        /*
+
         try {
             if (AddCustomerName.getText().isEmpty() || AddCustomerName.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -93,7 +93,7 @@ public class AddCustomersController {
                 System.out.println("Customer Added");
             }
         } catch (SQLException exception) {System.out.println(exception);}
-        */
+
     }
 
 
