@@ -105,7 +105,6 @@ public class AddCustomersController implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            System.out.println("Country" + CountryDAO.getAllCountries().size());
             AddCustomerCountryId.setItems(CountryDAO.getAllCountries());
         } catch (Exception e) {
             System.out.println(e.getMessage());
