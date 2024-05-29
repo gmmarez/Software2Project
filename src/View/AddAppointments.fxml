@@ -23,27 +23,27 @@
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <TextField fx:id="AddAppointmentAppointmentId" editable="false" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddAppointmentAppointmentId" prefWidth="200.0" promptText="Appointment ID">
+                  <TextField fx:id="AddAppointmentAppointmentId" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Appointment ID">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="AddAppointmentTitle" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddAppointmentTitle" prefWidth="200.0" promptText="Title">
+                  <TextField fx:id="AddAppointmentTitle" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Title">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="AddAppointmentDescription" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddAppointmentDescription" prefWidth="200.0" promptText="Description">
+                  <TextField fx:id="AddAppointmentDescription" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Description">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="AddAppointmentLocation" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddAppointmentLocation" prefWidth="200.0" promptText="Location">
+                  <TextField fx:id="AddAppointmentLocation" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Location">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="AddAppointmentType" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddAppointmentType" prefWidth="200.0" promptText="Type">
+                  <TextField fx:id="AddAppointmentType" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Type">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
@@ -52,27 +52,27 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <TextField fx:id="AddAppointmentStartTime" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddAppointmentStartTime" prefWidth="200.0" promptText="Start">
+                  <TextField fx:id="AddAppointmentStartTime" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Start">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="AddAppointmentEndTime" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddAppointmentEndTime" prefWidth="200.0" promptText="End">
+                  <TextField fx:id="AddAppointmentEndTime" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="End">
                      <VBox.margin>
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <ComboBox fx:id="AddAppointmentCustomerId" onAction="#AddAppointmentCustomerId" prefHeight="25.0" prefWidth="200.0" promptText="Customer ID">
+                  <ComboBox fx:id="AddAppointmentCustomerId" prefHeight="25.0" prefWidth="200.0" promptText="Customer ID">
                      <VBox.margin>
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>
                   </ComboBox>
-                  <ComboBox fx:id="AddAppointmentUserId" onAction="#AddAppointmentUserId" prefWidth="200.0" promptText="User ID">
+                  <ComboBox fx:id="AddAppointmentUserId" prefWidth="200.0" promptText="User ID">
                      <VBox.margin>
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>
                   </ComboBox>
-                  <ComboBox fx:id="AddAppointmentContactId" onAction="#AddAppointmentContactId" prefWidth="200.0" promptText="Contact ID">
+                  <ComboBox fx:id="AddAppointmentContactId" prefWidth="200.0" promptText="Contact ID">
                      <VBox.margin>
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>
