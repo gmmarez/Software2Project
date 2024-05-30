@@ -119,7 +119,7 @@ public class AddCustomersController implements Initializable {
                 filterDivisions.add(div);
             }
         }
-        AddCustomerDivisionId.setValue(null);
+        // AddCustomerDivisionId.setValue(null);
         AddCustomerDivisionId.setItems(filterDivisions);
     }
 }

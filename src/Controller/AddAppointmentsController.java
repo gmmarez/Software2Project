@@ -1,5 +1,12 @@
 package Controller;
 
+import DAO.ContactDAO;
+import DAO.CountryDAO;
+import DAO.CustomerDAO;
+import DAO.UserDAO;
+import Model.Contacts;
+import Model.Customers;
+import Model.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -49,13 +56,13 @@ public class AddAppointmentsController implements Initializable {
     public TextField AddAppointmentLastUpdatedBy;
 
     @FXML
-    public ComboBox AddAppointmentCustomerId;
+    public ComboBox <Customers> AddAppointmentCustomerId;
 
     @FXML
-    public ComboBox AddAppointmentUserId;
+    public ComboBox <Users> AddAppointmentUserId;
 
     @FXML
-    public ComboBox AddAppointmentContactId;
+    public ComboBox <Contacts> AddAppointmentContactId;
 
     @FXML
     private Button AddAppointmentsBack;
@@ -82,6 +89,14 @@ public class AddAppointmentsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            AddAppointmentContactId.setItems(ContactDAO.getAllContacts());
+            AddAppointmentCustomerId.setItems(CustomerDAO.getAllCustomers());
+            AddAppointmentUserId.setItems(UserDAO.getAllUsers());
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 }

@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.*;
 
 public class ContactDAO {
-    ObservableList<Contacts> getAllContacts() throws SQLException {
+    public static ObservableList<Contacts> getAllContacts() throws SQLException {
         ObservableList<Contacts> contactsObservableList = FXCollections.observableArrayList();
         String sql = "SELECT * from contacts";
         PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
