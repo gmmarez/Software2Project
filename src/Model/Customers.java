@@ -65,4 +65,8 @@ public class Customers {
     public void setDivisionId(int divisionId) {
         this.divisionId = divisionId;
     }
+
+    public String toString() {
+        return this.customerName;
+    }
 }

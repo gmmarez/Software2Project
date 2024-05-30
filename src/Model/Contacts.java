@@ -34,4 +34,8 @@ public class Contacts {
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
     }
+
+    public String toString() {
+        return this.contactName;
+    }
 }
