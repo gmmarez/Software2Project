@@ -59,7 +59,6 @@ public class AddCustomersController implements Initializable {
 
     @FXML
     void AddCustomersAdd(ActionEvent event) {
-        /*
 
         try {
             if (AddCustomerName.getText().isEmpty() || AddCustomerName.getText().isBlank()) {
@@ -94,15 +93,20 @@ public class AddCustomersController implements Initializable {
                 String customerPhone = AddCustomerPhone.getText();
                 LocalDateTime createdDate = LocalDateTime.now();
                 LocalDateTime lastUpdated = LocalDateTime.now();
-                int divisionId = AddCustomerDivisionId.getItems(divisionId);
+                int divisionId = AddCustomerDivisionId.getValue().getDivisionId();
 
 
                 CustomerDAO.addCustomer(customerName, customerAddress, customerPostalCode, customerPhone, createdDate, lastUpdated, divisionId);
                 System.out.println("Customer Added");
-            }
-        } catch (SQLException exception) {System.out.println(exception);}
 
-         */
+                // Go back to Customers screen
+                stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+                scene = FXMLLoader.load(getClass().getResource("../View/Customers.fxml"));
+                stage.setScene(new Scene(scene));
+                stage.show();
+            }
+        } catch (SQLException | IOException exception) {System.out.println(exception);}
+
 
     }
 
