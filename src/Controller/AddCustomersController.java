@@ -59,7 +59,8 @@ public class AddCustomersController implements Initializable {
 
     @FXML
     void AddCustomersAdd(ActionEvent event) {
-/*
+        /*
+
         try {
             if (AddCustomerName.getText().isEmpty() || AddCustomerName.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -81,7 +82,7 @@ public class AddCustomersController implements Initializable {
                 alert.setTitle("Error");
                 alert.setContentText("Missing Customer Phone");
                 alert.show();
-            }  else if (AddCustomerDivisionId.isBlank()) {
+            }  else if (AddCustomerDivisionId.equals("Division")) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setContentText("Missing Division ID");
@@ -93,14 +94,19 @@ public class AddCustomersController implements Initializable {
                 String customerPhone = AddCustomerPhone.getText();
                 LocalDateTime createdDate = LocalDateTime.now();
                 LocalDateTime lastUpdated = LocalDateTime.now();
-                // int divisionId = AddCustomerDivisionId;
+                int divisionId = AddCustomerDivisionId.getItems(divisionId);
+
 
                 CustomerDAO.addCustomer(customerName, customerAddress, customerPostalCode, customerPhone, createdDate, lastUpdated, divisionId);
                 System.out.println("Customer Added");
             }
         } catch (SQLException exception) {System.out.println(exception);}
-*/
+
+         */
+
     }
+
+
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
