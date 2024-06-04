@@ -89,22 +89,22 @@ public class AddAppointmentsController implements Initializable {
             if (AddAppointmentTitle.getText().isEmpty() || AddAppointmentTitle.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setContentText("Missing Customer Name");
+                alert.setContentText("Missing Appointment Title");
                 alert.show();
             } else if (AddAppointmentDescription.getText().isEmpty() || AddAppointmentDescription.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setContentText("Missing Customer Address");
+                alert.setContentText("Missing Appointment Description");
                 alert.show();
             } else if (AddAppointmentLocation.getText().isEmpty() || AddAppointmentLocation.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setContentText("Missing Customer Postal Code");
+                alert.setContentText("Missing Appointment Location");
                 alert.show();
             } else if (AddAppointmentType.getText().isEmpty() || AddAppointmentType.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setContentText("Missing Customer Phone");
+                alert.setContentText("Missing Appointment Type");
                 alert.show();
             }  else if (AddAppointmentCustomerId.equals("Customer")) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
