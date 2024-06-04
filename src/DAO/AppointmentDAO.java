@@ -39,4 +39,25 @@ public class AppointmentDAO {
         return appointmentsObservableList;
     }
 
+    public static void addAppointment(String appointmentTitle, String appointmentDescription, String appointmentLocation,
+                                      String appointmentType, LocalDateTime appointmentStartTime, LocalDateTime appointmentEndTime,
+                                      LocalDateTime createdDate, LocalDateTime lastUpdated, int contactId, int customerId, int userId) throws SQLException {
+        String sql = "INSERT INTO appointments (Title, Description, Location, Type, Start, End, Create_Date, Last_Update, Contact_ID, Customer_ID, User_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement insertAppointment = JDBC.conn.prepareStatement(sql);
+        insertAppointment.setString(1, appointmentTitle);
+        insertAppointment.setString(2, appointmentDescription);
+        insertAppointment.setString(3, appointmentLocation);
+        insertAppointment.setString(4, appointmentType);
+        insertAppointment.setTimestamp(5, Timestamp.valueOf(appointmentStartTime));
+        insertAppointment.setTimestamp(6, Timestamp.valueOf(appointmentEndTime));
+        insertAppointment.setTimestamp(7, Timestamp.valueOf(createdDate));
+        insertAppointment.setTimestamp(8, Timestamp.valueOf(lastUpdated));
+        insertAppointment.setInt(9, contactId);
+        insertAppointment.setInt(10, customerId);
+        insertAppointment.setInt(11, userId);
+
+        insertAppointment.executeUpdate();
+    }
+
+
 }
