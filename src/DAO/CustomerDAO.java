@@ -51,4 +51,14 @@ public class CustomerDAO {
         insertCustomer.executeUpdate();
     }
 
+    public static void deleteCustomer(int customerId) {
+        try {
+            String sql = "DELETE FROM customers WHERE Customer_ID = ?";
+            PreparedStatement deleteCustomer = JDBC.conn.prepareStatement(sql);
+            deleteCustomer.setInt(1, customerId);
+            deleteCustomer.execute();
+        } catch (SQLException e) {e.printStackTrace();}
+    }
+
+
 }
