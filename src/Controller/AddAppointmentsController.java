@@ -140,6 +140,7 @@ public class AddAppointmentsController implements Initializable {
                     appointmentStartTime, appointmentEndTime, createdDate, lastUpdated, contactId, customerId, userId);
 
             System.out.println("Appointment Added");
+
             // Go back to Appointments screen
             stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
             scene = FXMLLoader.load(getClass().getResource("../View/Appointments.fxml"));

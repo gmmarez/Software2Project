@@ -9,9 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -20,6 +18,7 @@ import java.net.URL;
 import java.security.spec.ECField;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AppointmentsController  implements Initializable {
@@ -83,6 +82,20 @@ try {
 
     @FXML
     void AppointmentsDeleteAppointment(ActionEvent actionEvent) {
+        try {
+
+            int deleteAppointmentId = AppointmentsTable.getSelectionModel().getSelectedItem().getAppointmentId();
+            String deleteAppointmentType = AppointmentsTable.getSelectionModel().getSelectedItem().getAppointmentType();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete Appointment ID: " + deleteAppointmentId + " with Appointment Type: " + deleteAppointmentType);
+            Optional<ButtonType> confirmation = alert.showAndWait();
+            if (confirmation.isPresent() && confirmation.get() == ButtonType.OK) {
+                AppointmentDAO.deleteAppointment(deleteAppointmentId);
+
+                ObservableList<Appointments> allAppointmentsList = AppointmentDAO.getAllAppointments();
+                AppointmentsTable.setItems(allAppointmentsList);
+            }
+        } catch (Exception e) {e.printStackTrace();}
+
     }
 
     @FXML
