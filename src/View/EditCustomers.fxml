@@ -21,7 +21,7 @@
       </Label>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
-            <TextField fx:id="EditCustomerCustomerId" editable="false" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerCustomerId" prefWidth="200.0" promptText="Customer ID">
+            <TextField fx:id="EditCustomerCustomerId" disable="true" editable="false" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerCustomerId" prefWidth="200.0" promptText="Customer ID">
                <VBox.margin>
                   <Insets left="10.0" />
                </VBox.margin>

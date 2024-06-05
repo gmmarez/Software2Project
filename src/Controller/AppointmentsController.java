@@ -95,7 +95,6 @@ try {
                 AppointmentsTable.setItems(allAppointmentsList);
             }
         } catch (Exception e) {e.printStackTrace();}
-
     }
 
     @FXML

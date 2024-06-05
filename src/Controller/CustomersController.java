@@ -1,5 +1,6 @@
 package Controller;
 
+import DAO.AppointmentDAO;
 import DAO.CustomerDAO;
 import Model.Appointments;
 import Model.Customers;
@@ -10,14 +11,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CustomersController implements Initializable {
@@ -74,6 +74,21 @@ public class CustomersController implements Initializable {
 
     @FXML
     void CustomersDeleteCustomer(ActionEvent actionEvent) {
+        try {
+
+            int deleteCustomerId = CustomersTable.getSelectionModel().getSelectedItem().getCustomerId();
+            String deleteCustomerName = CustomersTable.getSelectionModel().getSelectedItem().getCustomerName();
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete Customer ID: " + deleteCustomerId + "  " + deleteCustomerName);
+            Optional<ButtonType> confirm = alert.showAndWait();
+            if (confirm.isPresent() && confirm.get() == ButtonType.OK) {
+                CustomerDAO.deleteCustomer(deleteCustomerId);
+
+                ObservableList<Customers> allCustomersList = CustomerDAO.getAllCustomers();
+                CustomersTable.setItems(allCustomersList);
+            }
+        } catch (Exception e) {e.printStackTrace();}
+
     }
 
     @FXML

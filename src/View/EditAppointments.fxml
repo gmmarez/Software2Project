@@ -23,7 +23,7 @@
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <TextField fx:id="EditAppointmentAppointmentId" editable="false" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditAppointmentAppointmentId" prefWidth="200.0" promptText="Appointment ID">
+                  <TextField fx:id="EditAppointmentAppointmentId" disable="true" editable="false" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditAppointmentAppointmentId" prefWidth="200.0" promptText="Appointment ID">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
@@ -52,12 +52,12 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <TextField fx:id="EditAppointmentStartTime" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditAppointmentStartTime" prefWidth="200.0" promptText="Start">
+                  <TextField fx:id="EditAppointmentStartTime" disable="true" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditAppointmentStartTime" prefWidth="200.0" promptText="Start">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="EditAppointmentEndTime" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditAppointmentEndTime" prefWidth="200.0" promptText="End">
+                  <TextField fx:id="EditAppointmentEndTime" disable="true" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditAppointmentEndTime" prefWidth="200.0" promptText="End">
                      <VBox.margin>
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>
