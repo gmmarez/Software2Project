@@ -28,4 +28,17 @@ public class ContactDAO {
         return contactsObservableList;
     }
 
+    public static int getContactId(String contactName) throws SQLException {
+        String sql = "SELECT * FROM contacts WHERE Contact_Name = ?";
+        PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
+        ps.setString(1, contactName);
+        ResultSet rs = ps.executeQuery();
+
+        int contactId = 0;
+        while (rs.next()) {
+            contactId = rs.getInt("Contact_ID");
+        }
+        return contactId;
+    }
+
 }
