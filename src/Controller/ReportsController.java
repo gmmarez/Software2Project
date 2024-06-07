@@ -66,7 +66,7 @@ public class ReportsController implements Initializable {
         String chosenContactName = String.valueOf(contactTableComboBox.getValue());
         int chosenContactId = ContactDAO.getContactId(chosenContactName);
 
-        ContactTable.setItems(AppointmentDAO.getAllAppointments(chosenContactId));
+
 
     }
 }
