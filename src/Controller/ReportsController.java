@@ -66,7 +66,23 @@ public class ReportsController implements Initializable {
         String chosenContactName = String.valueOf(contactTableComboBox.getValue());
         int chosenContactId = ContactDAO.getContactId(chosenContactName);
 
-
+        if (AppointmentDAO.getContactAppointment(chosenContactId).isEmpty()) {
+            System.out.println("1st Place Holder, No appointments for contact.");
+            ContactTable.refresh();
+                for (int i =0; i < ContactTable.getItems().size(); i++) {
+                    ContactTable.getItems().clear();
+                    System.out.println("2nd Place Holder");
+                }
+        } else {
+            ContactTable.setItems(AppointmentDAO.getContactAppointment(chosenContactId));
+        }
 
     }
+
+
+
+
+
+
+
 }
