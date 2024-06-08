@@ -1,6 +1,7 @@
 package DAO;
 
 import Main.JDBC;
+import Model.Appointments;
 import Model.Country;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -59,6 +60,5 @@ public class CustomerDAO {
             deleteCustomer.execute();
         } catch (SQLException e) {e.printStackTrace();}
     }
-
 
 }
