@@ -2,6 +2,7 @@ package Controller;
 
 import DAO.AppointmentDAO;
 import DAO.ContactDAO;
+import DAO.CountryDAO;
 import Model.Appointments;
 import Model.Contacts;
 import Model.Country;
@@ -33,6 +34,7 @@ public class ReportsController implements Initializable {
     @FXML private TableColumn<Customers, String> countryCustomerPostalCode;
     @FXML private TableColumn<Customers, String> countryCustomerPhone;
     @FXML private TableColumn<Customers, Integer> countryCustomerDivisionId;
+    ObservableList<Country> allCountries = CountryDAO.getAllCountries();
 
  // Appointments by Contact
     @FXML private TableView ContactTable;
@@ -66,7 +68,7 @@ public class ReportsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        // Setting the Appointments by Contact table.
         contactTableComboBox.setItems(allContacts);
         ContactTable.setPlaceholder(new Label("Select a contact to view appointments."));
 
@@ -81,6 +83,10 @@ public class ReportsController implements Initializable {
         contactAppointmentUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
 
         ContactTable.refresh();
+
+        // Setting the Customers by Country table.
+        countryTableComboBox.setItems(allCountries);
+
 
     }
 
