@@ -19,6 +19,11 @@
             <Insets left="10.0" top="10.0" />
          </VBox.margin>
       </Label>
+      <Label text="Appointments by Contact">
+         <VBox.margin>
+            <Insets left="400.0" />
+         </VBox.margin>
+      </Label>
       <ComboBox fx:id="contactTableComboBox" onAction="#contactTableComboBox" prefWidth="150.0" promptText="Select Contact">
          <VBox.margin>
             <Insets left="5.0" top="10.0" />
@@ -35,6 +40,32 @@
             <TableColumn fx:id="contactAppointmentType" minWidth="0.0" prefWidth="111.0" text="Type" />
             <TableColumn fx:id="contactAppointmentCustomerId" prefWidth="108.0" text="Customer ID" />
             <TableColumn fx:id="contactAppointmentUserId" prefWidth="92.0" text="User ID" />
+        </columns>
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </TableView>
+      <Label text="Customers by Country">
+         <VBox.margin>
+            <Insets left="400.0" top="5.0" />
+         </VBox.margin>
+      </Label>
+      <ComboBox fx:id="countryTableComboBox" onAction="#countryTableComboBox" prefWidth="150.0" promptText="Select Country">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets left="5.0" top="10.0" />
+         </VBox.margin>
+      </ComboBox>
+      <TableView fx:id="CountryTable" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="countryCustomerId" prefWidth="75.0" text="Cust ID" />
+          <TableColumn fx:id="countryCustomerName" prefWidth="123.0" text="Name" />
+            <TableColumn fx:id="countryCustomerAddress" prefWidth="183.0" text="Address" />
+            <TableColumn fx:id="countryCustomerPostalCode" prefWidth="122.0" text="Postal Code" />
+            <TableColumn fx:id="countryCustomerPhone" prefWidth="239.0" text="Phone" />
+            <TableColumn fx:id="countryCustomerDivisionId" prefWidth="89.0" text="Division ID" />
         </columns>
          <VBox.margin>
             <Insets left="5.0" right="5.0" top="5.0" />
