@@ -25,4 +25,18 @@ public class CountryDAO {
         return countryObservableList;
     }
 
+    public static int getCountryId(String countryName) throws SQLException {
+        String sql = "SELECT * FROM countries WHERE Country = ?";
+        PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
+        ps.setString(1, countryName);
+        ResultSet rs = ps.executeQuery();
+
+        int countryId = 0;
+        while (rs.next()) {
+            countryId = rs.getInt("Country_ID");
+        }
+        return countryId;
+    }
+
+
 }

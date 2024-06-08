@@ -3,6 +3,7 @@ package Controller;
 import DAO.AppointmentDAO;
 import DAO.ContactDAO;
 import DAO.CountryDAO;
+import DAO.DivisionDAO;
 import Model.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -108,6 +109,19 @@ public class ReportsController implements Initializable {
 
     }
 
-    public void divisionTableComboBox(ActionEvent event) {
+    public void divisionTableComboBox(ActionEvent event) throws SQLException {
+        String chosenCountryName = String.valueOf(divisionTableComboBox.getValue());
+        int chosenCountryId = CountryDAO.getCountryId(chosenCountryName);
+
+        if (DivisionDAO.getCountryDivision(chosenCountryId).isEmpty()) {
+
+            DivisionTable.refresh();
+            for (int i =0; i < DivisionTable.getItems().size(); i++) {
+                DivisionTable.getItems().clear();
+            }
+        } else {
+            DivisionTable.setItems(DivisionDAO.getCountryDivision(chosenCountryId));
+        }
+
     }
 }
