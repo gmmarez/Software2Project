@@ -29,12 +29,12 @@
           <TableColumn fx:id="contactAppointmentId" prefWidth="75.0" text="Appt ID" />
           <TableColumn fx:id="contactAppointmentTitle" prefWidth="96.0" text="Title" />
             <TableColumn fx:id="contactAppointmentDescription" prefWidth="90.0" text="Description" />
-            <TableColumn fx:id="contactAppointmentContact" prefWidth="74.0" text="Contact" />
-            <TableColumn fx:id="contactAppointmentStart" prefWidth="103.0" text="Start" />
-            <TableColumn fx:id="contactAppointmentEnd" prefWidth="87.0" text="End" />
-            <TableColumn fx:id="contactAppointmentType" minWidth="0.0" prefWidth="88.0" text="Type" />
-            <TableColumn fx:id="contactAppointmentCustomerId" prefWidth="91.0" text="Customer ID" />
-            <TableColumn fx:id="contactAppointmentUserId" prefWidth="88.0" text="User ID" />
+            <TableColumn fx:id="contactAppointmentContact" prefWidth="97.0" text="Contact" />
+            <TableColumn fx:id="contactAppointmentStart" prefWidth="172.0" text="Start" />
+            <TableColumn fx:id="contactAppointmentEnd" prefWidth="148.0" text="End" />
+            <TableColumn fx:id="contactAppointmentType" minWidth="0.0" prefWidth="111.0" text="Type" />
+            <TableColumn fx:id="contactAppointmentCustomerId" prefWidth="108.0" text="Customer ID" />
+            <TableColumn fx:id="contactAppointmentUserId" prefWidth="92.0" text="User ID" />
         </columns>
          <VBox.margin>
             <Insets left="5.0" right="5.0" top="5.0" />

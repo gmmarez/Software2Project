@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -55,14 +56,25 @@ public class ReportsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         contactTableComboBox.setItems(allContacts);
+        ContactTable.setPlaceholder(new Label("Select a contact to view appointments."));
 
+        contactAppointmentId.setCellValueFactory(new PropertyValueFactory<>("appointmentId"));
+        contactAppointmentTitle.setCellValueFactory(new PropertyValueFactory<>("appointmentTitle"));
+        contactAppointmentDescription.setCellValueFactory(new PropertyValueFactory<>("appointmentDescription"));
+        contactAppointmentContact.setCellValueFactory(new PropertyValueFactory<>("contactId"));
+        contactAppointmentStart.setCellValueFactory(new PropertyValueFactory<>("appointmentStartTime"));
+        contactAppointmentEnd.setCellValueFactory(new PropertyValueFactory<>("appointmentEndTime"));
+        contactAppointmentType.setCellValueFactory(new PropertyValueFactory<>("appointmentType"));
+        contactAppointmentCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        contactAppointmentUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
+
+        ContactTable.refresh();
 
     }
 
     public void contactTableComboBox(ActionEvent event) throws SQLException {
         String chosenContactName = String.valueOf(contactTableComboBox.getValue());
         int chosenContactId = ContactDAO.getContactId(chosenContactName);
-        System.out.println(chosenContactId + chosenContactName);
 
         if (AppointmentDAO.getContactAppointment(chosenContactId).isEmpty()) {
             ContactTable.setPlaceholder(new Label(chosenContactName + " has no appointments."));

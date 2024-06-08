@@ -73,7 +73,7 @@ public class AppointmentDAO {
         ObservableList<Appointments> chosenContactAppointment = FXCollections.observableArrayList();
 
         try {
-            String sql = "SELECT * FROM appointments JOIN contacts ON appointments.Contact_ID = contacts.Contact_ID ORDER BY appointments.Appointment_ID";
+            String sql = "SELECT * FROM appointments JOIN contacts ON appointments.Contact_ID = contacts.Contact_ID WHERE appointments.Contact_ID = " + contactId + " ";
             PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
