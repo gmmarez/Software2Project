@@ -88,9 +88,11 @@ public class AppointmentDAO {
                 int appointmentContact = rs.getInt("Contact_ID");
                 int appointmentCustomerId = rs.getInt("Customer_ID");
                 int appointmentUserId = rs.getInt("User_ID");
+
                 Appointments contactAppointments = new Appointments(appointmentId, appointmentTitle, appointmentDescription,
                         appointmentLocation, appointmentType, appointmentStart, appointmentEnd, appointmentContact,
                         appointmentCustomerId, appointmentUserId);
+
                 chosenContactAppointment.add(contactAppointments);
             }
 

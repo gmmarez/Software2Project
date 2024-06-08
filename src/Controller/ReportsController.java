@@ -11,10 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -65,13 +62,14 @@ public class ReportsController implements Initializable {
     public void contactTableComboBox(ActionEvent event) throws SQLException {
         String chosenContactName = String.valueOf(contactTableComboBox.getValue());
         int chosenContactId = ContactDAO.getContactId(chosenContactName);
+        System.out.println(chosenContactId + chosenContactName);
 
         if (AppointmentDAO.getContactAppointment(chosenContactId).isEmpty()) {
-            System.out.println("1st Place Holder, No appointments for contact.");
+            ContactTable.setPlaceholder(new Label(chosenContactName + " has no appointments."));
             ContactTable.refresh();
                 for (int i =0; i < ContactTable.getItems().size(); i++) {
                     ContactTable.getItems().clear();
-                    System.out.println("2nd Place Holder");
+                    ContactTable.setPlaceholder(new Label(chosenContactName + " has no appointments."));
                 }
         } else {
             ContactTable.setItems(AppointmentDAO.getContactAppointment(chosenContactId));
