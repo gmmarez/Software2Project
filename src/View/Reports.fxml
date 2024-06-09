@@ -19,32 +19,6 @@
             <Insets left="10.0" top="10.0" />
          </VBox.margin>
       </Label>
-      <Label text="Appointments by Customer">
-         <VBox.margin>
-            <Insets left="400.0" />
-         </VBox.margin>
-      </Label>
-      <ComboBox fx:id="customerTableComboBox" onAction="#customerTableComboBox" prefWidth="150.0" promptText="Select Customer">
-         <VBox.margin>
-            <Insets bottom="5.0" left="5.0" />
-         </VBox.margin>
-      </ComboBox>
-      <TableView fx:id="CustomerTable" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn fx:id="customerAppointmentId" prefWidth="75.0" text="Appt ID" />
-          <TableColumn fx:id="customerAppointmentTitle" prefWidth="75.0" text="Title" />
-            <TableColumn fx:id="customerAppointmentDescription" prefWidth="110.0" text="Description" />
-            <TableColumn fx:id="customerAppointmentContact" prefWidth="100.0" text="Contact" />
-            <TableColumn fx:id="customerAppointmentStart" prefWidth="174.0" text="Start" />
-            <TableColumn fx:id="customerAppointmentEnd" prefWidth="141.0" text="End" />
-            <TableColumn fx:id="customerAppointmentType" prefWidth="117.0" text="Type" />
-            <TableColumn fx:id="customerAppointmentCustomerId" prefWidth="112.0" text="Customer ID" />
-            <TableColumn fx:id="customerAppointmentUserId" prefWidth="95.0" text="User ID" />
-        </columns>
-         <VBox.margin>
-            <Insets left="5.0" right="5.0" />
-         </VBox.margin>
-      </TableView>
       <Label text="Appointments by Contact">
          <VBox.margin>
             <Insets left="400.0" />
@@ -71,27 +45,30 @@
             <Insets left="5.0" right="5.0" top="5.0" />
          </VBox.margin>
       </TableView>
-      <Label text="Divisions by Countries">
+      <Label text="Appointments by Customer">
          <VBox.margin>
-            <Insets left="400.0" top="5.0" />
+            <Insets left="400.0" />
          </VBox.margin>
       </Label>
-      <ComboBox fx:id="divisionTableComboBox" onAction="#divisionTableComboBox" prefWidth="150.0" promptText="Select Country">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
+      <ComboBox fx:id="customerTableComboBox" onAction="#customerTableComboBox" prefWidth="150.0" promptText="Select Customer">
          <VBox.margin>
-            <Insets left="5.0" top="10.0" />
+            <Insets bottom="5.0" left="5.0" />
          </VBox.margin>
       </ComboBox>
-      <TableView fx:id="DivisionTable" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="CustomerTable" prefHeight="200.0" prefWidth="200.0">
         <columns>
-            <TableColumn fx:id="countryDivisionId" prefWidth="104.0" text="Division ID" />
-            <TableColumn fx:id="countryDivision" prefWidth="118.0" text="Division" />
-            <TableColumn fx:id="countryCountryId" prefWidth="166.0" text="Country ID" />
+          <TableColumn fx:id="customerAppointmentId" prefWidth="75.0" text="Appt ID" />
+          <TableColumn fx:id="customerAppointmentTitle" prefWidth="75.0" text="Title" />
+            <TableColumn fx:id="customerAppointmentDescription" prefWidth="110.0" text="Description" />
+            <TableColumn fx:id="customerAppointmentContact" prefWidth="100.0" text="Contact" />
+            <TableColumn fx:id="customerAppointmentStart" prefWidth="174.0" text="Start" />
+            <TableColumn fx:id="customerAppointmentEnd" prefWidth="141.0" text="End" />
+            <TableColumn fx:id="customerAppointmentType" prefWidth="117.0" text="Type" />
+            <TableColumn fx:id="customerAppointmentCustomerId" prefWidth="112.0" text="Customer ID" />
+            <TableColumn fx:id="customerAppointmentUserId" prefWidth="95.0" text="User ID" />
         </columns>
          <VBox.margin>
-            <Insets left="5.0" right="5.0" top="5.0" />
+            <Insets left="5.0" right="5.0" />
          </VBox.margin>
       </TableView>
       <Button fx:id="ReportsBack" mnemonicParsing="false" onAction="#ReportsBack" text="Back">

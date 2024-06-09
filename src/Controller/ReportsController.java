@@ -34,15 +34,6 @@ public class ReportsController implements Initializable {
     @FXML private TableColumn<Appointments, Integer> customerAppointmentUserId;
     ObservableList<Customers> allCustomers = CustomerDAO.getAllCustomers();
 
-    // Divisions by Country
-    @FXML private ComboBox<Country> divisionTableComboBox;
-    @FXML private TableView DivisionTable;
-    @FXML private TableColumn<Divisions, Integer> countryDivisionId;
-    @FXML private TableColumn<Divisions, String> countryDivision;
-    @FXML private TableColumn<Divisions, Integer> countryCountryId;
-    ObservableList<Country> allCountries = CountryDAO.getAllCountries();
-
-
     // Appointments by Contact
     @FXML private TableView ContactTable;
     @FXML private ComboBox<Contacts> contactTableComboBox;
@@ -108,16 +99,6 @@ public class ReportsController implements Initializable {
 
         ContactTable.refresh();
 
-        // Setting the Divisions by Country
-        divisionTableComboBox.setItems(allCountries);
-        DivisionTable.setPlaceholder(new Label("Select a country to view divisions."));
-
-        countryDivisionId.setCellValueFactory(new PropertyValueFactory<>("divisionId"));
-        countryDivision.setCellValueFactory(new PropertyValueFactory<>("divisionName"));
-        countryCountryId.setCellValueFactory(new PropertyValueFactory<>("countryId"));
-
-        DivisionTable.refresh();
-
     }
 
     public void contactTableComboBox(ActionEvent event) throws SQLException {
@@ -133,22 +114,6 @@ public class ReportsController implements Initializable {
                 }
         } else {
             ContactTable.setItems(AppointmentDAO.getContactAppointment(chosenContactId));
-        }
-
-    }
-
-    public void divisionTableComboBox(ActionEvent event) throws SQLException {
-        String chosenCountryName = String.valueOf(divisionTableComboBox.getValue());
-        int chosenCountryId = CountryDAO.getCountryId(chosenCountryName);
-
-        if (DivisionDAO.getCountryDivision(chosenCountryId).isEmpty()) {
-
-            DivisionTable.refresh();
-            for (int i =0; i < DivisionTable.getItems().size(); i++) {
-                DivisionTable.getItems().clear();
-            }
-        } else {
-            DivisionTable.setItems(DivisionDAO.getCountryDivision(chosenCountryId));
         }
 
     }
