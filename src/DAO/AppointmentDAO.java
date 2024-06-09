@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import Model.Appointments;
 import Main.JDBC;
-import javafx.scene.control.Cell;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -135,12 +134,67 @@ public class AppointmentDAO {
 
         return chosenCustomerAppointment;
 
-
-
-
-
-
-
-
     }
+    public static ObservableList<Appointments> getWeeklyAppointments() {
+        ObservableList<Appointments> weeklyAppointments = FXCollections.observableArrayList();
+        try {
+            String sql = "SELECT * FROM appointments INNER JOIN contacts ON appointments.Contact_ID = contacts.Contact_ID WHERE YEARWEEK(START) = YEARWEEK(NOW()) ORDER BY appointments.Appointment_ID";
+            PreparedStatement ps = JDBC.conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int appointmentId = rs.getInt("Appointment_ID");
+                String appointmentTitle = rs.getString("Title");
+                String appointmentDescription = rs.getString("Description");
+                String appointmentLocation = rs.getString("Location");
+                String appointmentType = rs.getString("Type");
+                LocalDateTime appointmentStartTime = rs.getTimestamp("Start").toLocalDateTime();
+                LocalDateTime appointmentEndTime = rs.getTimestamp("End").toLocalDateTime();
+                int contactId = rs.getInt("Contact_ID");
+                int customerId = rs.getInt("Customer_ID");
+                int userId = rs.getInt("User_ID");
+
+                Appointments week = new Appointments(appointmentId, appointmentTitle, appointmentDescription, appointmentLocation,
+                        appointmentType, appointmentStartTime, appointmentEndTime, contactId, customerId, userId);
+
+                weeklyAppointments.add(week);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return weeklyAppointments;
+    }
+
+    public static ObservableList<Appointments> getMonthlyAppointments() {
+        ObservableList<Appointments> monthlyAppointments = FXCollections.observableArrayList();
+        try {
+            String sql = "SELECT * FROM appointments INNER JOIN contacts ON appointments.Contact_ID = contacts.Contact_ID WHERE MONTH(START) = MONTH(NOW()) ORDER BY appointments.Appointment_ID";
+            PreparedStatement ps = JDBC.conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int appointmentId = rs.getInt("Appointment_ID");
+                String appointmentTitle = rs.getString("Title");
+                String appointmentDescription = rs.getString("Description");
+                String appointmentLocation = rs.getString("Location");
+                String appointmentType = rs.getString("Type");
+                LocalDateTime appointmentStartTime = rs.getTimestamp("Start").toLocalDateTime();
+                LocalDateTime appointmentEndTime = rs.getTimestamp("End").toLocalDateTime();
+                int contactId = rs.getInt("Contact_ID");
+                int customerId = rs.getInt("Customer_ID");
+                int userId = rs.getInt("User_ID");
+
+                Appointments month = new Appointments(appointmentId, appointmentTitle, appointmentDescription, appointmentLocation,
+                        appointmentType, appointmentStartTime, appointmentEndTime, contactId, customerId, userId);
+
+                monthlyAppointments.add(month);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return monthlyAppointments;
+    }
+
+
+
+
+
 }

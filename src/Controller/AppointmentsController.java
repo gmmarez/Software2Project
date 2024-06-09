@@ -22,6 +22,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AppointmentsController  implements Initializable {
+    public RadioButton allAppointmentsTB;
+    public RadioButton monthlyAppointmentsTB;
+    public RadioButton weeklyAppointmentsTB;
     @FXML private TableView <Appointments> AppointmentsTable;
     @FXML private TableColumn<Appointments, Integer> AppointmentsIdCol;
     @FXML private TableColumn<Appointments, String> AppointmentsTitleCol;
@@ -43,6 +46,7 @@ public class AppointmentsController  implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 try {
+
         AppointmentsTable.setItems(AppointmentDAO.getAllAppointments());
 
         AppointmentsIdCol.setCellValueFactory(new PropertyValueFactory<>("appointmentId"));
@@ -105,5 +109,17 @@ try {
         stage.setScene(new Scene(scene));
         stage.show();
 
+    }
+
+    public void allAppointmentsTB(ActionEvent event) throws SQLException {
+        AppointmentsTable.setItems(AppointmentDAO.getAllAppointments());
+    }
+
+    public void monthlyAppointmentsTB(ActionEvent event) throws SQLException {
+        AppointmentsTable.setItems(AppointmentDAO.getMonthlyAppointments());
+    }
+
+    public void weeklyAppointmentsTB(ActionEvent event) {
+        AppointmentsTable.setItems(AppointmentDAO.getWeeklyAppointments());
     }
 }
