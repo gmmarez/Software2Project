@@ -20,6 +20,13 @@ import java.util.ResourceBundle;
 
 public class ReportsController implements Initializable {
 
+    // Reports Type Table
+    @FXML private TableView ReportsTable;
+    @FXML private TableColumn<Reports, String> reportsType;
+    @FXML private TableColumn<Reports, String> reportsMonth;
+    @FXML private TableColumn<Reports, Integer> reportsTotal;
+
+
     // Appointments by Customer
     @FXML private ComboBox<Customers> customerTableComboBox;
     @FXML private TableView CustomerTable;

@@ -19,6 +19,21 @@
             <Insets left="10.0" top="10.0" />
          </VBox.margin>
       </Label>
+      <Label text="Total Number of Customer Appointments by Type &amp; Month">
+         <VBox.margin>
+            <Insets left="325.0" />
+         </VBox.margin>
+      </Label>
+      <TableView fx:id="ReportsTable" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="reportsType" prefWidth="135.0" text="Type" />
+          <TableColumn fx:id="reportsMonth" prefWidth="152.0" text="Month" />
+            <TableColumn fx:id="reportsTotal" prefWidth="160.0" text="Total" />
+        </columns>
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" />
+         </VBox.margin>
+      </TableView>
       <Label text="Appointments by Contact">
          <VBox.margin>
             <Insets left="400.0" />
