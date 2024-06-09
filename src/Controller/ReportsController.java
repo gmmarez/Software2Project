@@ -165,7 +165,7 @@ public class ReportsController implements Initializable {
                 CustomerTable.setPlaceholder(new Label(chosenCustomerName + " has no appointments."));
             }
         } else {
-            CustomerTable.setItems(AppointmentDAO.getContactAppointment(chosenCustomerName));
+            CustomerTable.setItems(AppointmentDAO.getContactAppointment(chosenCustomerId));
         }
     }
 }
