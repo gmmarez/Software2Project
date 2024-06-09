@@ -4,6 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import Model.Appointments;
 import Main.JDBC;
+import javafx.scene.control.Cell;
+
 import java.sql.*;
 import java.time.LocalDateTime;
 
@@ -101,4 +103,44 @@ public class AppointmentDAO {
         return chosenContactAppointment;
     }
 
+    public static ObservableList<Appointments> getCustomerAppointment(int customerId) {
+
+        ObservableList<Appointments> chosenCustomerAppointment = FXCollections.observableArrayList();
+
+        try {
+            String sql = "SELECT * FROM appointments JOIN customers ON appointments.Customer_ID = customers.Customer_ID WHERE appointments.Customer_ID = " + customerId + " ";
+            PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int appointmentId = rs.getInt("Appointment_ID");
+                String appointmentTitle = rs.getString("Title");
+                String appointmentDescription = rs.getString("Description");
+                String appointmentLocation = rs.getString("Location");
+                String appointmentType = rs.getString("Type");
+                LocalDateTime appointmentStart = rs.getTimestamp("Start").toLocalDateTime();
+                LocalDateTime appointmentEnd = rs.getTimestamp("End").toLocalDateTime();
+                int appointmentContact = rs.getInt("Contact_ID");
+                int appointmentCustomerId = rs.getInt("Customer_ID");
+                int appointmentUserId = rs.getInt("User_ID");
+
+                Appointments customerAppointments = new Appointments(appointmentId, appointmentTitle, appointmentDescription,
+                        appointmentLocation, appointmentType, appointmentStart, appointmentEnd, appointmentContact,
+                        appointmentCustomerId, appointmentUserId);
+
+                chosenCustomerAppointment.add(customerAppointments);
+            }
+
+        } catch (SQLException e) {throw new RuntimeException(e);}
+
+        return chosenCustomerAppointment;
+
+
+
+
+
+
+
+
+    }
 }

@@ -1,9 +1,6 @@
 package Controller;
 
-import DAO.AppointmentDAO;
-import DAO.ContactDAO;
-import DAO.CountryDAO;
-import DAO.DivisionDAO;
+import DAO.*;
 import Model.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,6 +19,20 @@ import java.sql.Timestamp;
 import java.util.ResourceBundle;
 
 public class ReportsController implements Initializable {
+
+    // Appointments by Customer
+    @FXML private ComboBox<Customers> customerTableComboBox;
+    @FXML private TableView CustomerTable;
+    @FXML private TableColumn<Appointments, Integer> customerAppointmentId;
+    @FXML private TableColumn<Appointments, String> customerAppointmentTitle;
+    @FXML private TableColumn<Appointments, String> customerAppointmentDescription;
+    @FXML private TableColumn<Appointments, Integer> customerAppointmentContact;
+    @FXML private TableColumn<Appointments, Timestamp> customerAppointmentStart;
+    @FXML private TableColumn<Appointments, Timestamp> customerAppointmentEnd;
+    @FXML private TableColumn<Appointments, String> customerAppointmentType;
+    @FXML private TableColumn<Appointments, Integer> customerAppointmentCustomerId;
+    @FXML private TableColumn<Appointments, Integer> customerAppointmentUserId;
+    ObservableList<Customers> allCustomers = CustomerDAO.getAllCustomers();
 
     // Divisions by Country
     @FXML private ComboBox<Country> divisionTableComboBox;
@@ -64,6 +75,23 @@ public class ReportsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        // Setting the Appointments by Customer table
+        customerTableComboBox.setItems(allCustomers);
+        CustomerTable.setPlaceholder(new Label("Select a Customer to view appointments."));
+
+        customerAppointmentId.setCellValueFactory(new PropertyValueFactory<>("appointmentId"));
+        customerAppointmentTitle.setCellValueFactory(new PropertyValueFactory<>("appointmentTitle"));
+        customerAppointmentDescription.setCellValueFactory(new PropertyValueFactory<>("appointmentDescription"));
+        customerAppointmentContact.setCellValueFactory(new PropertyValueFactory<>("contactId"));
+        customerAppointmentStart.setCellValueFactory(new PropertyValueFactory<>("appointmentStartTime"));
+        customerAppointmentEnd.setCellValueFactory(new PropertyValueFactory<>("appointmentEndTime"));
+        customerAppointmentType.setCellValueFactory(new PropertyValueFactory<>("appointmentType"));
+        customerAppointmentCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        customerAppointmentUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
+
+        CustomerTable.refresh();
+
         // Setting the Appointments by Contact table.
         contactTableComboBox.setItems(allContacts);
         ContactTable.setPlaceholder(new Label("Select a contact to view appointments."));
@@ -123,5 +151,21 @@ public class ReportsController implements Initializable {
             DivisionTable.setItems(DivisionDAO.getCountryDivision(chosenCountryId));
         }
 
+    }
+
+    public void customerTableComboBox(ActionEvent event) throws SQLException {
+        String chosenCustomerName = String.valueOf(customerTableComboBox.getValue());
+        int chosenCustomerId = CustomerDAO.getCustomerId(chosenCustomerName);
+
+        if (AppointmentDAO.getCustomerAppointment(chosenCustomerId).isEmpty()) {
+            CustomerTable.setPlaceholder(new Label(chosenCustomerName + " has no appointments."));
+            CustomerTable.refresh();
+            for (int i =0; i < CustomerTable.getItems().size(); i++) {
+                CustomerTable.getItems().clear();
+                CustomerTable.setPlaceholder(new Label(chosenCustomerName + " has no appointments."));
+            }
+        } else {
+            CustomerTable.setItems(AppointmentDAO.getContactAppointment(chosenCustomerName));
+        }
     }
 }

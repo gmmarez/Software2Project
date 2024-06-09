@@ -61,4 +61,16 @@ public class CustomerDAO {
         } catch (SQLException e) {e.printStackTrace();}
     }
 
+    public static int getCustomerId(String customerName) throws SQLException {
+        String sql = "SELECT * FROM customers WHERE Customer_Name = ?";
+        PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
+        ps.setString(1, customerName);
+        ResultSet rs = ps.executeQuery();
+
+        int customerId = 0;
+        while (rs.next()) {
+            customerId = rs.getInt("Customer_ID");
+        }
+        return customerId;
+    }
 }
