@@ -5,11 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="947.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AppointmentsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="947.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AppointmentsController">
    <children>
       <Label text="Appointments">
          <font>
@@ -40,7 +41,7 @@
                   </Button>
                </children>
             </VBox>
-            <TableView fx:id="AppointmentsTable" prefHeight="300.0" prefWidth="861.0">
+            <TableView fx:id="AppointmentsTable" prefHeight="172.0" prefWidth="845.0">
               <columns>
                 <TableColumn fx:id="AppointmentsIdCol" prefWidth="22.0" text="ID" />
                 <TableColumn fx:id="AppointmentsTitleCol" prefWidth="60.0" text="Title" />
@@ -59,6 +60,11 @@
             </TableView>
          </children>
       </HBox>
+      <ToggleButton mnemonicParsing="false" text="Month/Week">
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" top="10.0" />
+         </VBox.margin>
+      </ToggleButton>
       <Button fx:id="AppointmentsBack" mnemonicParsing="false" onAction="#AppointmentsBack" text="Back">
          <VBox.margin>
             <Insets left="10.0" top="10.0" />
