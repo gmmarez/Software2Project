@@ -26,6 +26,9 @@ public class ReportsController implements Initializable {
     @FXML private TableColumn<Reports, String> reportsMonth;
     @FXML private TableColumn<Reports, Integer> reportsTotal;
 
+    ObservableList<Reports> allReports = ReportDAO.getReportResults();
+
+
 
     // Appointments by Customer
     @FXML private ComboBox<Customers> customerTableComboBox;
@@ -105,6 +108,14 @@ public class ReportsController implements Initializable {
         contactAppointmentUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
 
         ContactTable.refresh();
+
+        // Reports Type Table
+        reportsType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        reportsMonth.setCellValueFactory(new PropertyValueFactory<>("month"));
+        reportsTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+
+        ReportsTable.refresh();
+        ReportsTable.setItems(allReports);
 
     }
 

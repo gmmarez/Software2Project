@@ -5,6 +5,12 @@ public class Reports {
     private String month;
     private int total;
 
+    public Reports(String type, String month, int total) {
+        this.type = type;
+        this.month = month;
+        this.total = total;
+    }
+
     public String getType() {
         return type;
     }
@@ -26,12 +32,6 @@ public class Reports {
     }
 
     public void setTotal(int total) {
-        this.total = total;
-    }
-
-    public Reports(String type, String month, int total) {
-        this.type = type;
-        this.month = month;
         this.total = total;
     }
 }
