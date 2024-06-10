@@ -21,37 +21,37 @@
       </Label>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
-            <TextField fx:id="EditCustomerCustomerId" disable="true" editable="false" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerCustomerId" prefWidth="200.0" promptText="Customer ID">
+            <TextField fx:id="EditCustomerCustomerId" disable="true" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Customer ID">
                <VBox.margin>
                   <Insets left="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="EditCustomerName" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerName" prefWidth="200.0" promptText="Name">
+            <TextField fx:id="EditCustomerName" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Name">
                <VBox.margin>
                   <Insets left="10.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="EditCustomerAddress" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerAddress" prefWidth="200.0" promptText="Address">
+            <TextField fx:id="EditCustomerAddress" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Address">
                <VBox.margin>
                   <Insets left="10.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="EditCustomerPostalCode" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerPostalCode" prefWidth="200.0" promptText="Postal Code">
+            <TextField fx:id="EditCustomerPostalCode" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Postal Code">
                <VBox.margin>
                   <Insets left="10.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="EditCustomerPhone" maxWidth="-Infinity" minWidth="-Infinity" onAction="#EditCustomerPhone" prefWidth="200.0" promptText="Phone Number">
+            <TextField fx:id="EditCustomerPhone" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Phone Number">
                <VBox.margin>
                   <Insets left="10.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <ComboBox fx:id="EditCustomerDivisionId" onAction="#EditCustomerDivisionId" prefWidth="200.0" promptText="Division ID">
+            <ComboBox fx:id="EditCustomerDivisionId" prefWidth="200.0" promptText="Division ID">
                <VBox.margin>
                   <Insets left="10.0" top="5.0" />
                </VBox.margin>
             </ComboBox>
-            <ComboBox fx:id="EditCustomerCountryId" onAction="#EditCustomerCountryId" prefWidth="200.0" promptText="Country ID">
+            <ComboBox fx:id="EditCustomerCountryId" prefWidth="200.0" promptText="Country ID">
                <VBox.margin>
                   <Insets left="10.0" top="5.0" />
                </VBox.margin>

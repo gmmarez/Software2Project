@@ -3,6 +3,7 @@ package Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -10,8 +11,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class EditCustomersController {
+public class EditCustomersController implements Initializable {
     @FXML
     private TextField EditCustomerCustomerId;
 
@@ -28,18 +31,6 @@ public class EditCustomersController {
     private TextField EditCustomerPhone;
 
     @FXML
-    public TextField EditCustomerLastUpdatedBy;
-
-    @FXML
-    public TextField EditCustomerLastUpdate;
-
-    @FXML
-    public TextField EditCustomerCreatedBy;
-
-    @FXML
-    public TextField EditCustomerCreateDate;
-
-    @FXML
     public ComboBox EditCustomerDivisionId;
     @FXML
     public ComboBox EditCustomerCountryId;
@@ -54,50 +45,6 @@ public class EditCustomersController {
     Parent scene;
 
     @FXML
-    void EditCustomerCustomerId(ActionEvent event) {
-    }
-
-    @FXML
-    void EditCustomerName(ActionEvent event) {
-    }
-
-    @FXML
-    void EditCustomerAddress(ActionEvent event) {
-    }
-
-    @FXML
-    void EditCustomerPostalCode(ActionEvent event) {
-    }
-
-    @FXML
-    void EditCustomerPhone(ActionEvent event) {
-    }
-
-    @FXML
-    public void EditCustomerLastUpdatedBy(ActionEvent event) {
-    }
-
-    @FXML
-    public void EditCustomerLastUpdate(ActionEvent event) {
-    }
-
-    @FXML
-    public void EditCustomerCreatedBy(ActionEvent event) {
-    }
-
-    @FXML
-    public void EditCustomerCreateDate(ActionEvent event) {
-    }
-
-    @FXML
-    public void EditCustomerDivisionId(ActionEvent event) {
-    }
-
-    @FXML
-    public void EditCustomerCountryId(ActionEvent event) {
-    }
-
-    @FXML
     void AddCustomersSave(ActionEvent event) {
     }
 
@@ -108,5 +55,10 @@ public class EditCustomersController {
         scene = FXMLLoader.load(getClass().getResource("../View/Customers.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Set selected customer information
     }
 }
