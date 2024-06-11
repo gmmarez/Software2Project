@@ -64,6 +64,9 @@ public class CustomersController implements Initializable {
 
     @FXML
     void CustomersEditCustomer(ActionEvent event) throws IOException {
+        Customers selectedCustomer = null;
+        selectedCustomer = CustomersTable.getSelectionModel().getSelectedItem();
+
         // Go to Edit Customer Screen
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("../View/EditCustomers.fxml"));

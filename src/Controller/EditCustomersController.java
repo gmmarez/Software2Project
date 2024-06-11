@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Customers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +31,7 @@ public class EditCustomersController implements Initializable {
     @FXML
     private TextField EditCustomerPhone;
 
+
     @FXML
     public ComboBox EditCustomerDivisionId;
     @FXML
@@ -49,16 +51,26 @@ public class EditCustomersController implements Initializable {
     }
 
     @FXML
-    void EditCustomersBack(ActionEvent event) throws IOException {
+    private void EditCustomersBack(ActionEvent event) throws IOException {
         // Go back to Customers screen
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("../View/Customers.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
+
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Set selected customer information
+        //EditCustomerCustomerId.setId(selectedCustomer.getCustomerId());
+        // Customers selectedCustomer;
+        //EditCustomerName.setText(selectedCustomer.getCustomerName());
+        //EditCustomerAddress.setText(selectedCustomer.getCustomerAddress());
+        //EditCustomerPostalCode.setText(selectedCustomer.getCustomerPostalCode());
+        //EditCustomerPhone.setText(selectedCustomer.getCustomerPhone());
+        //EditCustomerDivisionId.setItems(selectedCustomer.getDivisionId());
+        //EditCustomerCountryId.setItems(selectedCustomer.getCountryId());
+
     }
 }
