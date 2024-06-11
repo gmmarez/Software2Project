@@ -73,4 +73,19 @@ public class EditCustomersController implements Initializable {
         //EditCustomerCountryId.setItems(selectedCustomer.getCountryId());
 
     }
+
+    public void setCustomer(Customers selectedCustomer) {
+
+                this.EditCustomerCustomerId.setText(selectedCustomer.getCustomerId());
+                this.EditCustomerName.setText(selectedCustomer.getCustomerName());
+                this.EditCustomerAddress.setText(selectedCustomer.getCustomerAddress());
+                this.EditCustomerPostalCode.setText(selectedCustomer.getCustomerPostalCode());
+                this.EditCustomerPhone.setText(selectedCustomer.getCustomerPhone());
+                // this.EditCustomerDivisionId.setItems(selectedCustomer.getDivisionId());
+                // this.EditCustomerCountryId.
+
+        }
+
+
+
 }

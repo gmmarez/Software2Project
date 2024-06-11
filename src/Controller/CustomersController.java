@@ -64,14 +64,31 @@ public class CustomersController implements Initializable {
 
     @FXML
     void CustomersEditCustomer(ActionEvent event) throws IOException {
-        Customers selectedCustomer = null;
-        selectedCustomer = CustomersTable.getSelectionModel().getSelectedItem();
-
+       /**
         // Go to Edit Customer Screen
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("../View/EditCustomers.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
+*/
+
+
+         Stage stage;
+         Parent root;
+         stage = (Stage) CustomersEditCustomer.getScene().getWindow();
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/EditCustomers.fxml"));
+
+         root = loader.load();
+         EditCustomersController controller = loader.getController();
+         Customers selectedCustomer = CustomersTable.getSelectionModel().getSelectedItem();
+
+         if (selectedCustomer != null) {
+         controller.setCustomer(selectedCustomer);
+         }
+
+         Scene scene = new Scene(root);
+         stage.setScene(scene);
+         stage.show();
 
     }
 
