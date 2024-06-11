@@ -139,7 +139,6 @@ public class ReportsController implements Initializable {
     public void customerTableComboBox(ActionEvent event) throws SQLException {
         String chosenCustomerName = String.valueOf(customerTableComboBox.getValue());
         int chosenCustomerId = CustomerDAO.getCustomerId(chosenCustomerName);
-        System.out.println(AppointmentDAO.getCustomerAppointment(chosenCustomerId));
 
         if (AppointmentDAO.getCustomerAppointment(chosenCustomerId).isEmpty()) {
             CustomerTable.setPlaceholder(new Label(chosenCustomerName + " has no appointments."));
