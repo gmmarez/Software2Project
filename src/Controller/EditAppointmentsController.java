@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Appointments;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -78,6 +79,23 @@ public class EditAppointmentsController implements Initializable {
         stage.setScene(new Scene(scene));
         stage.show();
     }
+
+    public void setAppointment(Appointments selectedAppointment) {
+        this.EditAppointmentAppointmentId.setText(Integer.toString(selectedAppointment.getAppointmentId()));
+        this.EditAppointmentTitle.setText(selectedAppointment.getAppointmentTitle());
+        this.EditAppointmentDescription.setText(selectedAppointment.getAppointmentDescription());
+        this.EditAppointmentLocation.setText(selectedAppointment.getAppointmentLocation());
+        this.EditAppointmentType.setText(selectedAppointment.getAppointmentType());
+        //this.EditAppointmentStartTime.setText(toString(selectedAppointment.getAppointmentStartTime()));
+        //this.EditAppointmentEndTime.setText(selectedAppointment.getAppointmentEndTime());
+       //this.EditAppointmentCustomerId.setItems();
+        //this.EditAppointmentUserId.setItems();
+        //this.EditAppointmentContactId.setItems();
+
+
+
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

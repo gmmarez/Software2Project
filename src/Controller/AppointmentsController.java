@@ -2,6 +2,7 @@ package Controller;
 
 import DAO.AppointmentDAO;
 import Model.Appointments;
+import Model.Customers;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -77,11 +78,38 @@ try {
 
     @FXML
     void AppointmentsEditAppointment(ActionEvent event) throws IOException {
+        /**
         // Go to Edit Appointment Screen
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("../View/EditAppointments.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
+         **/
+
+        Stage stage;
+        Parent root;
+        stage = (Stage) AppointmentsEditAppointment.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/EditAppointments.fxml"));
+
+        root = loader.load();
+        EditAppointmentsController controller = loader.getController();
+        Appointments selectedAppointment = AppointmentsTable.getSelectionModel().getSelectedItem();
+
+        if (selectedAppointment != null) {
+            controller.setAppointment(selectedAppointment);
+        }
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+
+
+
+
+
+
+
     }
 
     @FXML
