@@ -111,6 +111,9 @@ public class CustomersController implements Initializable {
 
                 ObservableList<Customers> allCustomersList = CustomerDAO.getAllCustomers();
                 CustomersTable.setItems(allCustomersList);
+
+                Alert alert1 = new Alert(Alert.AlertType.INFORMATION, "Customer information deleted.");
+                alert1.showAndWait();
             }
         } catch (Exception e) {e.printStackTrace();}
 
