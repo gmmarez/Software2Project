@@ -86,19 +86,17 @@ public class EditAppointmentsController implements Initializable {
         this.EditAppointmentDescription.setText(selectedAppointment.getAppointmentDescription());
         this.EditAppointmentLocation.setText(selectedAppointment.getAppointmentLocation());
         this.EditAppointmentType.setText(selectedAppointment.getAppointmentType());
-        //this.EditAppointmentStartTime.setText(toString(selectedAppointment.getAppointmentStartTime()));
-        //this.EditAppointmentEndTime.setText(selectedAppointment.getAppointmentEndTime());
-       //this.EditAppointmentCustomerId.setItems();
-        //this.EditAppointmentUserId.setItems();
-        //this.EditAppointmentContactId.setItems();
-
-
+        // this.EditAppointmentStartTime.setText(toString(selectedAppointment.getAppointmentStartTime()));
+        // this.EditAppointmentEndTime.setText(selectedAppointment.getAppointmentEndTime());
+        // this.EditAppointmentCustomerId.setItems();
+        // this.EditAppointmentUserId.setItems();
+        // this.EditAppointmentContactId.setItems();
 
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Set selected appointment information
+
     }
 }

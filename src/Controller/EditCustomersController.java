@@ -60,32 +60,20 @@ public class EditCustomersController implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Set selected customer information
-        //EditCustomerCustomerId.setId(selectedCustomer.getCustomerId());
-        // Customers selectedCustomer;
-        //EditCustomerName.setText(selectedCustomer.getCustomerName());
-        //EditCustomerAddress.setText(selectedCustomer.getCustomerAddress());
-        //EditCustomerPostalCode.setText(selectedCustomer.getCustomerPostalCode());
-        //EditCustomerPhone.setText(selectedCustomer.getCustomerPhone());
-        //EditCustomerDivisionId.setItems(selectedCustomer.getDivisionId());
-        //EditCustomerCountryId.setItems(selectedCustomer.getCountryId());
+    public void setCustomer(Customers selectedCustomer) {
+
+        this.EditCustomerCustomerId.setText(Integer.toString(selectedCustomer.getCustomerId()));
+        this.EditCustomerName.setText(selectedCustomer.getCustomerName());
+        this.EditCustomerAddress.setText(selectedCustomer.getCustomerAddress());
+        this.EditCustomerPostalCode.setText(selectedCustomer.getCustomerPostalCode());
+        this.EditCustomerPhone.setText(selectedCustomer.getCustomerPhone());
+        // this.EditCustomerDivisionId.setItems(Customers.getFilteredDivisions(selectedCustomer.getCountry()));
+        // this.EditCustomerCountryId.setItems(getCountryId(getDivisionId));
 
     }
 
-    public void setCustomer(Customers selectedCustomer) {
-
-                this.EditCustomerCustomerId.setText(Integer.toString(selectedCustomer.getCustomerId()));
-                this.EditCustomerName.setText(selectedCustomer.getCustomerName());
-                this.EditCustomerAddress.setText(selectedCustomer.getCustomerAddress());
-                this.EditCustomerPostalCode.setText(selectedCustomer.getCustomerPostalCode());
-                this.EditCustomerPhone.setText(selectedCustomer.getCustomerPhone());
-               // this.EditCustomerDivisionId.setItems(selectedCustomer.getDivisionId());
-                // this.EditCustomerCountryId.setItems(getCountryId(getDivisionId));
-
-        }
-
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+    }
 
 }
