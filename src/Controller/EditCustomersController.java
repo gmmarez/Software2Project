@@ -79,15 +79,15 @@ public class EditCustomersController implements Initializable {
     }
 
     public void EnableCustomersEditDivisions(ActionEvent event) throws SQLException {
-        ObservableList<Divisions> filterDivisions = FXCollections.observableArrayList();
+        ObservableList<Divisions> filterEditDivisions = FXCollections.observableArrayList();
         EditCustomerDivisionId.setDisable(false);
-        for (Divisions div: DivisionDAO.getAllDivisions()) {
-            if (div==EditCustomerCountryId.getValue()) {
-                filterDivisions.add(div);
+        for (Divisions divisions: DivisionDAO.getAllDivisions()) {
+            if (divisions.getCountryId()==EditCustomerCountryId.getValue().getCountryId()) {
+                filterEditDivisions.add(divisions);
             }
         }
         // AddCustomerDivisionId.setValue(null);
-        EditCustomerDivisionId.setItems(filterDivisions);
+        EditCustomerDivisionId.setItems(filterEditDivisions);
     }
 
     @Override
