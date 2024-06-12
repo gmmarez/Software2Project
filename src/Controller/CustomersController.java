@@ -84,12 +84,17 @@ public class CustomersController implements Initializable {
 
          if (selectedCustomer != null) {
          controller.setCustomer(selectedCustomer);
-         }
 
          Scene scene = new Scene(root);
          stage.setScene(scene);
          stage.show();
 
+         } else {
+
+             Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a customer to edit.");
+             alert.showAndWait();
+
+         }
     }
 
     @FXML

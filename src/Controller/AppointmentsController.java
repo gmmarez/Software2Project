@@ -97,17 +97,15 @@ try {
 
         if (selectedAppointment != null) {
             controller.setAppointment(selectedAppointment);
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select an appointment to edit.");
+            alert.showAndWait();
         }
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-
-
-
-
-
 
 
     }
