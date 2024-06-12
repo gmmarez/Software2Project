@@ -1,6 +1,11 @@
 package Controller;
 
+import DAO.CountryDAO;
+import DAO.DivisionDAO;
 import Model.Customers;
+import Model.Divisions;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class EditCustomersController implements Initializable {
@@ -72,8 +78,25 @@ public class EditCustomersController implements Initializable {
 
     }
 
+    public void EnableCustomersEditDivisions(ActionEvent event) throws SQLException {
+        ObservableList<Divisions> filterDivisions = FXCollections.observableArrayList();
+        EditCustomerDivisionId.setDisable(false);
+        for (Divisions div: DivisionDAO.getAllDivisions()) {
+            if (div==EditCustomerCountryId.getValue()) {
+                filterDivisions.add(div);
+            }
+        }
+        // AddCustomerDivisionId.setValue(null);
+        EditCustomerDivisionId.setItems(filterDivisions);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            EditCustomerCountryId.setItems(CountryDAO.getAllCountries());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }

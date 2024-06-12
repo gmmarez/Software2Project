@@ -110,9 +110,6 @@ public class AddCustomersController implements Initializable {
 
     }
 
-
-
-
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             AddCustomerCountryId.setItems(CountryDAO.getAllCountries());
