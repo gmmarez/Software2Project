@@ -2,6 +2,7 @@ package Controller;
 
 import DAO.CountryDAO;
 import DAO.DivisionDAO;
+import Model.Country;
 import Model.Customers;
 import Model.Divisions;
 import javafx.collections.FXCollections;
@@ -39,9 +40,9 @@ public class EditCustomersController implements Initializable {
 
 
     @FXML
-    public ComboBox EditCustomerDivisionId;
+    public ComboBox<Divisions> EditCustomerDivisionId;
     @FXML
-    public ComboBox EditCustomerCountryId;
+    public ComboBox<Country> EditCustomerCountryId;
 
     @FXML
     private Button EditCustomersSave;
@@ -66,19 +67,34 @@ public class EditCustomersController implements Initializable {
 
     }
 
-    public void setCustomer(Customers selectedCustomer) {
+    public void setCustomer(Customers selectedCustomer) throws SQLException {
 
         this.EditCustomerCustomerId.setText(Integer.toString(selectedCustomer.getCustomerId()));
         this.EditCustomerName.setText(selectedCustomer.getCustomerName());
         this.EditCustomerAddress.setText(selectedCustomer.getCustomerAddress());
         this.EditCustomerPostalCode.setText(selectedCustomer.getCustomerPostalCode());
         this.EditCustomerPhone.setText(selectedCustomer.getCustomerPhone());
-        // this.EditCustomerDivisionId.setItems(Customers.getFilteredDivisions(selectedCustomer.getCountry()));
-        // this.EditCustomerCountryId.setItems(getCountryId(getDivisionId));
+
+        for (Divisions division: DivisionDAO.getAllDivisions()) {
+            if (division.getDivisionId()== selectedCustomer.getDivisionId()) {
+                this.EditCustomerDivisionId.setValue(division);
+
+            }
+        }
+
+        for (Country country: CountryDAO.getAllCountries()) {
+            if (country.getCountryId()== this.EditCustomerDivisionId.getValue().getCountryId()) {
+                this.EditCustomerCountryId.setValue(country);
+
+            }
+        }
+
+        // this.EditCustomerCountryId.setValue(getCountryId(getDivisionId));
 
     }
 
     public void EnableCustomersEditDivisions(ActionEvent event) throws SQLException {
+
         ObservableList<Divisions> filterEditDivisions = FXCollections.observableArrayList();
         EditCustomerDivisionId.setDisable(false);
         for (Divisions divisions: DivisionDAO.getAllDivisions()) {
@@ -88,6 +104,7 @@ public class EditCustomersController implements Initializable {
         }
         // AddCustomerDivisionId.setValue(null);
         EditCustomerDivisionId.setItems(filterEditDivisions);
+
     }
 
     @Override

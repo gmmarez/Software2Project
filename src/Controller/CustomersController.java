@@ -63,15 +63,7 @@ public class CustomersController implements Initializable {
     }
 
     @FXML
-    void CustomersEditCustomer(ActionEvent event) throws IOException {
-       /**
-        // Go to Edit Customer Screen
-        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("../View/EditCustomers.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
-*/
-
+    void CustomersEditCustomer(ActionEvent event) throws IOException, SQLException {
 
          Stage stage;
          Parent root;

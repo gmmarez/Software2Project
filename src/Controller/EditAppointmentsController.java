@@ -1,5 +1,9 @@
 package Controller;
 
+import DAO.ContactDAO;
+import DAO.CountryDAO;
+import DAO.CustomerDAO;
+import DAO.UserDAO;
 import Model.Appointments;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -86,17 +90,24 @@ public class EditAppointmentsController implements Initializable {
         this.EditAppointmentDescription.setText(selectedAppointment.getAppointmentDescription());
         this.EditAppointmentLocation.setText(selectedAppointment.getAppointmentLocation());
         this.EditAppointmentType.setText(selectedAppointment.getAppointmentType());
-        // this.EditAppointmentStartTime.setText(toString(selectedAppointment.getAppointmentStartTime()));
-        // this.EditAppointmentEndTime.setText(selectedAppointment.getAppointmentEndTime());
-        // this.EditAppointmentCustomerId.setItems();
-        // this.EditAppointmentUserId.setItems();
-        // this.EditAppointmentContactId.setItems();
+        this.EditAppointmentStartTime.setText(selectedAppointment.getAppointmentStartTime().toString());
+        this.EditAppointmentEndTime.setText(selectedAppointment.getAppointmentEndTime().toString());
+        this.EditAppointmentCustomerId.setValue(selectedAppointment.getCustomerId());
+        this.EditAppointmentUserId.setValue(selectedAppointment.getUserId());
+        this.EditAppointmentContactId.setValue(selectedAppointment.getContactId());
 
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            EditAppointmentCustomerId.setItems(CustomerDAO.getAllCustomers());
+            EditAppointmentContactId.setValue(ContactDAO.getAllContacts());
+            EditAppointmentUserId.setValue(UserDAO.getAllUsers());
 
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
