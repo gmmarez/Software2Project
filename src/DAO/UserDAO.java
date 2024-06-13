@@ -16,7 +16,7 @@ public class UserDAO {
     }
     public static int validateUser(String username, String password){
         try {
-            String query = "SELECT * FROM client_schedule.users WHERE User_Name = " + username + " AND Password = " + password + "";
+            String query = "SELECT * FROM client_schedule.users WHERE User_Name = '" + username + "' AND Password = '" + password + "'";
 
             PreparedStatement ps = JDBC.getConnection().prepareStatement(query);
             ResultSet rs = ps.executeQuery();

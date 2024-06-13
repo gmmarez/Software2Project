@@ -121,6 +121,7 @@ public class CustomersController implements Initializable {
                     }
                     */
 
+AppointmentDAO.deleteCustomerAppointment(deleteCustomerId);
                     CustomerDAO.deleteCustomer(deleteCustomerId);
                     ObservableList<Customers> allCustomersList = CustomerDAO.getAllCustomers();
                     CustomersTable.setItems(allCustomersList);

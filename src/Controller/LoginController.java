@@ -98,14 +98,13 @@ public class LoginController implements Initializable {
         }
 
 */
-
-
         // Successful goes to Main Menu
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
     }
+
 
     // Closes entire application
     @FXML

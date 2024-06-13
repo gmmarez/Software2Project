@@ -70,6 +70,15 @@ public class AppointmentDAO {
         } catch (SQLException e) {e.printStackTrace();}
     }
 
+    public static void deleteCustomerAppointment(int customerId) {
+        try {
+            String sql = "DELETE FROM appointments WHERE Customer_ID = ?";
+            PreparedStatement deleteAppointment = JDBC.conn.prepareStatement(sql);
+            deleteAppointment.setInt(1, customerId);
+            deleteAppointment.execute();
+        } catch (SQLException e) {e.printStackTrace();}
+    }
+
     public static ObservableList<Appointments> getContactAppointment(int contactId) {
 
         ObservableList<Appointments> chosenContactAppointment = FXCollections.observableArrayList();
