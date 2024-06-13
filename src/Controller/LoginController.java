@@ -67,7 +67,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void LoginSubmit(ActionEvent event) throws IOException {
-
+/*
         try {
 
             // Still need to input write file for tacking logins
@@ -97,7 +97,7 @@ public class LoginController implements Initializable {
             exception.printStackTrace();
         }
 
-
+*/
 
 
         // Successful goes to Main Menu
