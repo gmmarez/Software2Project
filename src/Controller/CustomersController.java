@@ -2,6 +2,7 @@ package Controller;
 
 import DAO.AppointmentDAO;
 import DAO.CustomerDAO;
+import Main.JDBC;
 import Model.Appointments;
 import Model.Customers;
 import javafx.collections.ObservableList;
@@ -16,6 +17,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -93,29 +96,40 @@ public class CustomersController implements Initializable {
 
     // Delete selected customer, delete any appointments that the customer may had.
     @FXML
-    void CustomersDeleteCustomer(ActionEvent actionEvent) {
+    void CustomersDeleteCustomer(ActionEvent actionEvent) throws SQLException {
+
+        ObservableList<Appointments> getAllAppointments = AppointmentDAO.getAllAppointments();
+
         try {
 
             int deleteCustomerId = CustomersTable.getSelectionModel().getSelectedItem().getCustomerId();
             String deleteCustomerName = CustomersTable.getSelectionModel().getSelectedItem().getCustomerName();
 
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete Customer ID: " + deleteCustomerId + "  " + deleteCustomerName);
             Optional<ButtonType> confirm = alert.showAndWait();
 
-
-            // No associated appointments.
             if (confirm.isPresent() && confirm.get() == ButtonType.OK) {
-                CustomerDAO.deleteCustomer(deleteCustomerId);
+            /*
+                for (Appointments appointment : getAllAppointments) {
+                    int customerFromAppointments = appointment.getCustomerId();
 
-                ObservableList<Customers> allCustomersList = CustomerDAO.getAllCustomers();
-                CustomersTable.setItems(allCustomersList);
+                    if (deleteCustomerId == customerFromAppointments) {
 
-                Alert alert1 = new Alert(Alert.AlertType.INFORMATION, "Customer information deleted.");
-                alert1.showAndWait();
-            }
-        } catch (Exception e) {
+                        AppointmentDAO.deleteAppointment()
 
-        }
+                    }
+                    */
+
+                    CustomerDAO.deleteCustomer(deleteCustomerId);
+                    ObservableList<Customers> allCustomersList = CustomerDAO.getAllCustomers();
+                    CustomersTable.setItems(allCustomersList);
+
+                    Alert alert1 = new Alert(Alert.AlertType.INFORMATION, "Customer information deleted.");
+                    alert1.showAndWait();
+                }
+
+        } catch (Exception e) {e.printStackTrace();}
 
     }
 
