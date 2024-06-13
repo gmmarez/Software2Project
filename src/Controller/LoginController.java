@@ -67,7 +67,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void LoginSubmit(ActionEvent event) throws IOException {
-        /*
+
         try {
 
             // Still need to input write file for tacking logins
@@ -75,6 +75,7 @@ public class LoginController implements Initializable {
             String username = UsernameTextBox.getText();
             String password = PasswordTextBox.getText();
             int userId = UserDAO.validateUser(username, password);
+            System.out.println(userId);
             ResourceBundle rb = ResourceBundle.getBundle("Resources/Login", Locale.getDefault());
 
             if (userId > 0) {
@@ -85,7 +86,7 @@ public class LoginController implements Initializable {
                 stage.show();
                 // Log successful login attempt
 
-            } else if (userId < 0) {
+            } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(rb.getString("Error"));
                 alert.setContentText(rb.getString("Incorrect"));
@@ -98,7 +99,7 @@ public class LoginController implements Initializable {
 
 
 
-*/
+
         // Successful goes to Main Menu
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
