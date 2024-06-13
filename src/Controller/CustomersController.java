@@ -97,41 +97,26 @@ public class CustomersController implements Initializable {
     // Delete selected customer, delete any appointments that the customer may had.
     @FXML
     void CustomersDeleteCustomer(ActionEvent actionEvent) throws SQLException {
-
-        ObservableList<Appointments> getAllAppointments = AppointmentDAO.getAllAppointments();
-
         try {
-
             int deleteCustomerId = CustomersTable.getSelectionModel().getSelectedItem().getCustomerId();
             String deleteCustomerName = CustomersTable.getSelectionModel().getSelectedItem().getCustomerName();
-
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete Customer ID: " + deleteCustomerId + "  " + deleteCustomerName);
             Optional<ButtonType> confirm = alert.showAndWait();
 
             if (confirm.isPresent() && confirm.get() == ButtonType.OK) {
-            /*
-                for (Appointments appointment : getAllAppointments) {
-                    int customerFromAppointments = appointment.getCustomerId();
 
-                    if (deleteCustomerId == customerFromAppointments) {
+                AppointmentDAO.deleteCustomerAppointment(deleteCustomerId);
+                CustomerDAO.deleteCustomer(deleteCustomerId);
 
-                        AppointmentDAO.deleteAppointment()
+                ObservableList<Customers> allCustomersList = CustomerDAO.getAllCustomers();
+                CustomersTable.setItems(allCustomersList);
 
-                    }
-                    */
+                Alert alert1 = new Alert(Alert.AlertType.INFORMATION, "Customer and all associated appointments deleted.");
+                alert1.showAndWait();
 
-AppointmentDAO.deleteCustomerAppointment(deleteCustomerId);
-                    CustomerDAO.deleteCustomer(deleteCustomerId);
-                    ObservableList<Customers> allCustomersList = CustomerDAO.getAllCustomers();
-                    CustomersTable.setItems(allCustomersList);
-
-                    Alert alert1 = new Alert(Alert.AlertType.INFORMATION, "Customer information deleted.");
-                    alert1.showAndWait();
                 }
-
         } catch (Exception e) {e.printStackTrace();}
-
     }
 
     // Go to Main Menu
