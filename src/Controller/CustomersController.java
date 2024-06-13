@@ -53,6 +53,7 @@ public class CustomersController implements Initializable {
         }
     }
 
+    // Go to the Add Customer.
     @FXML
     void CustomersAddCustomer(ActionEvent event) throws IOException {
         // Go to Add Customer screen
@@ -62,6 +63,7 @@ public class CustomersController implements Initializable {
         stage.show();
     }
 
+    // Grab current Customer information load it into Edit Customers.
     @FXML
     void CustomersEditCustomer(ActionEvent event) throws IOException, SQLException {
 
@@ -89,6 +91,7 @@ public class CustomersController implements Initializable {
          }
     }
 
+    // Delete selected customer, delete any appointments that the customer may had.
     @FXML
     void CustomersDeleteCustomer(ActionEvent actionEvent) {
         try {
@@ -98,6 +101,9 @@ public class CustomersController implements Initializable {
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete Customer ID: " + deleteCustomerId + "  " + deleteCustomerName);
             Optional<ButtonType> confirm = alert.showAndWait();
+
+
+            // No associated appointments.
             if (confirm.isPresent() && confirm.get() == ButtonType.OK) {
                 CustomerDAO.deleteCustomer(deleteCustomerId);
 
@@ -107,10 +113,13 @@ public class CustomersController implements Initializable {
                 Alert alert1 = new Alert(Alert.AlertType.INFORMATION, "Customer information deleted.");
                 alert1.showAndWait();
             }
-        } catch (Exception e) {e.printStackTrace();}
+        } catch (Exception e) {
+
+        }
 
     }
 
+    // Go to Main Menu
     @FXML
     void CustomersBack(ActionEvent event) throws IOException {
         // Go back to Main Menu
