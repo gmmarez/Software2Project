@@ -1,9 +1,6 @@
 package Controller;
 
-import DAO.ContactDAO;
-import DAO.CountryDAO;
-import DAO.CustomerDAO;
-import DAO.UserDAO;
+import DAO.*;
 import Model.Appointments;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,12 +8,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class EditAppointmentsController implements Initializable {
@@ -73,6 +73,71 @@ public class EditAppointmentsController implements Initializable {
 
     @FXML
     void AddAppointmentsSave(ActionEvent event) {
+        try {
+            if (AddAppointmentTitle.getText().isEmpty() || AddAppointmentTitle.getText().isBlank()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Missing Appointment Title");
+                alert.show();
+            } else if (AddAppointmentDescription.getText().isEmpty() || AddAppointmentDescription.getText().isBlank()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Missing Appointment Description");
+                alert.show();
+            } else if (AddAppointmentLocation.getText().isEmpty() || AddAppointmentLocation.getText().isBlank()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Missing Appointment Location");
+                alert.show();
+            } else if (AddAppointmentType.getText().isEmpty() || AddAppointmentType.getText().isBlank()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Missing Appointment Type");
+                alert.show();
+            }  else if (AddAppointmentCustomerId.equals("Customer")) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Missing Customer");
+                alert.show();
+            } else if (AddAppointmentUserId.equals("User")) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Missing User");
+                alert.show();
+            } else if (AddAppointmentContactId.equals("Contact")) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Missing Contact");
+                alert.show();
+            }
+
+            int appointmentId = EditAppointmentAppointmentId.getText();
+            String appointmentTitle = EditAppointmentTitle.getText();
+            String appointmentDescription = EditAppointmentDescription.getText();
+            String appointmentLocation = EditAppointmentLocation.getText();
+            String appointmentType = EditAppointmentType.getText();
+            LocalDateTime appointmentStartTime = EditAppointmentStartTime
+            LocalDateTime appointmentEndTime = EditAppointmentEndTime
+            int contactId = EditAppointmentContactId.getValue().getContactId();
+            int customerId = EditAppointmentCustomerId.getValue().getCustomerId();
+            int userId = EditAppointmentUserId.getValue();
+
+
+            AppointmentDAO.updateAppointment(appointmentId, appointmentTitle, appointmentDescription,
+                    appointmentLocation, appointmentType, appointmentStartTime,
+                    appointmentEndTime, contactId, customerId, userId);
+
+            System.out.println("Appointment Updated");
+
+            // Go back to Appointments screen
+            stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+            scene = FXMLLoader.load(getClass().getResource("../View/Appointments.fxml"));
+            stage.setScene(new Scene(scene));
+            stage.show();
+
+
+        } catch (SQLException | IOException exception) {System.out.println(exception);}
+
     }
 
     @FXML
@@ -84,6 +149,7 @@ public class EditAppointmentsController implements Initializable {
         stage.show();
     }
 
+    // Set selected appointment information
     public void setAppointment(Appointments selectedAppointment) {
         this.EditAppointmentAppointmentId.setText(Integer.toString(selectedAppointment.getAppointmentId()));
         this.EditAppointmentTitle.setText(selectedAppointment.getAppointmentTitle());
