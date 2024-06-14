@@ -202,4 +202,35 @@ public class AppointmentDAO {
         }
         return monthlyAppointments;
     }
+
+    public static void updateAppointment(int appointmentId, String appointmentTitle, String appointmentDescription,
+                                         String appointmentLocation, String appointmentType, LocalDateTime appointmentStartTime,
+                                         LocalDateTime appointmentEndTime, int contactId, int customerId,
+                                         int userId) {
+        try {
+
+            String sql = "UPDATE appointments SET Title = ?, Description = ?, Location = ?, Type = ?, Start = ?, End = ?, Customer_ID = ?, User_ID = ?, Contact_ID = ? WHERE Appointment_ID = ?";
+            PreparedStatement updateAppointment = JDBC.conn.prepareStatement(sql);
+
+            updateAppointment.setInt(1, appointmentId);
+            updateAppointment.setString(2, appointmentTitle);
+            updateAppointment.setString(3, appointmentDescription);
+            updateAppointment.setString(4, appointmentLocation);
+            updateAppointment.setString(5, appointmentType);
+            updateAppointment.setTimestamp(6, Timestamp.valueOf(appointmentStartTime));
+            updateAppointment.setTimestamp(7, Timestamp.valueOf(appointmentEndTime));
+            updateAppointment.setInt(8, contactId);
+            updateAppointment.setInt(9, customerId);
+            updateAppointment.setInt(10, userId);
+
+            updateAppointment.execute();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+
 }
