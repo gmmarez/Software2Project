@@ -67,7 +67,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void LoginSubmit(ActionEvent event) throws IOException {
-/*
+
         try {
 
             // Still need to input write file for tacking logins
@@ -97,12 +97,6 @@ public class LoginController implements Initializable {
             exception.printStackTrace();
         }
 
-*/
-        // Successful goes to Main Menu
-        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
     }
 
 
