@@ -74,44 +74,44 @@ public class EditAppointmentsController implements Initializable {
     @FXML
     void AddAppointmentsSave(ActionEvent event) {
         try {
-            if (AddAppointmentTitle.getText().isEmpty() || AddAppointmentTitle.getText().isBlank()) {
+            if (EditAppointmentTitle.getText().isEmpty() || EditAppointmentTitle.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setContentText("Missing Appointment Title");
                 alert.show();
-            } else if (AddAppointmentDescription.getText().isEmpty() || AddAppointmentDescription.getText().isBlank()) {
+            } else if (EditAppointmentDescription.getText().isEmpty() || EditAppointmentDescription.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setContentText("Missing Appointment Description");
                 alert.show();
-            } else if (AddAppointmentLocation.getText().isEmpty() || AddAppointmentLocation.getText().isBlank()) {
+            } else if (EditAppointmentLocation.getText().isEmpty() || EditAppointmentLocation.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setContentText("Missing Appointment Location");
                 alert.show();
-            } else if (AddAppointmentType.getText().isEmpty() || AddAppointmentType.getText().isBlank()) {
+            } else if (EditAppointmentType.getText().isEmpty() || EditAppointmentType.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setContentText("Missing Appointment Type");
                 alert.show();
-            }  else if (AddAppointmentCustomerId.equals("Customer")) {
+            }  else if (EditAppointmentCustomerId.equals("Customer")) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setContentText("Missing Customer");
                 alert.show();
-            } else if (AddAppointmentUserId.equals("User")) {
+            } else if (EditAppointmentUserId.equals("User")) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setContentText("Missing User");
                 alert.show();
-            } else if (AddAppointmentContactId.equals("Contact")) {
+            } else if (EditAppointmentContactId.equals("Contact")) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setContentText("Missing Contact");
                 alert.show();
             }
 
-            int appointmentId = EditAppointmentAppointmentId.getText();
+            int appointmentId = EditAppointmentAppointmentId
             String appointmentTitle = EditAppointmentTitle.getText();
             String appointmentDescription = EditAppointmentDescription.getText();
             String appointmentLocation = EditAppointmentLocation.getText();

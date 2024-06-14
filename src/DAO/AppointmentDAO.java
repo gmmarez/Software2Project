@@ -212,16 +212,16 @@ public class AppointmentDAO {
             String sql = "UPDATE appointments SET Title = ?, Description = ?, Location = ?, Type = ?, Start = ?, End = ?, Customer_ID = ?, User_ID = ?, Contact_ID = ? WHERE Appointment_ID = ?";
             PreparedStatement updateAppointment = JDBC.conn.prepareStatement(sql);
 
-            updateAppointment.setInt(1, appointmentId);
-            updateAppointment.setString(2, appointmentTitle);
-            updateAppointment.setString(3, appointmentDescription);
-            updateAppointment.setString(4, appointmentLocation);
-            updateAppointment.setString(5, appointmentType);
-            updateAppointment.setTimestamp(6, Timestamp.valueOf(appointmentStartTime));
-            updateAppointment.setTimestamp(7, Timestamp.valueOf(appointmentEndTime));
-            updateAppointment.setInt(8, contactId);
-            updateAppointment.setInt(9, customerId);
-            updateAppointment.setInt(10, userId);
+            updateAppointment.setString(1, appointmentTitle);
+            updateAppointment.setString(2, appointmentDescription);
+            updateAppointment.setString(3, appointmentLocation);
+            updateAppointment.setString(4, appointmentType);
+            updateAppointment.setTimestamp(5, Timestamp.valueOf(appointmentStartTime));
+            updateAppointment.setTimestamp(6, Timestamp.valueOf(appointmentEndTime));
+            updateAppointment.setInt(7, contactId);
+            updateAppointment.setInt(8, customerId);
+            updateAppointment.setInt(9, userId);
+            updateAppointment.setInt(10, appointmentId);
 
             updateAppointment.execute();
 
