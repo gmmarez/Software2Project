@@ -124,9 +124,8 @@ public class EditAppointmentsController implements Initializable {
             int userId = EditAppointmentUserId.getValue().getUserId;
 
 
-            AppointmentDAO.updateAppointment(appointmentId, appointmentTitle, appointmentDescription,
-                    appointmentLocation, appointmentType, appointmentStartTime,
-                    appointmentEndTime, contactId, customerId, userId);
+            AppointmentDAO.updateAppointment(appointmentTitle, appointmentDescription, appointmentLocation, appointmentType,
+                    appointmentStartTime, appointmentEndTime, createdDate, lastUpdated, contactId, customerId, userId);
 
             System.out.println("Appointment Updated");
 
