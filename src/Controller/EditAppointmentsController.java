@@ -2,6 +2,7 @@ package Controller;
 
 import DAO.*;
 import Model.Appointments;
+import Model.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -116,11 +117,11 @@ public class EditAppointmentsController implements Initializable {
             String appointmentDescription = EditAppointmentDescription.getText();
             String appointmentLocation = EditAppointmentLocation.getText();
             String appointmentType = EditAppointmentType.getText();
-            LocalDateTime appointmentStartTime = EditAppointmentStartTime
-            LocalDateTime appointmentEndTime = EditAppointmentEndTime
+            LocalDateTime appointmentStartTime = EditAppointmentStartTime.LocalDateTime.now();
+            LocalDateTime appointmentEndTime = EditAppointmentEndTime.LocalDateTime.now();
             int contactId = EditAppointmentContactId.getValue().getContactId();
             int customerId = EditAppointmentCustomerId.getValue().getCustomerId();
-            int userId = EditAppointmentUserId.getValue();
+            int userId = EditAppointmentUserId.getValue().getUserId;
 
 
             AppointmentDAO.updateAppointment(appointmentId, appointmentTitle, appointmentDescription,
