@@ -203,10 +203,9 @@ public class AppointmentDAO {
         return monthlyAppointments;
     }
 
-    public static void updateAppointment(int appointmentId, String appointmentTitle, String appointmentDescription,
-                                         String appointmentLocation, String appointmentType, LocalDateTime appointmentStartTime,
-                                         LocalDateTime appointmentEndTime, int contactId, int customerId,
-                                         int userId) {
+    public static void updateAppointment(String appointmentTitle, String appointmentDescription, String appointmentLocation,
+                                         String appointmentType, LocalDateTime appointmentStartTime,
+                                         LocalDateTime appointmentEndTime, int contactId, int customerId, int userId) {
         try {
 
             String sql = "UPDATE appointments SET Title = ?, Description = ?, Location = ?, Type = ?, Start = ?, End = ?, Customer_ID = ?, User_ID = ?, Contact_ID = ? WHERE Appointment_ID = ?";
@@ -221,7 +220,6 @@ public class AppointmentDAO {
             updateAppointment.setInt(7, contactId);
             updateAppointment.setInt(8, customerId);
             updateAppointment.setInt(9, userId);
-            updateAppointment.setInt(10, appointmentId);
 
             updateAppointment.execute();
 

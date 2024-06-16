@@ -2,6 +2,8 @@ package Controller;
 
 import DAO.*;
 import Model.Appointments;
+import Model.Contacts;
+import Model.Customers;
 import Model.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +19,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
@@ -55,13 +58,13 @@ public class EditAppointmentsController implements Initializable {
     public TextField EditAppointmentLastUpdatedBy;
 
     @FXML
-    public ComboBox EditAppointmentCustomerId;
+    public ComboBox <Customers> EditAppointmentCustomerId;
 
     @FXML
-    public ComboBox EditAppointmentUserId;
+    public ComboBox <Users> EditAppointmentUserId;
 
     @FXML
-    public ComboBox EditAppointmentContactId;
+    public ComboBox <Contacts> EditAppointmentContactId;
 
     @FXML
     private Button EditAppointmentsSave;
@@ -112,20 +115,18 @@ public class EditAppointmentsController implements Initializable {
                 alert.show();
             }
 
-            int appointmentId = EditAppointmentAppointmentId
             String appointmentTitle = EditAppointmentTitle.getText();
             String appointmentDescription = EditAppointmentDescription.getText();
             String appointmentLocation = EditAppointmentLocation.getText();
             String appointmentType = EditAppointmentType.getText();
-            LocalDateTime appointmentStartTime = EditAppointmentStartTime.LocalDateTime.now();
-            LocalDateTime appointmentEndTime = EditAppointmentEndTime.LocalDateTime.now();
+            LocalDateTime appointmentStartTime = Timestamp.valueOf(String.valueOf(EditAppointmentStartTime)).toLocalDateTime();
+            LocalDateTime appointmentEndTime = Timestamp.valueOf(String.valueOf(EditAppointmentEndTime)).toLocalDateTime();
             int contactId = EditAppointmentContactId.getValue().getContactId();
             int customerId = EditAppointmentCustomerId.getValue().getCustomerId();
-            int userId = EditAppointmentUserId.getValue().getUserId;
-
+            int userId = EditAppointmentUserId.getValue().getUserId();
 
             AppointmentDAO.updateAppointment(appointmentTitle, appointmentDescription, appointmentLocation, appointmentType,
-                    appointmentStartTime, appointmentEndTime, createdDate, lastUpdated, contactId, customerId, userId);
+                    appointmentStartTime, appointmentEndTime, contactId, customerId, userId);
 
             System.out.println("Appointment Updated");
 
@@ -135,8 +136,7 @@ public class EditAppointmentsController implements Initializable {
             stage.setScene(new Scene(scene));
             stage.show();
 
-
-        } catch (SQLException | IOException exception) {System.out.println(exception);}
+        } catch (IOException exception) {System.out.println(exception);}
 
     }
 
@@ -169,8 +169,8 @@ public class EditAppointmentsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             EditAppointmentCustomerId.setItems(CustomerDAO.getAllCustomers());
-            EditAppointmentContactId.setValue(ContactDAO.getAllContacts());
-            EditAppointmentUserId.setValue(UserDAO.getAllUsers());
+            EditAppointmentContactId.setItems(ContactDAO.getAllContacts());
+            EditAppointmentUserId.setItems(UserDAO.getAllUsers());
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
