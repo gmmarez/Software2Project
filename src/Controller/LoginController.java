@@ -32,6 +32,8 @@ public class LoginController implements Initializable {
     @FXML
     private TextField ZoneIdTextBox;
 
+    private boolean loginSuccess = false;
+
     Stage stage;
     Parent scene;
 
@@ -75,12 +77,16 @@ public class LoginController implements Initializable {
             ResourceBundle rb = ResourceBundle.getBundle("Languages.login", Locale.getDefault());
 
             if (userId > 0) {
+
+                loginSuccess = true;
+
                 // Successful goes to Main Menu
                 stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                 scene = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
                 stage.setScene(new Scene(scene));
                 stage.show();
-                // Log successful login attempt
+
+
 
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
