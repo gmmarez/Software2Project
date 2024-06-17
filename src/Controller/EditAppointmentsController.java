@@ -58,13 +58,13 @@ public class EditAppointmentsController implements Initializable {
     public TextField EditAppointmentLastUpdatedBy;
 
     @FXML
-    public ComboBox <Customers> EditAppointmentCustomerId;
+    public ComboBox EditAppointmentCustomerId;
 
     @FXML
-    public ComboBox <Users> EditAppointmentUserId;
+    public ComboBox EditAppointmentUserId;
 
     @FXML
-    public ComboBox <Contacts> EditAppointmentContactId;
+    public ComboBox EditAppointmentContactId;
 
     @FXML
     private Button EditAppointmentsSave;
@@ -77,6 +77,7 @@ public class EditAppointmentsController implements Initializable {
 
     @FXML
     void AddAppointmentsSave(ActionEvent event) {
+        /*
         try {
             if (EditAppointmentTitle.getText().isEmpty() || EditAppointmentTitle.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -137,7 +138,7 @@ public class EditAppointmentsController implements Initializable {
             stage.show();
 
         } catch (IOException exception) {System.out.println(exception);}
-
+*/
     }
 
     @FXML
