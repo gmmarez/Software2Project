@@ -11,10 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -40,10 +37,10 @@ public class EditAppointmentsController implements Initializable {
     private TextField EditAppointmentType;
 
     @FXML
-    private TextField EditAppointmentStartTime;
+    private DatePicker EditAppointmentStartTime;
 
     @FXML
-    private TextField EditAppointmentEndTime;
+    private DatePicker EditAppointmentEndTime;
 
     @FXML
     public TextField EditAppointmentCreateDate;
@@ -157,8 +154,8 @@ public class EditAppointmentsController implements Initializable {
         this.EditAppointmentDescription.setText(selectedAppointment.getAppointmentDescription());
         this.EditAppointmentLocation.setText(selectedAppointment.getAppointmentLocation());
         this.EditAppointmentType.setText(selectedAppointment.getAppointmentType());
-        this.EditAppointmentStartTime.setText(selectedAppointment.getAppointmentStartTime().toString());
-        this.EditAppointmentEndTime.setText(selectedAppointment.getAppointmentEndTime().toString());
+        this.EditAppointmentStartTime.selectedAppointment.getAppointmentStartTime();
+        this.EditAppointmentEndTime.setText(selectedAppointment.getAppointmentEndTime());
         this.EditAppointmentCustomerId.setValue(selectedAppointment.getCustomerId());
         this.EditAppointmentUserId.setValue(selectedAppointment.getUserId());
         this.EditAppointmentContactId.setValue(selectedAppointment.getContactId());
