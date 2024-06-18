@@ -10,10 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -38,10 +35,10 @@ public class AddAppointmentsController implements Initializable {
     private TextField AddAppointmentType;
 
     @FXML
-    private TextField AddAppointmentStartTime;
+    private DatePicker AddAppointmentStartTime;
 
     @FXML
-    private TextField AddAppointmentEndTime;
+    private DatePicker AddAppointmentEndTime;
 
     @FXML
     public TextField AddAppointmentCreateDate;
@@ -106,6 +103,19 @@ public class AddAppointmentsController implements Initializable {
                 alert.setTitle("Error");
                 alert.setContentText("Missing Appointment Type");
                 alert.show();
+
+            } else if (AddAppointmentStartTime == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Missing Appointment Start");
+                alert.show();
+
+            } else if (AddAppointmentEndTime == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Missing Appointment End");
+                alert.show();
+
             }  else if (AddAppointmentCustomerId.equals("Customer")) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
@@ -127,8 +137,8 @@ public class AddAppointmentsController implements Initializable {
                 String appointmentDescription = AddAppointmentDescription.getText();
                 String appointmentLocation = AddAppointmentLocation.getText();
                 String appointmentType = AddAppointmentType.getText();
-                LocalDateTime appointmentStartTime = LocalDateTime.now();
-                LocalDateTime appointmentEndTime = LocalDateTime.now();
+                LocalDateTime appointmentStartTime = AddAppointmentStartTime.getValue().atStartOfDay();
+                LocalDateTime appointmentEndTime = AddAppointmentEndTime.getValue().atStartOfDay();
                 LocalDateTime createdDate = LocalDateTime.now();
                 LocalDateTime lastUpdated = LocalDateTime.now();
                 int contactId = AddAppointmentContactId.getValue().getContactId();
