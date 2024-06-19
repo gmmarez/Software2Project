@@ -113,17 +113,19 @@ public class EditAppointmentsController implements Initializable {
                 alert.show();
             }
 
+            int appointmentId = Integer.parseInt(EditAppointmentAppointmentId.getText());
             String appointmentTitle = EditAppointmentTitle.getText();
             String appointmentDescription = EditAppointmentDescription.getText();
             String appointmentLocation = EditAppointmentLocation.getText();
             String appointmentType = EditAppointmentType.getText();
-            LocalDateTime appointmentStartTime = Timestamp.valueOf(String.valueOf(EditAppointmentStartTime)).toLocalDateTime();
-            LocalDateTime appointmentEndTime = Timestamp.valueOf(String.valueOf(EditAppointmentEndTime)).toLocalDateTime();
+            LocalDateTime appointmentStartTime = EditAppointmentStartTime.getValue().atStartOfDay();
+            LocalDateTime appointmentEndTime = EditAppointmentEndTime.getValue().atStartOfDay();
             int contactId = EditAppointmentContactId.getValue().getContactId();
             int customerId = EditAppointmentCustomerId.getValue().getCustomerId();
             int userId = EditAppointmentUserId.getValue().getUserId();
 
-            AppointmentDAO.updateAppointment(appointmentTitle, appointmentDescription, appointmentLocation, appointmentType,
+
+            AppointmentDAO.updateAppointment(appointmentId, appointmentTitle, appointmentDescription, appointmentLocation, appointmentType,
                     appointmentStartTime, appointmentEndTime, contactId, customerId, userId);
 
             System.out.println("Appointment Updated");
