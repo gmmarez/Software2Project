@@ -154,8 +154,8 @@ public class EditAppointmentsController implements Initializable {
         this.EditAppointmentDescription.setText(selectedAppointment.getAppointmentDescription());
         this.EditAppointmentLocation.setText(selectedAppointment.getAppointmentLocation());
         this.EditAppointmentType.setText(selectedAppointment.getAppointmentType());
-        this.EditAppointmentStartTime.selectedAppointment.getAppointmentStartTime();
-        this.EditAppointmentEndTime.setText(selectedAppointment.getAppointmentEndTime());
+        this.EditAppointmentStartTime.setValue(selectedAppointment.getAppointmentStartTime().toLocalDate());
+        this.EditAppointmentEndTime.setValue(selectedAppointment.getAppointmentEndTime().toLocalDate());
         this.EditAppointmentCustomerId.setValue(selectedAppointment.getCustomerId());
         this.EditAppointmentUserId.setValue(selectedAppointment.getUserId());
         this.EditAppointmentContactId.setValue(selectedAppointment.getContactId());
