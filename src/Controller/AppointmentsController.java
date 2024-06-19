@@ -57,8 +57,8 @@ try {
         AppointmentsTypeCol.setCellValueFactory(new PropertyValueFactory<>("appointmentType"));
         AppointmentsStartTimeCol.setCellValueFactory(new PropertyValueFactory<>("appointmentStartTime"));
         AppointmentsEndTimeCol.setCellValueFactory(new PropertyValueFactory<>("appointmentEndTime"));
-        AppointmentsCustomerIdCol.setCellValueFactory(new PropertyValueFactory<>("customerId"));
         AppointmentsContactIdCol.setCellValueFactory(new PropertyValueFactory<>("contactId"));
+        AppointmentsCustomerIdCol.setCellValueFactory(new PropertyValueFactory<>("customerId"));
         AppointmentsUserIdCol.setCellValueFactory(new PropertyValueFactory<>("userId"));
 
     } catch(Exception e){
@@ -94,6 +94,7 @@ try {
         root = loader.load();
         EditAppointmentsController controller = loader.getController();
         Appointments selectedAppointment = AppointmentsTable.getSelectionModel().getSelectedItem();
+        // System.out.println(selectedAppointment.getUserId());
 
         if (selectedAppointment != null) {
             controller.setAppointment(selectedAppointment);

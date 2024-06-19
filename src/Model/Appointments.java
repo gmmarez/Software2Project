@@ -82,9 +82,7 @@ public class Appointments {
 
     public void setAppointmentEndTime(LocalDateTime appointmentEndTime) { this.appointmentEndTime = appointmentEndTime; }
 
-    public int getContactId() {
-        return contactId;
-    }
+    public int getContactId() { return contactId;}
 
     public void setContactId(int contactId) {
         this.contactId = contactId;
@@ -98,9 +96,7 @@ public class Appointments {
         this.customerId = customerId;
     }
 
-    public int getUserId() {
-        return userId;
-    }
+    public int getUserId() { return userId;}
 
     public void setUserId(int userId) {
         this.userId = userId;

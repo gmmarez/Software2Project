@@ -63,17 +63,17 @@
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>
                   </DatePicker>
+                  <ComboBox fx:id="EditAppointmentContactId" prefWidth="200.0" promptText="Contact ID">
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                  </ComboBox>
                   <ComboBox fx:id="EditAppointmentCustomerId" prefWidth="200.0" promptText="Customer ID">
                      <VBox.margin>
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>
                   </ComboBox>
                   <ComboBox fx:id="EditAppointmentUserId" prefWidth="200.0" promptText="User ID">
-                     <VBox.margin>
-                        <Insets left="20.0" top="10.0" />
-                     </VBox.margin>
-                  </ComboBox>
-                  <ComboBox fx:id="EditAppointmentContactId" prefWidth="200.0" promptText="Contact ID">
                      <VBox.margin>
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>

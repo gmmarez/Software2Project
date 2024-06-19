@@ -159,9 +159,8 @@ public class EditAppointmentsController implements Initializable {
         this.EditAppointmentContactId.getSelectionModel().select(selectedAppointment.getContactId());
         this.EditAppointmentCustomerId.getSelectionModel().select(selectedAppointment.getCustomerId());
         this.EditAppointmentUserId.getSelectionModel().select(selectedAppointment.getUserId());
-
+        // System.out.println(selectedAppointment.getUserId());
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

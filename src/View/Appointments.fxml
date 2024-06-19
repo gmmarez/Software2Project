@@ -42,7 +42,7 @@
                   </Button>
                </children>
             </VBox>
-            <TableView fx:id="AppointmentsTable" prefHeight="172.0" prefWidth="845.0">
+            <TableView fx:id="AppointmentsTable" prefHeight="300.0" prefWidth="866.0">
               <columns>
                 <TableColumn fx:id="AppointmentsIdCol" prefWidth="22.0" text="ID" />
                 <TableColumn fx:id="AppointmentsTitleCol" prefWidth="60.0" text="Title" />
@@ -51,9 +51,9 @@
                   <TableColumn fx:id="AppointmentsTypeCol" prefWidth="108.0" text="Type" />
                   <TableColumn fx:id="AppointmentsStartTimeCol" prefWidth="141.0" text="Start" />
                   <TableColumn fx:id="AppointmentsEndTimeCol" prefWidth="146.0" text="End" />
-                  <TableColumn fx:id="AppointmentsCustomerIdCol" minWidth="0.0" prefWidth="79.0" text="Customer ID" />
-                  <TableColumn fx:id="AppointmentsUserIdCol" minWidth="0.0" prefWidth="61.0" text="User ID" />
-                  <TableColumn fx:id="AppointmentsContactIdCol" prefWidth="69.0" text="Contact ID" />
+                  <TableColumn fx:id="AppointmentsContactIdCol" prefWidth="76.0" text="Contact ID" />
+                  <TableColumn fx:id="AppointmentsCustomerIdCol" minWidth="0.0" prefWidth="78.0" text="Customer ID" />
+                  <TableColumn fx:id="AppointmentsUserIdCol" minWidth="0.0" prefWidth="55.0" text="User ID" />
               </columns>
                <HBox.margin>
                   <Insets left="10.0" />

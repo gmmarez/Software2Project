@@ -116,6 +116,12 @@ public class AddAppointmentsController implements Initializable {
                 alert.setContentText("Missing Appointment End");
                 alert.show();
 
+            } else if (AddAppointmentContactId.equals("Contact")) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setContentText("Missing Contact");
+                    alert.show();
+
             }  else if (AddAppointmentCustomerId.equals("Customer")) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
@@ -125,11 +131,6 @@ public class AddAppointmentsController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setContentText("Missing User");
-                alert.show();
-            } else if (AddAppointmentContactId.equals("Contact")) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setContentText("Missing Contact");
                 alert.show();
             }
 
