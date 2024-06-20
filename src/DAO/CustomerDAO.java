@@ -73,4 +73,27 @@ public class CustomerDAO {
         }
         return customerId;
     }
+
+    public static void updateCustomer(int customerId, String customerName, String customerAddress, String customerPostalCode, String customerPhone, LocalDateTime createdDate, LocalDateTime lastUpdated, int divisionId) {
+        try {
+
+            String sql = "UPDATE customers SET Customer_Name = ?, Address = ?, Postal_Code = ?, Phone = ?, Create_Date = ?, Last_Update = ?, Division_ID = ? WHERE Customer_ID = ?";
+            PreparedStatement updateAppointment = JDBC.conn.prepareStatement(sql);
+
+            updateAppointment.setString(1, customerName);
+            updateAppointment.setString(2, customerAddress);
+            updateAppointment.setString(3, customerPostalCode);
+            updateAppointment.setString(4, customerPhone);
+            updateAppointment.setTimestamp(5, Timestamp.valueOf(createdDate));
+            updateAppointment.setTimestamp(6, Timestamp.valueOf(lastUpdated));
+            updateAppointment.setInt(7, divisionId);
+            updateAppointment.setInt(8, customerId);
+
+            updateAppointment.execute();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }
