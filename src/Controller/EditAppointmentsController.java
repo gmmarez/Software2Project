@@ -1,10 +1,7 @@
 package Controller;
 
 import DAO.*;
-import Model.Appointments;
-import Model.Contacts;
-import Model.Customers;
-import Model.Users;
+import Model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -150,7 +147,7 @@ public class EditAppointmentsController implements Initializable {
     }
 
     // Set selected appointment information
-    public void setAppointment(Appointments selectedAppointment) {
+    public void setAppointment(Appointments selectedAppointment) throws SQLException {
         this.EditAppointmentAppointmentId.setText(Integer.toString(selectedAppointment.getAppointmentId()));
         this.EditAppointmentTitle.setText(selectedAppointment.getAppointmentTitle());
         this.EditAppointmentDescription.setText(selectedAppointment.getAppointmentDescription());
@@ -158,12 +155,32 @@ public class EditAppointmentsController implements Initializable {
         this.EditAppointmentType.setText(selectedAppointment.getAppointmentType());
         this.EditAppointmentStartTime.setValue(selectedAppointment.getAppointmentStartTime().toLocalDate());
         this.EditAppointmentEndTime.setValue(selectedAppointment.getAppointmentEndTime().toLocalDate());
-        this.EditAppointmentContactId.getSelectionModel().select(selectedAppointment.getContactId());
-        this.EditAppointmentCustomerId.getSelectionModel().select(selectedAppointment.getCustomerId());
-        this.EditAppointmentUserId.getSelectionModel().select(selectedAppointment.getUserId());
-        // this.EditAppointmentUserId.setValue(selectedAppointment.getUserId());
 
-        System.out.println("User ID" + this.EditAppointmentUserId.getValue().getUserId());
+        // this.EditAppointmentContactId.getSelectionModel().select(selectedAppointment.getContactId());
+        for (Contacts contact: ContactDAO.getAllContacts()) {
+            if (contact.getContactId()== selectedAppointment.getContactId()) {
+                this.EditAppointmentContactId.setValue(contact);
+
+            }
+        }
+
+
+        // this.EditAppointmentCustomerId.getSelectionModel().select(selectedAppointment.getCustomerId());
+        for (Customers customer: CustomerDAO.getAllCustomers()) {
+            if (customer.getCustomerId()== selectedAppointment.getCustomerId()) {
+                this.EditAppointmentCustomerId.setValue(customer);
+
+            }
+        }
+
+        // this.EditAppointmentUserId.getSelectionModel().select(selectedAppointment.getUserId());
+        for (Users user: UserDAO.getAllUsers()) {
+            if (user.getUserId()== selectedAppointment.getUserId()) {
+                this.EditAppointmentUserId.setValue(user);
+
+            }
+        }
+
     }
 
     @Override
