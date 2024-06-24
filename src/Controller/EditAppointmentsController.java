@@ -161,7 +161,9 @@ public class EditAppointmentsController implements Initializable {
         this.EditAppointmentContactId.getSelectionModel().select(selectedAppointment.getContactId());
         this.EditAppointmentCustomerId.getSelectionModel().select(selectedAppointment.getCustomerId());
         this.EditAppointmentUserId.getSelectionModel().select(selectedAppointment.getUserId());
-        // System.out.println(selectedAppointment.getUserId());
+        // this.EditAppointmentUserId.setValue(selectedAppointment.getUserId());
+
+        System.out.println("User ID" + this.EditAppointmentUserId.getValue().getUserId());
     }
 
     @Override

@@ -15,7 +15,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.SQLOutput;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class AddAppointmentsController implements Initializable {
@@ -138,8 +140,15 @@ public class AddAppointmentsController implements Initializable {
                 String appointmentDescription = AddAppointmentDescription.getText();
                 String appointmentLocation = AddAppointmentLocation.getText();
                 String appointmentType = AddAppointmentType.getText();
-                LocalDateTime appointmentStartTime = AddAppointmentStartTime.getValue().atStartOfDay();
+
+                String appointmentStartHour = "10:00";
+                DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                LocalDateTime appointmentStartTime = LocalDateTime.parse(AddAppointmentStartTime.getValue().toString()+" " + appointmentStartHour, DTF);
+
+            System.out.println(appointmentStartTime.toString());
+
                 LocalDateTime appointmentEndTime = AddAppointmentEndTime.getValue().atStartOfDay();
+
                 LocalDateTime createdDate = LocalDateTime.now();
                 LocalDateTime lastUpdated = LocalDateTime.now();
                 int contactId = AddAppointmentContactId.getValue().getContactId();
