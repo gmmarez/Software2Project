@@ -77,7 +77,7 @@ try {
     }
 
     @FXML
-    void AppointmentsEditAppointment(ActionEvent event) throws IOException {
+    void AppointmentsEditAppointment(ActionEvent event) throws IOException, SQLException {
         /**
         // Go to Edit Appointment Screen
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();

@@ -21,6 +21,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class AddAppointmentsController implements Initializable {
+
     @FXML
     private TextField AddAppointmentAppointmentId;
 
@@ -40,7 +41,13 @@ public class AddAppointmentsController implements Initializable {
     private DatePicker AddAppointmentStartTime;
 
     @FXML
+    private TextField AddAppointmentStartHour;
+
+    @FXML
     private DatePicker AddAppointmentEndTime;
+
+    @FXML
+    private TextField AddAppointmentEndHour;
 
     @FXML
     public TextField AddAppointmentCreateDate;
@@ -136,24 +143,21 @@ public class AddAppointmentsController implements Initializable {
                 alert.show();
             }
 
-                String appointmentTitle = AddAppointmentTitle.getText();
-                String appointmentDescription = AddAppointmentDescription.getText();
-                String appointmentLocation = AddAppointmentLocation.getText();
-                String appointmentType = AddAppointmentType.getText();
+            DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-                String appointmentStartHour = "10:00";
-                DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-                LocalDateTime appointmentStartTime = LocalDateTime.parse(AddAppointmentStartTime.getValue().toString()+" " + appointmentStartHour, DTF);
-
-            System.out.println(appointmentStartTime.toString());
-
-                LocalDateTime appointmentEndTime = AddAppointmentEndTime.getValue().atStartOfDay();
-
-                LocalDateTime createdDate = LocalDateTime.now();
-                LocalDateTime lastUpdated = LocalDateTime.now();
-                int contactId = AddAppointmentContactId.getValue().getContactId();
-                int customerId = AddAppointmentCustomerId.getValue().getCustomerId();
-                int userId = AddAppointmentUserId.getValue().getUserId();
+            String appointmentTitle = AddAppointmentTitle.getText();
+            String appointmentDescription = AddAppointmentDescription.getText();
+            String appointmentLocation = AddAppointmentLocation.getText();
+            String appointmentType = AddAppointmentType.getText();
+            String appointmentStartHour = AddAppointmentStartHour.getText();
+            String appointmentEndHour = AddAppointmentEndHour.getText();
+            LocalDateTime appointmentStartTime = LocalDateTime.parse(AddAppointmentStartTime.getValue().toString()+" " + appointmentStartHour, DTF);
+            LocalDateTime appointmentEndTime = LocalDateTime.parse(AddAppointmentEndTime.getValue().toString()+" " + appointmentEndHour, DTF);
+            LocalDateTime createdDate = LocalDateTime.now();
+            LocalDateTime lastUpdated = LocalDateTime.now();
+            int contactId = AddAppointmentContactId.getValue().getContactId();
+            int customerId = AddAppointmentCustomerId.getValue().getCustomerId();
+            int userId = AddAppointmentUserId.getValue().getUserId();
 
 
             AppointmentDAO.addAppointment(appointmentTitle, appointmentDescription, appointmentLocation, appointmentType,
