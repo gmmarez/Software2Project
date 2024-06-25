@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="303.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditAppointmentsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditAppointmentsController">
    <children>
       <Label text="Edit Appointment">
          <font>
@@ -51,18 +51,28 @@
                   </TextField>
                </children>
             </VBox>
-            <VBox prefHeight="165.0" prefWidth="268.0">
+            <VBox prefHeight="235.0" prefWidth="223.0">
                <children>
-                  <DatePicker fx:id="EditAppointmentStartTime" prefHeight="25.0" prefWidth="200.0" promptText="Start">
+                  <DatePicker fx:id="EditAppointmentStartTime" prefHeight="25.0" prefWidth="200.0" promptText="Start Date">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
                   </DatePicker>
-                  <DatePicker fx:id="EditAppointmentEndTime" prefHeight="25.0" prefWidth="200.0" promptText="End">
+                  <TextField fx:id="EditAppointmentStartHour" promptText="Start Time">
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <DatePicker fx:id="EditAppointmentEndTime" prefHeight="25.0" prefWidth="200.0" promptText="End Date">
                      <VBox.margin>
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>
                   </DatePicker>
+                  <TextField fx:id="EditAppointmentEndHour" promptText="End Time">
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
                   <ComboBox fx:id="EditAppointmentContactId" prefWidth="200.0" promptText="Contact ID">
                      <VBox.margin>
                         <Insets left="20.0" top="10.0" />

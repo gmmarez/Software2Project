@@ -15,6 +15,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class EditAppointmentsController implements Initializable {
@@ -37,7 +38,13 @@ public class EditAppointmentsController implements Initializable {
     private DatePicker EditAppointmentStartTime;
 
     @FXML
+    private TextField EditAppointmentStartHour;
+
+    @FXML
     private DatePicker EditAppointmentEndTime;
+
+    @FXML
+    private TextField EditAppointmentEndHour;
 
     @FXML
     public TextField EditAppointmentCreateDate;
@@ -110,17 +117,23 @@ public class EditAppointmentsController implements Initializable {
                 alert.show();
             }
 
+            DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
             int appointmentId = Integer.parseInt(EditAppointmentAppointmentId.getText());
             String appointmentTitle = EditAppointmentTitle.getText();
             String appointmentDescription = EditAppointmentDescription.getText();
             String appointmentLocation = EditAppointmentLocation.getText();
             String appointmentType = EditAppointmentType.getText();
-            LocalDateTime appointmentStartTime = EditAppointmentStartTime.getValue().atStartOfDay();
-            LocalDateTime appointmentEndTime = EditAppointmentEndTime.getValue().atStartOfDay();
+
+            String appointmentStartHour = EditAppointmentStartHour.getText();
+            String appointmentEndHour = EditAppointmentEndHour.getText();
+
+            LocalDateTime appointmentStartTime = LocalDateTime.parse(EditAppointmentStartTime.getValue().toString()+" " + appointmentStartHour, DTF);
+            LocalDateTime appointmentEndTime = LocalDateTime.parse(EditAppointmentEndTime.getValue().toString()+" " + appointmentEndHour, DTF);
+
             int contactId = EditAppointmentContactId.getValue().getContactId();
             int customerId = EditAppointmentCustomerId.getValue().getCustomerId();
             int userId = EditAppointmentUserId.getValue().getUserId();
-
 
             AppointmentDAO.updateAppointment(appointmentId, appointmentTitle, appointmentDescription, appointmentLocation, appointmentType,
                     appointmentStartTime, appointmentEndTime, contactId, customerId, userId);

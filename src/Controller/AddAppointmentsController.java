@@ -159,7 +159,6 @@ public class AddAppointmentsController implements Initializable {
             int customerId = AddAppointmentCustomerId.getValue().getCustomerId();
             int userId = AddAppointmentUserId.getValue().getUserId();
 
-
             AppointmentDAO.addAppointment(appointmentTitle, appointmentDescription, appointmentLocation, appointmentType,
                     appointmentStartTime, appointmentEndTime, createdDate, lastUpdated, contactId, customerId, userId);
 
