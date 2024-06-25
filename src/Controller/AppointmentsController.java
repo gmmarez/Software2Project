@@ -107,8 +107,6 @@ try {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Please select an appointment to edit.");
             alert.showAndWait();
         }
-
-
     }
 
     @FXML

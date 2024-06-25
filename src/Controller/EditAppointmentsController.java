@@ -164,9 +164,10 @@ public class EditAppointmentsController implements Initializable {
         this.EditAppointmentLocation.setText(selectedAppointment.getAppointmentLocation());
         this.EditAppointmentType.setText(selectedAppointment.getAppointmentType());
         this.EditAppointmentStartTime.setValue(selectedAppointment.getAppointmentStartTime().toLocalDate());
-        this.EditAppointmentEndTime.setValue(selectedAppointment.getAppointmentEndTime().toLocalDate());
+        this.EditAppointmentStartHour.setText(String.valueOf(selectedAppointment.getAppointmentStartTime().toLocalTime()));
+        this.EditAppointmentEndTime.setValue(selectedAppointment.getAppointmentStartTime().toLocalDate());
+        this.EditAppointmentEndHour.setText(String.valueOf(selectedAppointment.getAppointmentEndTime().toLocalTime()));
 
-        // this.EditAppointmentContactId.getSelectionModel().select(selectedAppointment.getContactId());
         for (Contacts contact: ContactDAO.getAllContacts()) {
             if (contact.getContactId()== selectedAppointment.getContactId()) {
                 this.EditAppointmentContactId.setValue(contact);
@@ -174,8 +175,6 @@ public class EditAppointmentsController implements Initializable {
             }
         }
 
-
-        // this.EditAppointmentCustomerId.getSelectionModel().select(selectedAppointment.getCustomerId());
         for (Customers customer: CustomerDAO.getAllCustomers()) {
             if (customer.getCustomerId()== selectedAppointment.getCustomerId()) {
                 this.EditAppointmentCustomerId.setValue(customer);
@@ -183,14 +182,12 @@ public class EditAppointmentsController implements Initializable {
             }
         }
 
-        // this.EditAppointmentUserId.getSelectionModel().select(selectedAppointment.getUserId());
         for (Users user: UserDAO.getAllUsers()) {
             if (user.getUserId()== selectedAppointment.getUserId()) {
                 this.EditAppointmentUserId.setValue(user);
 
             }
         }
-
     }
 
     @Override
