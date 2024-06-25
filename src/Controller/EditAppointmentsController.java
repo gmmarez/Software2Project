@@ -124,13 +124,10 @@ public class EditAppointmentsController implements Initializable {
             String appointmentDescription = EditAppointmentDescription.getText();
             String appointmentLocation = EditAppointmentLocation.getText();
             String appointmentType = EditAppointmentType.getText();
-
             String appointmentStartHour = EditAppointmentStartHour.getText();
             String appointmentEndHour = EditAppointmentEndHour.getText();
-
             LocalDateTime appointmentStartTime = LocalDateTime.parse(EditAppointmentStartTime.getValue().toString()+" " + appointmentStartHour, DTF);
             LocalDateTime appointmentEndTime = LocalDateTime.parse(EditAppointmentEndTime.getValue().toString()+" " + appointmentEndHour, DTF);
-
             int contactId = EditAppointmentContactId.getValue().getContactId();
             int customerId = EditAppointmentCustomerId.getValue().getCustomerId();
             int userId = EditAppointmentUserId.getValue().getUserId();

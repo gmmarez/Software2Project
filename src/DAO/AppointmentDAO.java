@@ -208,7 +208,7 @@ public class AppointmentDAO {
                                          LocalDateTime appointmentEndTime, int contactId, int customerId, int userId) {
         try {
 
-            String sql = "UPDATE appointments SET Title = ?, Description = ?, Location = ?, Type = ?, Start = ?, End = ?, Customer_ID = ?, User_ID = ?, Contact_ID = ? WHERE Appointment_ID = ?";
+            String sql = "UPDATE appointments SET Title = ?, Description = ?, Location = ?, Type = ?, Start = ?, End = ?, Contact_ID = ?, Customer_ID = ?, User_ID = ? WHERE Appointment_ID = ?";
             PreparedStatement updateAppointment = JDBC.conn.prepareStatement(sql);
 
             updateAppointment.setString(1, appointmentTitle);
