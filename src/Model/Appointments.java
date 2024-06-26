@@ -125,15 +125,12 @@ public class Appointments {
         LocalDateTime businessStartEST = appointmentStartEST.withHour(8).withMinute(0);
         LocalDateTime businessEndEST = appointmentStartEST.withHour(22).withMinute(0);
 
-        System.out.println("Local Appointment End: " + appointmentEnd);
-        System.out.println("EST Appointment End: " + appointmentEndEST);
-        System.out.println("EST Business End: " + businessEndEST);
+        // System.out.println("Local Appointment End: " + appointmentEnd);
+        // System.out.println("EST Appointment End: " + appointmentEndEST);
+        // System.out.println("EST Business End: " + businessEndEST);
 
         // Before business open for the day.
         if (appointmentStartEST.isBefore(businessStartEST)) {
-
-            // LocalTime localStart = Appointment.localStart();
-            // LocalTime localEnd = Appointment.localEnd();
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Appointment start not within business hours");
