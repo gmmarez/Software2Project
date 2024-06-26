@@ -80,6 +80,22 @@ public class EditAppointmentsController implements Initializable {
     void AddAppointmentsSave(ActionEvent event) {
 
         try {
+
+            DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+            int appointmentId = Integer.parseInt(EditAppointmentAppointmentId.getText());
+            String appointmentTitle = EditAppointmentTitle.getText();
+            String appointmentDescription = EditAppointmentDescription.getText();
+            String appointmentLocation = EditAppointmentLocation.getText();
+            String appointmentType = EditAppointmentType.getText();
+            String appointmentStartHour = EditAppointmentStartHour.getText();
+            String appointmentEndHour = EditAppointmentEndHour.getText();
+            LocalDateTime appointmentStartTime = LocalDateTime.parse(EditAppointmentStartTime.getValue().toString()+" " + appointmentStartHour, DTF);
+            LocalDateTime appointmentEndTime = LocalDateTime.parse(EditAppointmentEndTime.getValue().toString()+" " + appointmentEndHour, DTF);
+            int contactId = EditAppointmentContactId.getValue().getContactId();
+            int customerId = EditAppointmentCustomerId.getValue().getCustomerId();
+            int userId = EditAppointmentUserId.getValue().getUserId();
+
             if (EditAppointmentTitle.getText().isEmpty() || EditAppointmentTitle.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
@@ -115,36 +131,23 @@ public class EditAppointmentsController implements Initializable {
                 alert.setTitle("Error");
                 alert.setContentText("Missing Contact");
                 alert.show();
+            } else if (Appointments.withinBusinessHours(appointmentStartTime, appointmentEndTime)) {
+                return;
+            } else {
+
+                AppointmentDAO.updateAppointment(appointmentId, appointmentTitle, appointmentDescription, appointmentLocation, appointmentType,
+                        appointmentStartTime, appointmentEndTime, contactId, customerId, userId);
+
+                System.out.println("Appointment Updated");
+
+                // Go back to Appointments screen
+                stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+                scene = FXMLLoader.load(getClass().getResource("../View/Appointments.fxml"));
+                stage.setScene(new Scene(scene));
+                stage.show();
             }
 
-            DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-
-            int appointmentId = Integer.parseInt(EditAppointmentAppointmentId.getText());
-            String appointmentTitle = EditAppointmentTitle.getText();
-            String appointmentDescription = EditAppointmentDescription.getText();
-            String appointmentLocation = EditAppointmentLocation.getText();
-            String appointmentType = EditAppointmentType.getText();
-            String appointmentStartHour = EditAppointmentStartHour.getText();
-            String appointmentEndHour = EditAppointmentEndHour.getText();
-            LocalDateTime appointmentStartTime = LocalDateTime.parse(EditAppointmentStartTime.getValue().toString()+" " + appointmentStartHour, DTF);
-            LocalDateTime appointmentEndTime = LocalDateTime.parse(EditAppointmentEndTime.getValue().toString()+" " + appointmentEndHour, DTF);
-            int contactId = EditAppointmentContactId.getValue().getContactId();
-            int customerId = EditAppointmentCustomerId.getValue().getCustomerId();
-            int userId = EditAppointmentUserId.getValue().getUserId();
-
-            AppointmentDAO.updateAppointment(appointmentId, appointmentTitle, appointmentDescription, appointmentLocation, appointmentType,
-                    appointmentStartTime, appointmentEndTime, contactId, customerId, userId);
-
-            System.out.println("Appointment Updated");
-
-            // Go back to Appointments screen
-            stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-            scene = FXMLLoader.load(getClass().getResource("../View/Appointments.fxml"));
-            stage.setScene(new Scene(scene));
-            stage.show();
-
         } catch (IOException exception) {System.out.println(exception);}
-
     }
 
     @FXML

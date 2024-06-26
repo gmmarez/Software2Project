@@ -2,6 +2,7 @@ package Model;
 
 import javafx.scene.control.Alert;
 
+import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
@@ -121,13 +122,12 @@ public class Appointments {
         LocalDateTime appointmentStartEST = appointmentStart.atZone(LocalZone).withZoneSameInstant(EasternTimeZone).toLocalDateTime();
         LocalDateTime appointmentEndEST = appointmentEnd.atZone(LocalZone).withZoneSameInstant(EasternTimeZone).toLocalDateTime();
 
+        LocalDateTime businessStartEST = appointmentStartEST.withHour(8).withMinute(0);
+        LocalDateTime businessEndEST = appointmentStartEST.withHour(22).withMinute(0);
+
         System.out.println("Local Appointment End: " + appointmentEnd);
         System.out.println("EST Appointment End: " + appointmentEndEST);
-
-        LocalDateTime businessStartEST = appointmentStartEST.withHour(8).withMinute(0);
-        LocalDateTime businessEndEST = appointmentEndEST.withHour(22).withMinute(0);
-        LocalDateTime businessNextDay = businessStartEST.plusHours(24);
-        System.out.println("Next day business opens " + businessNextDay + " EST.");
+        System.out.println("EST Business End: " + businessEndEST);
 
         // Before business open for the day.
         if (appointmentStartEST.isBefore(businessStartEST)) {
@@ -149,15 +149,6 @@ public class Appointments {
             alert1.setTitle("Appointment end not within business hours");
             alert1.setContentText("Appointment needs to be scheduled withing business hours. (Daily 0800-2200 EST)");
             alert1.showAndWait();
-
-            return true;
-
-        } else if (appointmentEndEST.isBefore(businessNextDay)) {
-
-            Alert alert2 = new Alert(Alert.AlertType.ERROR);
-            alert2.setTitle("Appointment end runs into the next day");
-            alert2.setContentText("Appointment needs to be scheduled withing business hours. (Daily 0800-2200 EST)");
-            alert2.showAndWait();
 
             return true;
 
