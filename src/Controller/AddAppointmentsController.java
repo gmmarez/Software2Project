@@ -93,6 +93,23 @@ public class AddAppointmentsController implements Initializable {
     void AddAppointmentsAdd(ActionEvent event) {
 
         try {
+
+            DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+            String appointmentTitle = AddAppointmentTitle.getText();
+            String appointmentDescription = AddAppointmentDescription.getText();
+            String appointmentLocation = AddAppointmentLocation.getText();
+            String appointmentType = AddAppointmentType.getText();
+            String appointmentStartHour = AddAppointmentStartHour.getText();
+            String appointmentEndHour = AddAppointmentEndHour.getText();
+            LocalDateTime appointmentStartTime = LocalDateTime.parse(AddAppointmentStartTime.getValue().toString()+" " + appointmentStartHour, DTF);
+            LocalDateTime appointmentEndTime = LocalDateTime.parse(AddAppointmentEndTime.getValue().toString()+" " + appointmentEndHour, DTF);
+            LocalDateTime createdDate = LocalDateTime.now();
+            LocalDateTime lastUpdated = LocalDateTime.now();
+            int contactId = AddAppointmentContactId.getValue().getContactId();
+            int customerId = AddAppointmentCustomerId.getValue().getCustomerId();
+            int userId = AddAppointmentUserId.getValue().getUserId();
+
             if (AddAppointmentTitle.getText().isEmpty() || AddAppointmentTitle.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
@@ -142,36 +159,21 @@ public class AddAppointmentsController implements Initializable {
                 alert.setTitle("Error");
                 alert.setContentText("Missing User");
                 alert.show();
-            }
+            } else if (Appointments.withinBusinessHours(appointmentStartTime, appointmentEndTime)) {
+                return;
+            } else {
 
-            DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-
-            String appointmentTitle = AddAppointmentTitle.getText();
-            String appointmentDescription = AddAppointmentDescription.getText();
-            String appointmentLocation = AddAppointmentLocation.getText();
-            String appointmentType = AddAppointmentType.getText();
-            String appointmentStartHour = AddAppointmentStartHour.getText();
-            String appointmentEndHour = AddAppointmentEndHour.getText();
-            LocalDateTime appointmentStartTime = LocalDateTime.parse(AddAppointmentStartTime.getValue().toString()+" " + appointmentStartHour, DTF);
-            LocalDateTime appointmentEndTime = LocalDateTime.parse(AddAppointmentEndTime.getValue().toString()+" " + appointmentEndHour, DTF);
-            LocalDateTime createdDate = LocalDateTime.now();
-            LocalDateTime lastUpdated = LocalDateTime.now();
-            int contactId = AddAppointmentContactId.getValue().getContactId();
-            int customerId = AddAppointmentCustomerId.getValue().getCustomerId();
-            int userId = AddAppointmentUserId.getValue().getUserId();
-
-            if (Appointments.withinBusinessHours(appointmentStartTime, appointmentEndTime)) {
                 AppointmentDAO.addAppointment(appointmentTitle, appointmentDescription, appointmentLocation, appointmentType,
                         appointmentStartTime, appointmentEndTime, createdDate, lastUpdated, contactId, customerId, userId);
 
                 System.out.println("Appointment Added");
-            }
 
-            // Go back to Appointments screen
-            stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-            scene = FXMLLoader.load(getClass().getResource("../View/Appointments.fxml"));
-            stage.setScene(new Scene(scene));
-            stage.show();
+                // Go back to Appointments screen
+                stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+                scene = FXMLLoader.load(getClass().getResource("../View/Appointments.fxml"));
+                stage.setScene(new Scene(scene));
+                stage.show();
+            }
 
 
         } catch (SQLException | IOException exception) {System.out.println(exception);}

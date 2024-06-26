@@ -20,8 +20,8 @@ public class Appointments {
     private int userId;
 
     public Appointments(int appointmentId, String appointmentTitle, String appointmentDescription, String appointmentLocation,
-                       String appointmentType, LocalDateTime appointmentStartTime, LocalDateTime appointmentEndTime,
-                       int contactId, int customerId, int userId) {
+                        String appointmentType, LocalDateTime appointmentStartTime, LocalDateTime appointmentEndTime,
+                        int contactId, int customerId, int userId) {
         this.appointmentId = appointmentId;
         this.appointmentTitle = appointmentTitle;
         this.appointmentDescription = appointmentDescription;
@@ -33,6 +33,7 @@ public class Appointments {
         this.customerId = customerId;
         this.userId = userId;
     }
+
     public int getAppointmentId() {
         return appointmentId;
     }
@@ -53,7 +54,9 @@ public class Appointments {
         return appointmentDescription;
     }
 
-    public void setAppointmentDescription(String appointmentDescription) { this.appointmentDescription = appointmentDescription; }
+    public void setAppointmentDescription(String appointmentDescription) {
+        this.appointmentDescription = appointmentDescription;
+    }
 
     public String getAppointmentLocation() {
         return appointmentLocation;
@@ -79,11 +82,17 @@ public class Appointments {
         this.appointmentStartTime = appointmentStartTime;
     }
 
-    public LocalDateTime getAppointmentEndTime() {return appointmentEndTime;}
+    public LocalDateTime getAppointmentEndTime() {
+        return appointmentEndTime;
+    }
 
-    public void setAppointmentEndTime(LocalDateTime appointmentEndTime) { this.appointmentEndTime = appointmentEndTime; }
+    public void setAppointmentEndTime(LocalDateTime appointmentEndTime) {
+        this.appointmentEndTime = appointmentEndTime;
+    }
 
-    public int getContactId() { return contactId;}
+    public int getContactId() {
+        return contactId;
+    }
 
     public void setContactId(int contactId) {
         this.contactId = contactId;
@@ -97,14 +106,48 @@ public class Appointments {
         this.customerId = customerId;
     }
 
-    public int getUserId() { return userId;}
+    public int getUserId() {
+        return userId;
+    }
 
     public void setUserId(int userId) {
         this.userId = userId;
     }
 
-    public static boolean withinBusinessHours (LocalDateTime appointmentStart, LocalDateTime appointmentEnd) {
+    public static boolean withinBusinessHours(LocalDateTime appointmentStart, LocalDateTime appointmentEnd) {
+        ZoneId LocalZone = ZoneId.systemDefault();
+        ZoneId EasternTimeZone = ZoneId.of("America/New_York");
 
+        LocalDateTime appointmentStartEST = appointmentStart.atZone(LocalZone).withZoneSameInstant(EasternTimeZone).toLocalDateTime();
+        LocalDateTime appointmentEndEST = appointmentEnd.atZone(LocalZone).withZoneSameInstant(EasternTimeZone).toLocalDateTime();
+
+        LocalDateTime businessStartEST = appointmentStartEST.withHour(8).withMinute(0);
+        LocalDateTime businessEndEST = appointmentEndEST.withHour(22).withMinute(0);
+
+        if (appointmentStartEST.isBefore(businessStartEST)) {
+
+            // LocalTime localStart = Appointment.localStart();
+            // LocalTime localEnd = Appointment.localEnd();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Appointment start not within business hours");
+            alert.setContentText("Appointment needs to be scheduled withing business hours. (Daily 0800-2200 EST)");
+            alert.showAndWait();
+
+            return true;
+        } else if (appointmentEndEST.isAfter(businessEndEST)) {
+
+            Alert alert1 = new Alert(Alert.AlertType.ERROR);
+            alert1.setTitle("Appointment end not within business hours");
+            alert1.setContentText("Appointment needs to be scheduled withing business hours. (Daily 0800-2200 EST)");
+            alert1.showAndWait();
+
+            return true;
+
+        } else {
+            return false;
+
+        }
 
     }
 
