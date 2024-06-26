@@ -1,6 +1,7 @@
 package Controller;
 
 import DAO.*;
+import Model.Appointments;
 import Model.Contacts;
 import Model.Customers;
 import Model.Users;
@@ -126,10 +127,10 @@ public class AddAppointmentsController implements Initializable {
                 alert.show();
 
             } else if (AddAppointmentContactId.equals("Contact")) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setContentText("Missing Contact");
-                    alert.show();
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Missing Contact");
+                alert.show();
 
             }  else if (AddAppointmentCustomerId.equals("Customer")) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -159,10 +160,12 @@ public class AddAppointmentsController implements Initializable {
             int customerId = AddAppointmentCustomerId.getValue().getCustomerId();
             int userId = AddAppointmentUserId.getValue().getUserId();
 
-            AppointmentDAO.addAppointment(appointmentTitle, appointmentDescription, appointmentLocation, appointmentType,
-                    appointmentStartTime, appointmentEndTime, createdDate, lastUpdated, contactId, customerId, userId);
+            if (Appointments.withinBusinessHours(appointmentStartTime, appointmentEndTime)) {
+                AppointmentDAO.addAppointment(appointmentTitle, appointmentDescription, appointmentLocation, appointmentType,
+                        appointmentStartTime, appointmentEndTime, createdDate, lastUpdated, contactId, customerId, userId);
 
-            System.out.println("Appointment Added");
+                System.out.println("Appointment Added");
+            }
 
             // Go back to Appointments screen
             stage = (Stage) ((Button)event.getSource()).getScene().getWindow();

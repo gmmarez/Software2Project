@@ -115,39 +115,14 @@ public class Appointments {
         LocalDateTime businessEndEST = appointmentEndEST.withHour(22).withMinute(0);
 
         if (appointmentStartEST.isBefore(businessStartEST) || appointmentEndEST.isAfter(businessEndEST)) {
-            LocalTime localStart = Appointments.localStart();
-            LocalTime localEnd = Appointments.localEnd();
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Appointment scheduled outside of business hours");
             alert.setContentText("Appointment must be scheduled between 0800 and 2200 EST.");
             alert.showAndWait();
-            return true;
+            return false;
 
-        } else {return false;}
+        } else {return true;}
     }
-    public static LocalTime localStart() {
-        LocalTime openingBusinessTime = LocalTime.of(8, 0);
-        ZoneId easternZone = ZoneId.of("America/New_York");
-        ZoneId localZone = ZoneId.systemDefault();
 
-        LocalDateTime businessEastern = LocalDateTime.of(LocalDate.now(), openingBusinessTime);
-        LocalDateTime businessLocal = businessEastern.atZone(easternZone).withZoneSameInstant(localZone).toLocalDateTime();
-
-        LocalTime businessStartLocal = businessLocal.toLocalTime();
-
-        return businessStartLocal;
-    }
-    public static LocalTime localEnd() {
-        LocalTime closingBusinessTime = LocalTime.of(22, 0);
-        ZoneId easternZone = ZoneId.of("America/New_York");
-        ZoneId localZone = ZoneId.systemDefault();
-
-        LocalDateTime businessEndDT = LocalDateTime.of(LocalDate.now(), closingBusinessTime);
-        LocalDateTime businessLocalDT = businessEndDT.atZone(easternZone).withZoneSameInstant(localZone).toLocalDateTime();
-
-        LocalTime businessEndLocal = businessLocalDT.toLocalTime();
-
-        return businessEndLocal;
-    }
 }
