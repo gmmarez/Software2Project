@@ -142,7 +142,7 @@ public class Appointments {
 
             return true;
 
-        // After business close and before business open the next day.
+        // After business close.
         } else if (appointmentEndEST.isAfter(businessEndEST)) {
 
             Alert alert1 = new Alert(Alert.AlertType.ERROR);
@@ -165,7 +165,6 @@ public class Appointments {
             return false;
 
         }
-
 
     }
 
