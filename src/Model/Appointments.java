@@ -1,6 +1,7 @@
 package Model;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 public class Appointments {
 
@@ -75,10 +76,7 @@ public class Appointments {
         this.appointmentStartTime = appointmentStartTime;
     }
 
-    public LocalDateTime getAppointmentEndTime() {
-
-        return appointmentEndTime;
-    }
+    public LocalDateTime getAppointmentEndTime() {return appointmentEndTime;}
 
     public void setAppointmentEndTime(LocalDateTime appointmentEndTime) { this.appointmentEndTime = appointmentEndTime; }
 
@@ -100,5 +98,17 @@ public class Appointments {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public static boolean withinBusinessHours (LocalDateTime appointmentStart, LocalDateTime appointmentEnd) {
+
+        ZoneId LOCAL_ZONE = ZoneId.systemDefault();
+        ZoneId EST_ZONE = ZoneId.of("America/New_York");
+
+        LocalDateTime appointmentStartEST = appointmentStart.atZone(LOCAL_ZONE).withZoneSameInstant(EST_ZONE).toLocalDateTime();
+        LocalDateTime appointmentEndEST = appointmentEnd.atZone(LOCAL_ZONE).withZoneSameInstant(EST_ZONE).toLocalDateTime();
+
+        LocalDateTime businessStartEST = appointmentStartEST.withHour(8).withMinute(0);
+        LocalDateTime businessEndEST = appointmentEndEST.withHour(22).withMinute(0);
     }
 }
