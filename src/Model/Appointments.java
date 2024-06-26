@@ -128,6 +128,7 @@ public class Appointments {
         LocalDateTime businessEndEST = appointmentEndEST.withHour(22).withMinute(0);
         LocalDateTime businessNextDay = businessStartEST.plusHours(24);
         System.out.println("Next day business opens " + businessNextDay + " EST.");
+
         // Before business open for the day.
         if (appointmentStartEST.isBefore(businessStartEST)) {
 
@@ -142,7 +143,7 @@ public class Appointments {
             return true;
 
         // After business close and before business open the next day.
-        } else if ((appointmentEndEST.isAfter(businessEndEST)) & (appointmentEndEST.isBefore(businessNextDay))) {
+        } else if (appointmentEndEST.isAfter(businessEndEST)) {
 
             Alert alert1 = new Alert(Alert.AlertType.ERROR);
             alert1.setTitle("Appointment end not within business hours");
@@ -151,10 +152,20 @@ public class Appointments {
 
             return true;
 
+        } else if (appointmentEndEST.isBefore(businessNextDay)) {
+
+            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+            alert2.setTitle("Appointment end runs into the next day");
+            alert2.setContentText("Appointment needs to be scheduled withing business hours. (Daily 0800-2200 EST)");
+            alert2.showAndWait();
+
+            return true;
+
         } else {
             return false;
 
         }
+
 
     }
 
