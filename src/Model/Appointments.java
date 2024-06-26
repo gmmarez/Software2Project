@@ -121,14 +121,13 @@ public class Appointments {
         LocalDateTime appointmentStartEST = appointmentStart.atZone(LocalZone).withZoneSameInstant(EasternTimeZone).toLocalDateTime();
         LocalDateTime appointmentEndEST = appointmentEnd.atZone(LocalZone).withZoneSameInstant(EasternTimeZone).toLocalDateTime();
 
-        System.out.println(appointmentStart);
-        System.out.println(appointmentStartEST);
         System.out.println(appointmentEnd);
         System.out.println(appointmentEndEST);
 
         LocalDateTime businessStartEST = appointmentStartEST.withHour(8).withMinute(0);
         LocalDateTime businessEndEST = appointmentEndEST.withHour(22).withMinute(0);
-
+        LocalDateTime businessNextDay = businessStartEST.plusHours(24);
+        System.out.println(businessNextDay);
         // Before business open for the day.
         if (appointmentStartEST.isBefore(businessStartEST)) {
 
@@ -143,7 +142,7 @@ public class Appointments {
             return true;
 
         // After business close and before business open the next day.
-        } else if ((appointmentEndEST.isAfter(businessEndEST)) && appointmentEndEST.isBefore(businessStartEST.plusHours(16))) {
+        } else if ((appointmentEndEST.isAfter(businessEndEST)) && appointmentEndEST.isBefore(businessNextDay)) {
 
             Alert alert1 = new Alert(Alert.AlertType.ERROR);
             alert1.setTitle("Appointment end not within business hours");
