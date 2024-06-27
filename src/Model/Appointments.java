@@ -1,7 +1,10 @@
 package Model;
 
+import DAO.AppointmentDAO;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
+import java.sql.SQLException;
 import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -154,6 +157,17 @@ public class Appointments {
 
         }
 
+    }
+
+    public static boolean overlapCheck(int customerId, LocalDateTime appointmentStartTime, LocalDateTime appointmentEndTime) throws SQLException {
+        ObservableList<Appointments> allAppointments = AppointmentDAO.getAllAppointments();
+        LocalDateTime checkAppointmentStart;
+        LocalDateTime checkAppointmentEnd;
+
+
+
+
+        return false;
     }
 
 }
