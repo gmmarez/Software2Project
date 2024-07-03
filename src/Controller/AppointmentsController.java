@@ -124,6 +124,8 @@ try {
                 AppointmentsTable.setItems(allAppointmentsList);
             }
         } catch (Exception e) {e.printStackTrace();}
+            Alert alert1 = new Alert(Alert.AlertType.ERROR, "Please select an appointment to delete.");
+            alert1.showAndWait();
     }
 
     @FXML

@@ -115,8 +115,10 @@ public class CustomersController implements Initializable {
                 Alert alert1 = new Alert(Alert.AlertType.INFORMATION, "Customer and all associated appointments deleted.");
                 alert1.showAndWait();
 
-                }
+            }
         } catch (Exception e) {e.printStackTrace();}
+        Alert alert1 = new Alert(Alert.AlertType.ERROR, "Please select a customer to delete.");
+        alert1.showAndWait();
     }
 
     // Go to Main Menu

@@ -158,16 +158,43 @@ public class Appointments {
         }
 
     }
-
+/*
     public static boolean overlapCheck(int customerId, LocalDateTime appointmentStartTime, LocalDateTime appointmentEndTime) throws SQLException {
         ObservableList<Appointments> allAppointments = AppointmentDAO.getAllAppointments();
         LocalDateTime checkAppointmentStart;
         LocalDateTime checkAppointmentEnd;
 
+        for (Appointments appointment : allAppointments) {
+            checkAppointmentStart = appointment.getAppointmentStartTime();
+            checkAppointmentEnd = appointment.getAppointmentEndTime();
+
+            if (customerId != a.getAppointmentCustomerId()) {
+                continue;
+            } else if (checkAppointmentStart.isEqual(appointmentStart) || checkApptEnd.isEqual(appointmentEnd)) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning Dialog");
+                alert.setContentText("ERROR: Appointments must not start or end at same time as existing customer appointments");
+                alert.showAndWait();
+                return true;
+            } else if (appointmentStart.isAfter(checkApptStart) && (appointmentStart.isBefore(checkApptEnd))) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning Dialog");
+                alert.setContentText("ERROR: Appointment start must not be during existing customer appointments");
+                alert.showAndWait();
+                return true;
+            } else if (appointmentEnd.isAfter(checkApptStart) && appointmentEnd.isBefore(checkApptEnd)) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning Dialog");
+                alert.setContentText("ERROR: Appointment end must not be during existing customer appointments");
+                alert.showAndWait();
+                return true;
+            }
+        }
 
 
 
         return false;
     }
+*/
 
 }
