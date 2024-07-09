@@ -158,7 +158,7 @@ public class Appointments {
         }
 
     }
-/*
+
     public static boolean overlapCheck(int customerId, LocalDateTime appointmentStartTime, LocalDateTime appointmentEndTime) throws SQLException {
         ObservableList<Appointments> allAppointments = AppointmentDAO.getAllAppointments();
         LocalDateTime checkAppointmentStart;
@@ -168,21 +168,21 @@ public class Appointments {
             checkAppointmentStart = appointment.getAppointmentStartTime();
             checkAppointmentEnd = appointment.getAppointmentEndTime();
 
-            if (customerId != a.getAppointmentCustomerId()) {
+            if (customerId != appointment.getCustomerId()) {
                 continue;
-            } else if (checkAppointmentStart.isEqual(appointmentStart) || checkApptEnd.isEqual(appointmentEnd)) {
+            } else if (checkAppointmentStart.isEqual(appointmentStartTime) || checkAppointmentEnd.isEqual(appointmentEndTime)) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warning Dialog");
                 alert.setContentText("ERROR: Appointments must not start or end at same time as existing customer appointments");
                 alert.showAndWait();
                 return true;
-            } else if (appointmentStart.isAfter(checkApptStart) && (appointmentStart.isBefore(checkApptEnd))) {
+            } else if (appointmentStartTime.isAfter(checkAppointmentStart) && (checkAppointmentStart.isBefore(checkAppointmentEnd))) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warning Dialog");
                 alert.setContentText("ERROR: Appointment start must not be during existing customer appointments");
                 alert.showAndWait();
                 return true;
-            } else if (appointmentEnd.isAfter(checkApptStart) && appointmentEnd.isBefore(checkApptEnd)) {
+            } else if (appointmentEndTime.isAfter(checkAppointmentStart) && appointmentEndTime.isBefore(checkAppointmentEnd)) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warning Dialog");
                 alert.setContentText("ERROR: Appointment end must not be during existing customer appointments");
@@ -195,6 +195,11 @@ public class Appointments {
 
         return false;
     }
-*/
+
+
+
+
+
+
 
 }
