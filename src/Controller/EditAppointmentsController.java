@@ -133,6 +133,8 @@ public class EditAppointmentsController implements Initializable {
                 alert.show();
             } else if (Appointments.withinBusinessHours(appointmentStartTime, appointmentEndTime)) {
                 return;
+            } else if (Appointments.overlapCheck(customerId, appointmentStartTime, appointmentEndTime)) {
+                return;
             } else {
 
                 AppointmentDAO.updateAppointment(appointmentId, appointmentTitle, appointmentDescription, appointmentLocation, appointmentType,
@@ -147,7 +149,7 @@ public class EditAppointmentsController implements Initializable {
                 stage.show();
             }
 
-        } catch (IOException exception) {System.out.println(exception);}
+        } catch (SQLException | IOException exception) {System.out.println(exception);}
     }
 
     @FXML

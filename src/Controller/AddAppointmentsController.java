@@ -161,6 +161,8 @@ public class AddAppointmentsController implements Initializable {
                 alert.show();
             } else if (Appointments.withinBusinessHours(appointmentStartTime, appointmentEndTime)) {
                 return;
+            } else if (Appointments.overlapCheck(customerId, appointmentStartTime, appointmentEndTime)) {
+                return;
             } else {
 
                 AppointmentDAO.addAppointment(appointmentTitle, appointmentDescription, appointmentLocation, appointmentType,

@@ -170,28 +170,30 @@ public class Appointments {
 
             if (customerId != appointment.getCustomerId()) {
                 continue;
+
             } else if (checkAppointmentStart.isEqual(appointmentStartTime) || checkAppointmentEnd.isEqual(appointmentEndTime)) {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Warning Dialog");
-                alert.setContentText("ERROR: Appointments must not start or end at same time as existing customer appointments");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Appointments cannot start/end at the same time as an already existing customer appointment.");
                 alert.showAndWait();
                 return true;
+
             } else if (appointmentStartTime.isAfter(checkAppointmentStart) && (checkAppointmentStart.isBefore(checkAppointmentEnd))) {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Warning Dialog");
-                alert.setContentText("ERROR: Appointment start must not be during existing customer appointments");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Appointments cannot start during an already existing customer appointment.");
                 alert.showAndWait();
                 return true;
+
             } else if (appointmentEndTime.isAfter(checkAppointmentStart) && appointmentEndTime.isBefore(checkAppointmentEnd)) {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Warning Dialog");
-                alert.setContentText("ERROR: Appointment end must not be during existing customer appointments");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Appointments cannot end during an already existing customer appointment.");
                 alert.showAndWait();
                 return true;
+
             }
         }
-
-
 
         return false;
     }
