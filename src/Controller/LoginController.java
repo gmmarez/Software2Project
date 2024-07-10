@@ -1,6 +1,10 @@
 package Controller;
 
+import DAO.AppointmentDAO;
 import DAO.UserDAO;
+import Model.Appointments;
+import javafx.beans.value.ObservableDoubleValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +18,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Locale;
 import java.util.MissingResourceException;
@@ -85,6 +91,22 @@ public class LoginController implements Initializable {
                 scene = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
                 stage.setScene(new Scene(scene));
                 stage.show();
+
+                ObservableList<Appointments> userAppointments = AppointmentDAO.getUserAppointment((userId));
+
+                for (Appointments a : userAppointments) {
+                    LocalDateTime startTime = a.getAppointmentStartTime();
+                    LocalDateTime currentTime = LocalDateTime.now();
+                    LocalDateTime currentTimePlus15Minutes = currentTime.plusMinutes(15);
+
+
+                    if ((startTime.isAfter(currentTime) || startTime.isEqual(currentTimePlus15Minutes)) &&
+                            (startTime.isBefore(currentTimePlus15Minutes) || startTime.isEqual(currentTime))) {
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Upcoming Appointments");
+                        alert.setContentText("Appointment ");
+                        alert.setContentText(langBundle.getString("Appointment") + " " + appointment.getAppointmentId() + " " + langBundle.getString("beginsat") + " " +  appointment.getAppointmentStart());
+                        alert.showAndWait();
 
 
 

@@ -79,6 +79,10 @@ public class AppointmentDAO {
         } catch (SQLException e) {e.printStackTrace();}
     }
 
+
+
+
+
     public static ObservableList<Appointments> getContactAppointment(int contactId) {
 
         ObservableList<Appointments> chosenContactAppointment = FXCollections.observableArrayList();
@@ -229,7 +233,38 @@ public class AppointmentDAO {
         }
     }
 
+    public static ObservableList<Appointments> getUserAppointment(int userId) {
 
+        ObservableList<Appointments> chosenUserAppointment = FXCollections.observableArrayList();
+
+        try {
+            String sql = "SELECT * FROM appointments JOIN users ON appointments.User_ID = users.User_ID WHERE appointments.User_ID = " + userId + " ";
+            PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int appointmentId = rs.getInt("Appointment_ID");
+                String appointmentTitle = rs.getString("Title");
+                String appointmentDescription = rs.getString("Description");
+                String appointmentLocation = rs.getString("Location");
+                String appointmentType = rs.getString("Type");
+                LocalDateTime appointmentStart = rs.getTimestamp("Start").toLocalDateTime();
+                LocalDateTime appointmentEnd = rs.getTimestamp("End").toLocalDateTime();
+                int appointmentContact = rs.getInt("Contact_ID");
+                int appointmentCustomerId = rs.getInt("Customer_ID");
+                int appointmentUserId = rs.getInt("User_ID");
+
+                Appointments userAppointments = new Appointments(appointmentId, appointmentTitle, appointmentDescription,
+                        appointmentLocation, appointmentType, appointmentStart, appointmentEnd, appointmentContact,
+                        appointmentCustomerId, appointmentUserId);
+
+                chosenUserAppointment.add(userAppointments);
+            }
+
+        } catch (SQLException e) {throw new RuntimeException(e);}
+
+        return chosenUserAppointment;
+    }
 
 
 }
