@@ -110,6 +110,11 @@ public class LoginController implements Initializable {
                     }
                 }
 
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("No Upcoming Appointments");
+                alert.setContentText("You have no upcoming appointments within 15 minutes.");
+                alert.show();
+
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(rb.getString("Error"));
