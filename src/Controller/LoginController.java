@@ -105,10 +105,10 @@ public class LoginController implements Initializable {
                         Alert alert = new Alert(Alert.AlertType.WARNING);
                         alert.setTitle("Upcoming Appointments");
                         alert.setContentText("Appointment ");
-                        alert.setContentText(langBundle.getString("Appointment") + " " + appointment.getAppointmentId() + " " + langBundle.getString("beginsat") + " " +  appointment.getAppointmentStart());
+                        // alert.setContentText(langBundle.getString("Appointment") + " " + userAppointments.getAppointmentId() + " " + langBundle.getString("beginsat") + " " +  appointment.getAppointmentStart());
                         alert.showAndWait();
-
-
+                    }
+                }
 
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -116,17 +116,16 @@ public class LoginController implements Initializable {
                 alert.setContentText(rb.getString("Incorrect"));
                 alert.show();
 
-                stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+                stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                 scene = FXMLLoader.load(getClass().getResource("../View/Login.fxml"));
                 stage.setScene(new Scene(scene));
                 stage.show();
                 // Log incorrect login attempt
             }
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
 
+        } catch(IOException exception){ exception.printStackTrace();               }
     }
+
     // Closes entire application
     @FXML
     private void LoginClose(ActionEvent event) {
