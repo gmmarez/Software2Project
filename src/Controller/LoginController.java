@@ -103,7 +103,7 @@ public class LoginController implements Initializable {
                     if ((startTime.isAfter(currentTime) || startTime.isEqual(currentTimePlus15Minutes)) &&
                             (startTime.isBefore(currentTimePlus15Minutes) || startTime.isEqual(currentTime))) {
                         Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.setTitle("Upcoming Appointments");
+                        alert.setTitle(rb.getString("Warning"));
                         alert.setContentText("Appointment ");
                         // alert.setContentText(langBundle.getString("Appointment") + " " + userAppointments.getAppointmentId() + " " + langBundle.getString("beginsat") + " " +  appointment.getAppointmentStart());
                         alert.showAndWait();
@@ -111,8 +111,8 @@ public class LoginController implements Initializable {
                 }
 
                 Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("No Upcoming Appointments");
-                alert.setContentText("You have no upcoming appointments within 15 minutes.");
+                alert.setTitle(rb.getString("Warning"));
+                alert.setContentText(rb.getString("NoAppointments"));
                 alert.show();
 
             } else {
