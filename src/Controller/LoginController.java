@@ -94,6 +94,8 @@ public class LoginController implements Initializable {
 
                 ObservableList<Appointments> userAppointments = AppointmentDAO.getUserAppointment((userId));
 
+                boolean areAppointments = false;
+
                 for (Appointments a : userAppointments) {
                     LocalDateTime startTime = a.getAppointmentStartTime();
                     LocalDateTime currentTime = LocalDateTime.now();
@@ -102,6 +104,9 @@ public class LoginController implements Initializable {
 
                     if ((startTime.isAfter(currentTime) || startTime.isEqual(currentTimePlus15Minutes)) &&
                             (startTime.isBefore(currentTimePlus15Minutes) || startTime.isEqual(currentTime))) {
+
+                        areAppointments = true;
+
                         Alert alert = new Alert(Alert.AlertType.WARNING);
                         alert.setTitle(rb.getString("Warning"));
                         alert.setContentText("Appointment ");
@@ -110,10 +115,12 @@ public class LoginController implements Initializable {
                     }
                 }
 
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle(rb.getString("Warning"));
-                alert.setContentText(rb.getString("NoAppointments"));
-                alert.show();
+                if (!areAppointments) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle(rb.getString("Warning"));
+                    alert.setContentText(rb.getString("NoAppointments"));
+                    alert.show();
+                }
 
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);

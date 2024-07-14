@@ -174,21 +174,28 @@ public class Appointments {
             } else if (checkAppointmentStart.isEqual(appointmentStartTime) || checkAppointmentEnd.isEqual(appointmentEndTime)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setContentText("Appointments cannot start/end at the same time as an already existing customer appointment.");
+                alert.setContentText("Appointment can't overlap an already existing appointment.(1)");
                 alert.showAndWait();
                 return true;
 
-            } else if (appointmentStartTime.isAfter(checkAppointmentStart) && (checkAppointmentStart.isBefore(checkAppointmentEnd))) {
+            } else if (appointmentStartTime.isAfter(checkAppointmentStart) && (appointmentStartTime.isBefore(checkAppointmentEnd))) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setContentText("Appointments cannot start during an already existing customer appointment.");
+                alert.setContentText("Appointment can't overlap an already existing appointment.(2)");
                 alert.showAndWait();
                 return true;
 
             } else if (appointmentEndTime.isAfter(checkAppointmentStart) && appointmentEndTime.isBefore(checkAppointmentEnd)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setContentText("Appointments cannot end during an already existing customer appointment.");
+                alert.setContentText("Appointment can't overlap an already existing appointment.(3)");
+                alert.showAndWait();
+                return true;
+
+            } else if (appointmentStartTime.isBefore(checkAppointmentStart) && appointmentEndTime.isAfter(checkAppointmentEnd)) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Appointment can't overlap an already existing appointment.(4)");
                 alert.showAndWait();
                 return true;
 
