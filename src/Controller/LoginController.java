@@ -108,16 +108,15 @@ public class LoginController implements Initializable {
                         areAppointments = true;
 
                         Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.setTitle(rb.getString("Warning"));
-                        alert.setContentText("Appointment ");
-                        // alert.setContentText(langBundle.getString("Appointment") + " " + userAppointments.getAppointmentId() + " " + langBundle.getString("beginsat") + " " +  appointment.getAppointmentStart());
+                        alert.setTitle(rb.getString("Upcoming Appointment"));
+                        alert.setContentText(rb.getString("Appointment") + " "  + a.getAppointmentId() + " " + rb.getString("At") + " " +  a.getAppointmentStartTime());
                         alert.showAndWait();
                     }
                 }
 
                 if (!areAppointments) {
                     Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle(rb.getString("Warning"));
+                    alert.setTitle(rb.getString("Upcoming Appointment"));
                     alert.setContentText(rb.getString("NoAppointments"));
                     alert.show();
                 }
