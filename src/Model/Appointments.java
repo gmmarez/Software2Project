@@ -168,6 +168,7 @@ public class Appointments {
             checkAppointmentStart = appointment.getAppointmentStartTime();
             checkAppointmentEnd = appointment.getAppointmentEndTime();
 
+            // Confusion on if a totally different appointment from 2020 is causing an overlap issue even if different Customers
             if (customerId != appointment.getCustomerId()) {
                 continue;
 
