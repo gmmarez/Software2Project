@@ -169,8 +169,8 @@ public class Appointments {
             checkAppointmentEnd = appointment.getAppointmentEndTime();
 
             // Confusion on if a totally different appointment from 2020 is causing an overlap issue even if different Customers
-            if (customerId != appointment.getCustomerId()) {
-                continue;
+            if (customerId == appointment.getCustomerId()) {
+                break;
 
             } else if (checkAppointmentStart.isEqual(appointmentStartTime) || checkAppointmentEnd.isEqual(appointmentEndTime)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -180,6 +180,9 @@ public class Appointments {
                 return true;
 
             } else if (appointmentStartTime.isAfter(checkAppointmentStart) && (appointmentStartTime.isBefore(checkAppointmentEnd))) {
+
+                System.out.println(appointment.getAppointmentId());
+
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setContentText("Appointment can't overlap an already existing appointment.(2)");
