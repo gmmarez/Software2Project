@@ -16,7 +16,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -79,8 +82,15 @@ public class LoginController implements Initializable {
             String username = UsernameTextBox.getText();
             String password = PasswordTextBox.getText();
             int userId = UserDAO.validateUser(username, password);
-            System.out.println(userId);
+            // System.out.println(userId);
+
             ResourceBundle rb = ResourceBundle.getBundle("Languages.login", Locale.getDefault());
+
+            String fileName = "login_activity.txt";
+            FileWriter fileWriter = new FileWriter(fileName, true);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+
+
 
             if (userId > 0) {
 
