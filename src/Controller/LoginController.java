@@ -89,6 +89,7 @@ public class LoginController implements Initializable {
             String fileName = "login_activity.txt";
             FileWriter fileWriter = new FileWriter(fileName, true);
             PrintWriter printWriter = new PrintWriter(fileWriter);
+            LocalDateTime writerCurrentTime = LocalDateTime.now();
 
 
 
@@ -137,13 +138,15 @@ public class LoginController implements Initializable {
                 alert.setContentText(rb.getString("Incorrect"));
                 alert.show();
 
+                printWriter.println(username + " login attempt was unsuccessful at " + writerCurrentTime);
+
                 stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                 scene = FXMLLoader.load(getClass().getResource("../View/Login.fxml"));
                 stage.setScene(new Scene(scene));
                 stage.show();
                 // Log incorrect login attempt
             }
-
+            printWriter.close();
         } catch(IOException exception){ exception.printStackTrace();               }
     }
 
