@@ -103,6 +103,9 @@ public class LoginController implements Initializable {
                 stage.setScene(new Scene(scene));
                 stage.show();
 
+                printWriter.println("Username: " + username + " login attempt was SUCCESSFULL at " + writerCurrentTime + ". Timezone: " + ZoneId.systemDefault());
+
+
                 ObservableList<Appointments> userAppointments = AppointmentDAO.getUserAppointment((userId));
 
                 boolean areAppointments = false;
@@ -138,7 +141,7 @@ public class LoginController implements Initializable {
                 alert.setContentText(rb.getString("Incorrect"));
                 alert.show();
 
-                printWriter.println(username + " login attempt was unsuccessful at " + writerCurrentTime);
+                printWriter.println("Username: " + username + " login attempt was UNSUCCESSFULL at " + writerCurrentTime + ". Timezone: " + ZoneId.systemDefault());
 
                 stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                 scene = FXMLLoader.load(getClass().getResource("../View/Login.fxml"));
