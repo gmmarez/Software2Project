@@ -50,6 +50,7 @@ public class AddCustomersController implements Initializable {
 
     @FXML
     void AddCustomersBack(ActionEvent event) throws IOException {
+
         // Go back to Customers screen
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("../View/Customers.fxml"));
@@ -95,9 +96,9 @@ public class AddCustomersController implements Initializable {
                 LocalDateTime lastUpdated = LocalDateTime.now();
                 int divisionId = AddCustomerDivisionId.getValue().getDivisionId();
 
-
                 CustomerDAO.addCustomer(customerName, customerAddress, customerPostalCode, customerPhone, createdDate, lastUpdated, divisionId);
-                System.out.println("Customer Added");
+
+                System.out.println(customerName + " added to database.");
 
                 // Go back to Customers screen
                 stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
@@ -106,7 +107,6 @@ public class AddCustomersController implements Initializable {
                 stage.show();
             }
         } catch (SQLException | IOException exception) {System.out.println(exception);}
-
 
     }
 

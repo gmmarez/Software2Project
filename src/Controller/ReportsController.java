@@ -25,10 +25,7 @@ public class ReportsController implements Initializable {
     @FXML private TableColumn<Reports, String> reportsType;
     @FXML private TableColumn<Reports, String> reportsMonth;
     @FXML private TableColumn<Reports, Integer> reportsTotal;
-
     ObservableList<Reports> allReports = ReportDAO.getReportResults();
-
-
 
     // Appointments by Customer
     @FXML private ComboBox<Customers> customerTableComboBox;
@@ -65,9 +62,9 @@ public class ReportsController implements Initializable {
     public ReportsController() throws SQLException {
     }
 
+    // Goes back to Main Menu
     @FXML
     void ReportsBack(ActionEvent event) throws IOException {
-        // Goes back to Main Menu
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
         stage.setScene(new Scene(scene));

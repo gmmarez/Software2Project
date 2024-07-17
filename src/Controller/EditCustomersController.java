@@ -26,32 +26,13 @@ import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class EditCustomersController implements Initializable {
-    @FXML
-    private TextField EditCustomerCustomerId;
-
-    @FXML
-    private TextField EditCustomerName;
-
-    @FXML
-    private TextField EditCustomerAddress;
-
-    @FXML
-    private TextField EditCustomerPostalCode;
-
-    @FXML
-    private TextField EditCustomerPhone;
-
-
-    @FXML
-    public ComboBox<Divisions> EditCustomerDivisionId;
-    @FXML
-    public ComboBox<Country> EditCustomerCountryId;
-
-    @FXML
-    private Button EditCustomersSave;
-
-    @FXML
-    private Button EditCustomersBack;
+    @FXML private TextField EditCustomerCustomerId;
+    @FXML private TextField EditCustomerName;
+    @FXML private TextField EditCustomerAddress;
+    @FXML private TextField EditCustomerPostalCode;
+    @FXML private TextField EditCustomerPhone;
+    @FXML public ComboBox<Divisions> EditCustomerDivisionId;
+    @FXML public ComboBox<Country> EditCustomerCountryId;
 
     Stage stage;
     Parent scene;
@@ -109,10 +90,9 @@ public class EditCustomersController implements Initializable {
         } catch (IOException e) {System.out.println(e);}
     }
 
-
+    // Go back to Customers screen
     @FXML
     private void EditCustomersBack(ActionEvent event) throws IOException {
-        // Go back to Customers screen
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("../View/Customers.fxml"));
         stage.setScene(new Scene(scene));

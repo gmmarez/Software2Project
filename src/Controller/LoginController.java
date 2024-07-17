@@ -3,7 +3,6 @@ package Controller;
 import DAO.AppointmentDAO;
 import DAO.UserDAO;
 import Model.Appointments;
-import javafx.beans.value.ObservableDoubleValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,18 +29,11 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
-    @FXML
-    private TextField UsernameTextBox;
-    @FXML
-    private TextField PasswordTextBox;
-    @FXML
-    private Button LoginSubmit;
-    @FXML
-    private Button LoginClose;
-    @FXML
-    private TextField ZoneIdTextBox;
-
-    private boolean loginSuccess = false;
+    @FXML private TextField UsernameTextBox;
+    @FXML private TextField PasswordTextBox;
+    @FXML private Button LoginSubmit;
+    @FXML private Button LoginClose;
+    @FXML private TextField ZoneIdTextBox;
 
     Stage stage;
     Parent scene;
@@ -91,11 +83,8 @@ public class LoginController implements Initializable {
             PrintWriter printWriter = new PrintWriter(fileWriter);
             LocalDateTime writerCurrentTime = LocalDateTime.now();
 
-
-
+            // User is validated to login
             if (userId > 0) {
-
-                loginSuccess = true;
 
                 // Successful goes to Main Menu
                 stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
@@ -103,9 +92,9 @@ public class LoginController implements Initializable {
                 stage.setScene(new Scene(scene));
                 stage.show();
 
+                // Log successful login attempt
                 printWriter.println("Username: " + username + " login attempt was SUCCESSFULL at " + writerCurrentTime + ". Timezone: " + ZoneId.systemDefault());
-
-
+                printWriter.close();
                 ObservableList<Appointments> userAppointments = AppointmentDAO.getUserAppointment((userId));
 
                 boolean areAppointments = false;
@@ -115,7 +104,7 @@ public class LoginController implements Initializable {
                     LocalDateTime currentTime = LocalDateTime.now();
                     LocalDateTime currentTimePlus15Minutes = currentTime.plusMinutes(15);
 
-
+                    // If the user DOES have appointments within 15 minutes.
                     if ((startTime.isAfter(currentTime) || startTime.isEqual(currentTimePlus15Minutes)) &&
                             (startTime.isBefore(currentTimePlus15Minutes) || startTime.isEqual(currentTime))) {
 
@@ -128,6 +117,7 @@ public class LoginController implements Initializable {
                     }
                 }
 
+                // If the user does NOT have any appointments within 15 minutes.
                 if (!areAppointments) {
                     Alert alert = new Alert(Alert.AlertType.WARNING);
                     alert.setTitle(rb.getString("Upcoming Appointment"));
@@ -135,20 +125,24 @@ public class LoginController implements Initializable {
                     alert.show();
                 }
 
+            // User not validated to login.
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(rb.getString("Error"));
                 alert.setContentText(rb.getString("Incorrect"));
                 alert.show();
 
+                // Log incorrect login attempt
                 printWriter.println("Username: " + username + " login attempt was UNSUCCESSFULL at " + writerCurrentTime + ". Timezone: " + ZoneId.systemDefault());
 
+                // Reload Login Screen.
                 stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                 scene = FXMLLoader.load(getClass().getResource("../View/Login.fxml"));
                 stage.setScene(new Scene(scene));
                 stage.show();
-                // Log incorrect login attempt
+
             }
+
             printWriter.close();
         } catch(IOException exception){ exception.printStackTrace();               }
     }
