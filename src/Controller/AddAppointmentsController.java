@@ -17,11 +17,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.SQLOutput;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class AddAppointmentsController implements Initializable {
+
+    @FXML
+    private Button AddAppointmentsClear;
 
     @FXML
     private TextField AddAppointmentAppointmentId;
@@ -193,5 +197,17 @@ public class AddAppointmentsController implements Initializable {
             System.out.println(e.getMessage());
         }
 
+    }
+
+    @FXML
+    void AddAppointmentsClear(ActionEvent event) throws SQLException {
+            AddAppointmentTitle.clear();
+            AddAppointmentDescription.clear();
+            AddAppointmentLocation.clear();
+            AddAppointmentType.clear();
+            AddAppointmentStartTime.setValue(LocalDate.of(2000,1,1));
+            AddAppointmentEndTime.setValue(LocalDate.of(2000,1,1));
+            AddAppointmentStartHour.clear();
+            AddAppointmentEndHour.clear();
     }
 }

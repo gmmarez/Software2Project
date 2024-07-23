@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="357.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddAppointmentsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddAppointmentsController">
    <children>
       <Label text="Add Appointment">
          <font>
@@ -93,6 +93,11 @@
          </children>
       </HBox>
       <Button fx:id="AddAppointmentsAdd" mnemonicParsing="false" onAction="#AddAppointmentsAdd" text="Add">
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="AddAppointmentsClear" mnemonicParsing="false" onAction="#AddAppointmentsClear" text="Clear">
          <VBox.margin>
             <Insets left="10.0" top="10.0" />
          </VBox.margin>
