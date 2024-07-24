@@ -210,6 +210,6 @@ public class AddAppointmentsController implements Initializable {
         AddAppointmentEndTime.setValue(LocalDate.of(2000,1,1));
         AddAppointmentStartHour.clear();
         AddAppointmentEndHour.clear();
-      *//
+      */
     }
 }
