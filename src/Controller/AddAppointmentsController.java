@@ -201,13 +201,15 @@ public class AddAppointmentsController implements Initializable {
 
     @FXML
     void AddAppointmentsClear(ActionEvent event) throws SQLException {
-            AddAppointmentTitle.clear();
-            AddAppointmentDescription.clear();
-            AddAppointmentLocation.clear();
-            AddAppointmentType.clear();
-            AddAppointmentStartTime.setValue(LocalDate.of(2000,1,1));
-            AddAppointmentEndTime.setValue(LocalDate.of(2000,1,1));
-            AddAppointmentStartHour.clear();
-            AddAppointmentEndHour.clear();
+          /**
+        AddAppointmentTitle.clear();
+        AddAppointmentDescription.clear();
+        AddAppointmentLocation.clear();
+        AddAppointmentType.clear();
+        AddAppointmentStartTime.setValue(LocalDate.of(2000,1,1));
+        AddAppointmentEndTime.setValue(LocalDate.of(2000,1,1));
+        AddAppointmentStartHour.clear();
+        AddAppointmentEndHour.clear();
+      *//
     }
 }
