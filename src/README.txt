@@ -18,6 +18,18 @@ MySQL Workbench 8.0.27, mysql-connector-java-8.0.25
 
 How to run the program:
 
+Login Screen: In order to log in to the application, you must need to input and validate using User's credentials. Credentials are case-
+sensitive.
+
+Main Menu: A User can either choose from the following options: Customers, Appointments, and Reports. The user can
+also choose to log out of the application and return to the Login screen by selecting 'Logout'.
+
+Customers: A User upon accessing the Customers main screen will be able to view all current Customers in a table format.
+In order to add a customer, the User must select the 'Add' button and fill all required fields.
+
+
+
+
 Addition Reports Description:
 
 
