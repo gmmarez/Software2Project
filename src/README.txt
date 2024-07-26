@@ -54,9 +54,10 @@ Edit Appointment: As the User gets to the 'Edit Appointment' screen, the already
 screen. The User may make any changes they wish to that appointment. After changes have been made, the User will need to select
 'Save' and return them to the 'Appointments Menu'. If the User wishes to return back to the Appointments menu screen they may select 'Back'.
 
-Reports:
+Reports: In the 'Reports' screen the User will be able to view three seperate tables outlined in requirements A3f.
+These are Appointments according to Contacts, Appointments by Customers, and count of Types of Appointments.
 
 
-Addition Reports Description:
-
-
+Addition Reports Description: The three tables in the 'Reports' screen are Appointments according to Contacts,
+Appointments by Customers, and count of Types of Appointments. These provide insight on what appointments are coming
+from both specific Contacts and Customers. The last table will show the number of each Type of Appointment created.
