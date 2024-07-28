@@ -6,15 +6,20 @@ gmarez@wgu.edu
 student application version,
 July 23, 2024
 
+-----------
+
 Purpose: Create a functional scheduling application in the setting of a doctor's office. This will serve a portal for users
 to be able to verify login and manipulate customer records and appointments to their corresponding Contacts. Users will
 also be able to view data of all Appointments according to Contacts, Appointments by Customers, and count of Types of
 Appointments in table form. The application will also be able to notify the user if an upcoming appointment is scheduled,
 change login screen language depending on user location, keep record of all login attempts, and provide input validation.
 
+-----------
 
 IntelliJ IDEA 2023.2.2 (Community Edition), Java SE 17.0.1), JavaFX-SDK-17.0.1
 MySQL Workbench 8.0.27, mysql-connector-java-8.0.25
+
+-----------
 
 How to run the program:
 
@@ -54,9 +59,11 @@ Edit Appointment: As the User gets to the 'Edit Appointment' screen, the already
 screen. The User may make any changes they wish to that appointment. After changes have been made, the User will need to select
 'Save' and return them to the 'Appointments Menu'. If the User wishes to return back to the Appointments menu screen they may select 'Back'.
 
-Reports: In the 'Reports' screen the User will be able to view three seperate tables outlined in requirements A3f.
-These are Appointments according to Contacts, Appointments by Customers, and count of Types of Appointments.
+Reports: In the 'Reports' screen the User will be able to view three separate tables outlined in requirements A3f.
+These are Appointments according to Contacts, Appointments by Customers, and count of Types of Appointments. You can navigate
+through the desired contacts and customers by selecting them in the drop-down menu according to each table.
 
+-----------
 
 Addition Reports Description: The three tables in the 'Reports' screen are Appointments according to Contacts,
 Appointments by Customers, and count of Types of Appointments. These provide insight on what appointments are coming
