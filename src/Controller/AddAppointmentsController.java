@@ -201,7 +201,6 @@ public class AddAppointmentsController implements Initializable {
 
     @FXML
     void AddAppointmentsClear(ActionEvent event) throws SQLException {
-          /**
         AddAppointmentTitle.clear();
         AddAppointmentDescription.clear();
         AddAppointmentLocation.clear();
@@ -210,6 +209,5 @@ public class AddAppointmentsController implements Initializable {
         AddAppointmentEndTime.setValue(LocalDate.of(2000,1,1));
         AddAppointmentStartHour.clear();
         AddAppointmentEndHour.clear();
-      */
     }
 }

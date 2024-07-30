@@ -25,14 +25,11 @@ import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class AddCustomersController implements Initializable {
+    @FXML private Button AddCustomersClear;
     @FXML private TextField AddCustomerCustomerId;
-
     @FXML private TextField AddCustomerName;
-
     @FXML private TextField AddCustomerAddress;
-
     @FXML private TextField AddCustomerPostalCode;
-
     @FXML private TextField AddCustomerPhone;
     @FXML public TextField AddCustomerCreateDate;
     @FXML public TextField AddCustomerCreatedBy;
@@ -128,5 +125,12 @@ public class AddCustomersController implements Initializable {
         }
         // AddCustomerDivisionId.setValue(null);
         AddCustomerDivisionId.setItems(filterDivisions);
+    }
+
+    public void AddCustomersClear(ActionEvent event) {
+        AddCustomerName.clear();
+        AddCustomerAddress.clear();
+        AddCustomerPostalCode.clear();
+        AddCustomerPhone.clear();
     }
 }

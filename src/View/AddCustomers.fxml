@@ -21,7 +21,7 @@
       </Label>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
-            <TextField fx:id="AddCustomerCustomerId" disable="true" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Customer ID">
+            <TextField fx:id="AddCustomerCustomerId" disable="true" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Customer ID (Auto Generated)">
                <VBox.margin>
                   <Insets left="10.0" />
                </VBox.margin>
@@ -71,5 +71,10 @@
             <Insets left="10.0" top="5.0" />
          </VBox.margin>
       </HBox>
+      <Button fx:id="AddCustomersClear" mnemonicParsing="false" onAction="#AddCustomersClear" text="Clear">
+         <VBox.margin>
+            <Insets bottom="5.0" left="10.0" />
+         </VBox.margin>
+      </Button>
    </children>
 </VBox>
