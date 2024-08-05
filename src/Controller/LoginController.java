@@ -93,7 +93,7 @@ public class LoginController implements Initializable {
                 stage.show();
 
                 // Log successful login attempt
-                printWriter.println("Username: " + username + " login attempt was SUCCESSFULL at " + writerCurrentTime + ". Timezone: " + ZoneId.systemDefault());
+                printWriter.println("Username: ->" + username + "<- login attempt was SUCCESSFULL at " + writerCurrentTime + ". Timezone: " + ZoneId.systemDefault());
                 printWriter.close();
                 ObservableList<Appointments> userAppointments = AppointmentDAO.getUserAppointment((userId));
 
