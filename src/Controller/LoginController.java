@@ -93,7 +93,7 @@ public class LoginController implements Initializable {
                 stage.show();
 
                 // Log successful login attempt
-                printWriter.println("Username: ->" + username + "<- login attempt was SUCCESSFULL at " + writerCurrentTime + ". Timezone: " + ZoneId.systemDefault());
+                printWriter.println("Username: -> " + username + " <- login attempt was SUCCESSFULL at " + writerCurrentTime + ". Timezone: " + ZoneId.systemDefault());
                 printWriter.close();
                 ObservableList<Appointments> userAppointments = AppointmentDAO.getUserAppointment((userId));
 
@@ -133,7 +133,7 @@ public class LoginController implements Initializable {
                 alert.show();
 
                 // Log incorrect login attempt
-                printWriter.println("Username: " + username + " login attempt was UNSUCCESSFULL at " + writerCurrentTime + ". Timezone: " + ZoneId.systemDefault());
+                printWriter.println("Username: -> " + username + " <- login attempt was UNSUCCESSFULL at " + writerCurrentTime + ". Timezone: " + ZoneId.systemDefault());
 
                 // Reload Login Screen.
                 stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
