@@ -147,15 +147,18 @@ public class LoginController implements Initializable {
         } catch(IOException exception){ exception.printStackTrace();               }
     }
 
-    // Closes entire application
+    // Closes entire application with LAMBDA EXPRESSION
     @FXML
     private void LoginClose(ActionEvent event) {
-        // Closes entire application
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "This will close the entire program, are you sure you want to continue?");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-
-            System.exit(0);
-        }
+        alert.showAndWait().ifPresent((response -> {
+            if (response == ButtonType.OK) {
+                System.exit(0);
+            }
+        }));
     }
+
+
+
+
 }
