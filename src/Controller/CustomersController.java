@@ -51,6 +51,7 @@ public class CustomersController implements Initializable {
             CustomersDivisionIdCol.setCellValueFactory(new PropertyValueFactory<>("divisionId"));
 
             CustomersTable.setItems(allCustomersList);
+
         } catch(Exception e) {
             System.out.println(e);
         }
