@@ -2,6 +2,7 @@ package Controller;
 
 import DAO.*;
 import Model.*;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -113,6 +114,7 @@ public class ReportsController implements Initializable {
 
         ReportsTable.refresh();
         ReportsTable.setItems(allReports);
+
 
     }
 
