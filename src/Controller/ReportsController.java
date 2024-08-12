@@ -118,6 +118,7 @@ public class ReportsController implements Initializable {
 
     }
 
+    // Appointments by Contact table Combo Box
     public void contactTableComboBox(ActionEvent event) throws SQLException {
         String chosenContactName = String.valueOf(contactTableComboBox.getValue());
         int chosenContactId = ContactDAO.getContactId(chosenContactName);
@@ -135,6 +136,7 @@ public class ReportsController implements Initializable {
 
     }
 
+    // Appointments by Customer table Combo Box
     public void customerTableComboBox(ActionEvent event) throws SQLException {
         String chosenCustomerName = String.valueOf(customerTableComboBox.getValue());
         int chosenCustomerId = CustomerDAO.getCustomerId(chosenCustomerName);

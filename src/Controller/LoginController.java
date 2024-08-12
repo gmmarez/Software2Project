@@ -151,11 +151,11 @@ public class LoginController implements Initializable {
     @FXML
     private void LoginClose(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "This will close the entire program, are you sure you want to continue?");
-        alert.showAndWait().ifPresent((response -> {
+        alert.showAndWait().ifPresent(response -> {
             if (response == ButtonType.OK) {
                 System.exit(0);
             }
-        }));
+        });
     }
 
 
