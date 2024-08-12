@@ -126,6 +126,7 @@ public class ReportsController implements Initializable {
         if (AppointmentDAO.getContactAppointment(chosenContactId).isEmpty()) {
             ContactTable.setPlaceholder(new Label(chosenContactName + " has no appointments."));
             ContactTable.refresh();
+
                 for (int i =0; i < ContactTable.getItems().size(); i++) {
                     ContactTable.getItems().clear();
                     ContactTable.setPlaceholder(new Label(chosenContactName + " has no appointments."));
@@ -144,6 +145,7 @@ public class ReportsController implements Initializable {
         if (AppointmentDAO.getCustomerAppointment(chosenCustomerId).isEmpty()) {
             CustomerTable.setPlaceholder(new Label(chosenCustomerName + " has no appointments."));
             CustomerTable.refresh();
+
             for (int i =0; i < CustomerTable.getItems().size(); i++) {
                 CustomerTable.getItems().clear();
                 CustomerTable.setPlaceholder(new Label(chosenCustomerName + " has no appointments."));

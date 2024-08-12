@@ -125,7 +125,7 @@ public class LoginController implements Initializable {
                     alert.show();
                 }
 
-            // User not validated to login.
+            // User not validated to log in.
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(rb.getString("Error"));
