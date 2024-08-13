@@ -65,7 +65,7 @@
             <Insets left="400.0" />
          </VBox.margin>
       </Label>
-      <ComboBox fx:id="customerTableComboBox" onAction="#customerTableComboBox" prefWidth="150.0" promptText="Select Customer">
+      <ComboBox fx:id="customerTableComboBox"  prefWidth="150.0" promptText="Select Customer">
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" />
          </VBox.margin>

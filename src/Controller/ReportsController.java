@@ -78,7 +78,30 @@ public class ReportsController implements Initializable {
         // Setting the Appointments by Customer table
         customerTableComboBox.setItems(allCustomers);
         CustomerTable.setPlaceholder(new Label("Select a Customer to view appointments."));
+        customerTableComboBox.setOnAction((event) -> {
+            String chosenCustomerName = String.valueOf(customerTableComboBox.getValue());
+            int chosenCustomerId = 0;
+            try {
+                chosenCustomerId = CustomerDAO.getCustomerId(chosenCustomerName);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
+            if (AppointmentDAO.getCustomerAppointment(chosenCustomerId).isEmpty()) {
+                CustomerTable.setPlaceholder(new Label(chosenCustomerName + " has no appointments."));
+                CustomerTable.refresh();
+
+                for (int i =0; i < CustomerTable.getItems().size(); i++) {
+                    CustomerTable.getItems().clear();
+                    CustomerTable.setPlaceholder(new Label(chosenCustomerName + " has no appointments."));
+                }
+            } else {
+                CustomerTable.setItems(AppointmentDAO.getCustomerAppointment(chosenCustomerId));
+            }
+
+                }
+
+        );
         customerAppointmentId.setCellValueFactory(new PropertyValueFactory<>("appointmentId"));
         customerAppointmentTitle.setCellValueFactory(new PropertyValueFactory<>("appointmentTitle"));
         customerAppointmentDescription.setCellValueFactory(new PropertyValueFactory<>("appointmentDescription"));
@@ -138,6 +161,7 @@ public class ReportsController implements Initializable {
     }
 
     // Appointments by Customer table Combo Box
+    /**
     public void customerTableComboBox(ActionEvent event) throws SQLException {
         String chosenCustomerName = String.valueOf(customerTableComboBox.getValue());
         int chosenCustomerId = CustomerDAO.getCustomerId(chosenCustomerName);
@@ -154,4 +178,5 @@ public class ReportsController implements Initializable {
             CustomerTable.setItems(AppointmentDAO.getCustomerAppointment(chosenCustomerId));
         }
     }
+     */
 }
