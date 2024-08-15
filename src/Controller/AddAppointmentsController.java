@@ -189,7 +189,10 @@ public class AddAppointmentsController implements Initializable {
 
     }
 
-    /** This is the methods used to initialize the AddAppointments screen. */
+    /** This is the methods used to initialize the AddAppointments screen.
+     * @param url
+     * @param resourceBundle 
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -203,9 +206,11 @@ public class AddAppointmentsController implements Initializable {
 
     }
 
-    /** This is the method used to clear text fields in the Add Appointments screen. */
+    /** This is the method used to clear text fields in the Add Appointments screen.
+     * @param event Selection of the Clear button on the Add Appointments screen.
+     * */
     @FXML
-    void AddAppointmentsClear(ActionEvent event) throws SQLException {
+    private void AddAppointmentsClear(ActionEvent event) throws SQLException {
         AddAppointmentTitle.clear();
         AddAppointmentDescription.clear();
         AddAppointmentLocation.clear();
