@@ -85,7 +85,7 @@ public class AddAppointmentsController implements Initializable {
     Stage stage;
     Parent scene;
 
-
+    /** This is the method used to navigate back to the Appointments menu. */
     @FXML
     void AddAppointmentsBack(ActionEvent event) throws IOException {
         // Go back to Appointments screen
@@ -95,6 +95,7 @@ public class AddAppointmentsController implements Initializable {
         stage.show();
     }
 
+    /** This is the method used to add Customer Appointments. */
     @FXML
     void AddAppointmentsAdd(ActionEvent event) {
 
@@ -188,6 +189,7 @@ public class AddAppointmentsController implements Initializable {
 
     }
 
+    /** This is the methods used to initialize the AddAppointments screen. */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -201,6 +203,7 @@ public class AddAppointmentsController implements Initializable {
 
     }
 
+    /** This is the method used to clear text fields in the Add Appointments screen. */
     @FXML
     void AddAppointmentsClear(ActionEvent event) throws SQLException {
         AddAppointmentTitle.clear();
