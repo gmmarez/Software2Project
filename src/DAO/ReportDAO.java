@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/** This is the DAO file in which SQL queries regarding Reports are made to the MySQL Workbench database. */
 public class ReportDAO {
 
     public static ObservableList<Reports> getReportResults() throws SQLException {

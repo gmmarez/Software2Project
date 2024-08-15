@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/** This is the DAO file in which SQL queries regarding Users are made to the MySQL Workbench database. */
 public class UserDAO {
 
     public UserDAO(int userID, String userName, String userPassword) {

@@ -1,5 +1,6 @@
 package Model;
 
+/** This is the Users class where we construct the Users object and make manipulations to them. */
 public class Users {
 
     private int userId;

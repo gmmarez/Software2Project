@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+/** This is the controller in accordance to the EditAppointments FXML file. */
 public class EditAppointmentsController implements Initializable {
     @FXML
     private TextField EditAppointmentAppointmentId;

@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 
+/** This is the Appointments class where we construct the Appointments object and make manipulations to them. */
 public class Appointments {
 
     private int appointmentId;
@@ -208,11 +209,5 @@ public class Appointments {
 
         return false;
     }
-
-
-
-
-
-
 
 }

@@ -1,12 +1,12 @@
+Western Governors University C195 Performance Assessment
+
 Gabriel Marez
 gmarez@wgu.edu
 (505) 235-2408
-Student application version 1.0
-August 14, 2024
+student application version,
+July 23, 2024
 
 -----------
-
-Title: Western Governors University C195 Performance Assessment
 
 Purpose: Create a functional scheduling application in the setting of a doctor's office. This will serve a portal for users
 to be able to verify login and manipulate customer records and appointments to their corresponding Contacts. Users will

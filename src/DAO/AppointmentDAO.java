@@ -9,6 +9,7 @@ import Main.JDBC;
 import java.sql.*;
 import java.time.LocalDateTime;
 
+/** This is the DAO file in which SQL queries regarding Appointments are made to the MySQL Workbench database. */
 public class AppointmentDAO {
     public static ObservableList<Appointments> getAllAppointments() throws SQLException {
         ObservableList<Appointments> appointmentsObservableList = FXCollections.observableArrayList();

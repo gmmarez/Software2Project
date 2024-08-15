@@ -1,5 +1,6 @@
 package Model;
 
+/** This is the Reports class where we construct the Reports object and make manipulations to them. */
 public class Reports {
     private String type;
     private String month;

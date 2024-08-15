@@ -28,6 +28,7 @@ import java.util.MissingResourceException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/** This is the controller in accordance to the Login FXML file. */
 public class LoginController implements Initializable {
     @FXML private TextField UsernameTextBox;
     @FXML private TextField PasswordTextBox;

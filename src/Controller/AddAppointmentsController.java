@@ -22,6 +22,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+/** This is the controller in accordance to the AddAppointments FXML file. */
 public class AddAppointmentsController implements Initializable {
 
     @FXML
@@ -83,6 +84,7 @@ public class AddAppointmentsController implements Initializable {
 
     Stage stage;
     Parent scene;
+
 
     @FXML
     void AddAppointmentsBack(ActionEvent event) throws IOException {

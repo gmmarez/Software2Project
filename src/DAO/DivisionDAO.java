@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
+/** This is the DAO file in which SQL queries regarding Divisions are made to the MySQL Workbench database. */
 public class DivisionDAO {
     public static ObservableList<Divisions> getAllDivisions() throws SQLException {
         ObservableList<Divisions> divisionsObservableList = FXCollections.observableArrayList();

@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+/** This is the Divisions class where we construct the Divisions object and make manipulations to them. */
 public class Divisions {
 
     private int divisionId;

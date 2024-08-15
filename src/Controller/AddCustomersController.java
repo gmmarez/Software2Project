@@ -24,6 +24,7 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
+/** This is the controller in accordance to the AddCustomers FXML file. */
 public class AddCustomersController implements Initializable {
     @FXML private Button AddCustomersClear;
     @FXML private TextField AddCustomerCustomerId;

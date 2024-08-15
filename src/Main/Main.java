@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/** This is the Main file in which we use to run the entire application. */
 public class Main extends Application {
 
     @Override

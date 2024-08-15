@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+/** This is the Country class where we construct the Country object and make manipulations to them. */
 public class Country {
 
     private int countryId;

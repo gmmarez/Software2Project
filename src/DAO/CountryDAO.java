@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 
 import java.sql.*;
 
+/** This is the DAO file in which SQL queries regarding Countries are made to the MySQL Workbench database. */
 public class CountryDAO {
     public static ObservableList<Country> getAllCountries() throws SQLException {
         ObservableList<Country> countryObservableList = FXCollections.observableArrayList();

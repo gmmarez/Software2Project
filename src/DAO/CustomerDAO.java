@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+/** This is the DAO file in which SQL queries regarding Customers are made to the MySQL Workbench database. */
 public class CustomerDAO {
     public static ObservableList<Customers> getAllCustomers() throws SQLException {
         ObservableList<Customers> customersObservableList = FXCollections.observableArrayList();

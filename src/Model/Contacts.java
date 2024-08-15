@@ -1,5 +1,6 @@
 package Model;
 
+/** This is the Contacts class where we construct the Contacts object and make manipulations to them. */
 public class Contacts {
 
     private int contactId;

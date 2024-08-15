@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/** This is the controller in accordance to the application Main Menu FXML file. */
 public class MainMenuController implements Initializable {
     @FXML private Button MainMenuCustomers;
     @FXML private Button MainMenuAppointments;

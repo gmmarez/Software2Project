@@ -22,6 +22,7 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/** This is the controller in accordance to the Appointments menu FXML file. */
 public class AppointmentsController  implements Initializable {
     public RadioButton allAppointmentsTB;
     public RadioButton monthlyAppointmentsTB;

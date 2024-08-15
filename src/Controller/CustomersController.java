@@ -23,6 +23,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/** This is the controller in accordance to the Customers menu FXML file. */
 public class CustomersController implements Initializable {
     @FXML private TableView <Customers> CustomersTable;
     @FXML private TableColumn<?, ?> CustomersIdCol;

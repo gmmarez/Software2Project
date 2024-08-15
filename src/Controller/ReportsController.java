@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ResourceBundle;
 
+/** This is the controller in accordance to the Reports FXML file. */
 public class ReportsController implements Initializable {
 
     // Reports Type Table

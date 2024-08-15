@@ -25,6 +25,7 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
+/** This is the controller in accordance to the EditCustomers FXML file. */
 public class EditCustomersController implements Initializable {
     @FXML private TextField EditCustomerCustomerId;
     @FXML private TextField EditCustomerName;

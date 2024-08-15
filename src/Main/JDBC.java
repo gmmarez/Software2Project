@@ -2,6 +2,7 @@ package Main;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+/** This is the JDBC file in which we then can open and close to connection to the MySQL Workbench database. */
 public abstract class JDBC {
  private static final String protocol = "jdbc";
     private static final String vendor = ":mysql:";
