@@ -12,6 +12,9 @@ import java.time.LocalDateTime;
 /** This is the DAO file in which SQL queries regarding Appointments are made to the MySQL Workbench database. */
 public class AppointmentDAO {
 
+    /** This method will make a SQL query to return all Appointments and return it to the Appointment object.
+     * @return All Appointments
+     * */
     public static ObservableList<Appointments> getAllAppointments() throws SQLException {
         ObservableList<Appointments> appointmentsObservableList = FXCollections.observableArrayList();
         try {
@@ -43,6 +46,19 @@ public class AppointmentDAO {
         return appointmentsObservableList;
     }
 
+    /** This method is used when adding an Appointment to the database.
+     * @param appointmentTitle
+     * @param appointmentDescription
+     * @param appointmentLocation
+     * @param appointmentType
+     * @param appointmentStartTime
+     * @param appointmentEndTime
+     * @param createdDate
+     * @param lastUpdated
+     * @param contactId
+     * @param customerId
+     * @param userId
+     * */
     public static void addAppointment(String appointmentTitle, String appointmentDescription, String appointmentLocation,
                                       String appointmentType, LocalDateTime appointmentStartTime, LocalDateTime appointmentEndTime,
                                       LocalDateTime createdDate, LocalDateTime lastUpdated, int contactId, int customerId, int userId) throws SQLException {
@@ -63,6 +79,9 @@ public class AppointmentDAO {
         insertAppointment.executeUpdate();
     }
 
+    /** This method will delete an appointment from the database given an Appointment ID.
+     * @param appointmentId
+     * */
     public static void deleteAppointment(int appointmentId) {
         try {
             String sql = "DELETE FROM appointments WHERE Appointment_ID = ?";
@@ -72,6 +91,9 @@ public class AppointmentDAO {
         } catch (SQLException e) {e.printStackTrace();}
     }
 
+    /** This method will delete an appointment from the database given a Customer ID.
+     * @param customerId
+     * */
     public static void deleteCustomerAppointment(int customerId) {
         try {
             String sql = "DELETE FROM appointments WHERE Customer_ID = ?";
@@ -81,6 +103,11 @@ public class AppointmentDAO {
         } catch (SQLException e) {e.printStackTrace();}
     }
 
+    /** This method will return all Appointments given a Contact ID.
+     * @param contactId
+     *
+     * @return chosenCustomerAppointment
+     * */
     public static ObservableList<Appointments> getContactAppointment(int contactId) {
 
         ObservableList<Appointments> chosenContactAppointment = FXCollections.observableArrayList();
@@ -114,6 +141,11 @@ public class AppointmentDAO {
         return chosenContactAppointment;
     }
 
+    /** This method will return all Appointments given a Customer ID.
+     * @param customerId
+     *
+     * @return chosenCustomerAppointment
+     * */
     public static ObservableList<Appointments> getCustomerAppointment(int customerId) {
 
         ObservableList<Appointments> chosenCustomerAppointment = FXCollections.observableArrayList();
@@ -148,6 +180,9 @@ public class AppointmentDAO {
 
     }
 
+    /** This method will return all Appointments within a week.
+     * @return weeklyAppointments
+     * */
     public static ObservableList<Appointments> getWeeklyAppointments() {
         ObservableList<Appointments> weeklyAppointments = FXCollections.observableArrayList();
         try {
@@ -177,6 +212,9 @@ public class AppointmentDAO {
         return weeklyAppointments;
     }
 
+    /** This method will return all Appointments within a month.
+     * @return monthlyAppointments
+     * */
     public static ObservableList<Appointments> getMonthlyAppointments() {
         ObservableList<Appointments> monthlyAppointments = FXCollections.observableArrayList();
         try {
@@ -206,6 +244,18 @@ public class AppointmentDAO {
         return monthlyAppointments;
     }
 
+    /** This method is used when needing to make updates to Appointments in the database.
+     * @param appointmentId
+     * @param appointmentTitle
+     * @param appointmentDescription
+     * @param appointmentLocation
+     * @param appointmentType
+     * @param appointmentStartTime
+     * @param appointmentEndTime
+     * @param contactId
+     * @param customerId
+     * @param userId
+     * */
     public static void updateAppointment(int appointmentId, String appointmentTitle, String appointmentDescription, String appointmentLocation,
                                          String appointmentType, LocalDateTime appointmentStartTime,
                                          LocalDateTime appointmentEndTime, int contactId, int customerId, int userId) {
@@ -232,6 +282,11 @@ public class AppointmentDAO {
         }
     }
 
+    /** This method will return all Appointments given a User ID.
+     * @param userId
+     *
+     * @return chosenUserAppointment
+     * */
     public static ObservableList<Appointments> getUserAppointment(int userId) {
 
         ObservableList<Appointments> chosenUserAppointment = FXCollections.observableArrayList();

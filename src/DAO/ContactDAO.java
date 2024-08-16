@@ -12,6 +12,7 @@ import java.sql.*;
 
 /** This is the DAO file in which SQL queries regarding Contacts are made to the MySQL Workbench database. */
 public class ContactDAO {
+
     public static ObservableList<Contacts> getAllContacts() throws SQLException {
         ObservableList<Contacts> contactsObservableList = FXCollections.observableArrayList();
         String sql = "SELECT * from contacts";
