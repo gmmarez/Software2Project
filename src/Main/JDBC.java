@@ -2,7 +2,7 @@ package Main;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-/** This is the JDBC file in which we then can open and close to connection to the MySQL Workbench database. */
+/** This is the JDBC file in which configure the connection to the MySQL Workbench database. */
 public abstract class JDBC {
  private static final String protocol = "jdbc";
     private static final String vendor = ":mysql:";
@@ -16,7 +16,10 @@ public abstract class JDBC {
 
     public static Connection conn = null;
 
-    public static Connection openConnection()
+    /** This is the method called when opening the connection to the MySQL Database.
+     *
+     */
+        public static Connection openConnection()
     {
         try {
             Class.forName(driver); // Locate Driver
@@ -30,10 +33,15 @@ public abstract class JDBC {
         return conn;
     }
 
+    /** This method will get a connection when needed to the MySQL Database.
+     * */
     public static Connection getConnection() {
         return conn;
     }
 
+    /** This is the method called when closing the connection to the MySQL Database.
+     *
+     */
     public static void closeConnection() {
         try {
             conn.close();

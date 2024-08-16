@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 
 /** This is the DAO file in which SQL queries regarding Appointments are made to the MySQL Workbench database. */
 public class AppointmentDAO {
+
     public static ObservableList<Appointments> getAllAppointments() throws SQLException {
         ObservableList<Appointments> appointmentsObservableList = FXCollections.observableArrayList();
         try {
@@ -80,10 +81,6 @@ public class AppointmentDAO {
         } catch (SQLException e) {e.printStackTrace();}
     }
 
-
-
-
-
     public static ObservableList<Appointments> getContactAppointment(int contactId) {
 
         ObservableList<Appointments> chosenContactAppointment = FXCollections.observableArrayList();
@@ -150,6 +147,7 @@ public class AppointmentDAO {
         return chosenCustomerAppointment;
 
     }
+
     public static ObservableList<Appointments> getWeeklyAppointments() {
         ObservableList<Appointments> weeklyAppointments = FXCollections.observableArrayList();
         try {
@@ -266,6 +264,5 @@ public class AppointmentDAO {
 
         return chosenUserAppointment;
     }
-
 
 }
