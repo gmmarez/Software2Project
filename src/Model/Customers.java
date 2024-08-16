@@ -10,6 +10,14 @@ public class Customers {
     private String customerPhone;
     private int divisionId;
 
+    /** Customer Constructor.
+     * @param customerId
+     * @param customerName
+     * @param customerAddress
+     * @param customerPostalCode
+     * @param customerPhone
+     * @param divisionId
+     * */
     public Customers(int customerId, String customerName, String customerAddress, String customerPostalCode,
                     String customerPhone, int divisionId) {
         this.customerId = customerId;
@@ -19,10 +27,10 @@ public class Customers {
         this.customerPhone = customerPhone;
         this.divisionId = divisionId;
     }
+
     public int getCustomerId() {
         return customerId;
     }
-
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
@@ -30,7 +38,6 @@ public class Customers {
     public String getCustomerName() {
         return customerName;
     }
-
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
@@ -38,7 +45,6 @@ public class Customers {
     public String getCustomerAddress() {
         return customerAddress;
     }
-
     public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
     }
@@ -46,7 +52,6 @@ public class Customers {
     public String getCustomerPostalCode() {
         return customerPostalCode;
     }
-
     public void setCustomerPostalCode(String customerPostalCode) {
         this.customerPostalCode = customerPostalCode;
     }
@@ -54,7 +59,6 @@ public class Customers {
     public String getCustomerPhone() {
         return customerPhone;
     }
-
     public void setCustomerPhone(String customerPhone) {
         this.customerPhone = customerPhone;
     }
@@ -62,7 +66,6 @@ public class Customers {
     public int getDivisionId() {
         return divisionId;
     }
-
     public void setDivisionId(int divisionId) {
         this.divisionId = divisionId;
     }

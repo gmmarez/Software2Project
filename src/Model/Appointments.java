@@ -24,6 +24,18 @@ public class Appointments {
     private int customerId;
     private int userId;
 
+    /** Appointment Constructor
+     * @param appointmentId
+     * @param appointmentTitle
+     * @param appointmentDescription
+     * @param appointmentLocation
+     * @param appointmentType
+     * @param appointmentStartTime
+     * @param appointmentEndTime
+     * @param contactId
+     * @param customerId
+     * @param userId
+     * */
     public Appointments(int appointmentId, String appointmentTitle, String appointmentDescription, String appointmentLocation,
                         String appointmentType, LocalDateTime appointmentStartTime, LocalDateTime appointmentEndTime,
                         int contactId, int customerId, int userId) {
@@ -42,7 +54,6 @@ public class Appointments {
     public int getAppointmentId() {
         return appointmentId;
     }
-
     public void setAppointmentId(int appointmentId) {
         this.appointmentId = appointmentId;
     }
@@ -50,7 +61,6 @@ public class Appointments {
     public String getAppointmentTitle() {
         return appointmentTitle;
     }
-
     public void setAppointmentTitle(String appointmentTitle) {
         this.appointmentTitle = appointmentTitle;
     }
@@ -58,15 +68,11 @@ public class Appointments {
     public String getAppointmentDescription() {
         return appointmentDescription;
     }
-
-    public void setAppointmentDescription(String appointmentDescription) {
-        this.appointmentDescription = appointmentDescription;
-    }
+    public void setAppointmentDescription(String appointmentDescription) {this.appointmentDescription = appointmentDescription;}
 
     public String getAppointmentLocation() {
         return appointmentLocation;
     }
-
     public void setAppointmentLocation(String appointmentLocation) {
         this.appointmentLocation = appointmentLocation;
     }
@@ -74,7 +80,6 @@ public class Appointments {
     public String getAppointmentType() {
         return appointmentType;
     }
-
     public void setAppointmentType(String appointmentType) {
         this.appointmentType = appointmentType;
     }
@@ -82,23 +87,16 @@ public class Appointments {
     public LocalDateTime getAppointmentStartTime() {
         return appointmentStartTime;
     }
-
-    public void setAppointmentStartTime(LocalDateTime appointmentStartTime) {
-        this.appointmentStartTime = appointmentStartTime;
-    }
+    public void setAppointmentStartTime(LocalDateTime appointmentStartTime) {this.appointmentStartTime = appointmentStartTime;}
 
     public LocalDateTime getAppointmentEndTime() {
         return appointmentEndTime;
     }
-
-    public void setAppointmentEndTime(LocalDateTime appointmentEndTime) {
-        this.appointmentEndTime = appointmentEndTime;
-    }
+    public void setAppointmentEndTime(LocalDateTime appointmentEndTime) {this.appointmentEndTime = appointmentEndTime;}
 
     public int getContactId() {
         return contactId;
     }
-
     public void setContactId(int contactId) {
         this.contactId = contactId;
     }
@@ -106,7 +104,6 @@ public class Appointments {
     public int getCustomerId() {
         return customerId;
     }
-
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
@@ -114,11 +111,15 @@ public class Appointments {
     public int getUserId() {
         return userId;
     }
-
     public void setUserId(int userId) {
         this.userId = userId;
     }
 
+    /** This is the method to determine whether a created appointment is made within the business operating hours.
+     * @param appointmentStart Appointment Start Time
+     * @param appointmentEnd  Appointment End Time
+     * @return true/false Whether it galls in operating business hours
+     * */
     public static boolean withinBusinessHours(LocalDateTime appointmentStart, LocalDateTime appointmentEnd) {
         ZoneId LocalZone = ZoneId.systemDefault();
         ZoneId EasternTimeZone = ZoneId.of("America/New_York");
@@ -160,6 +161,13 @@ public class Appointments {
 
     }
 
+    /** This method will check whether an Appointment is made for a Customer and that it doesn't overlap
+     * any other Appointment's that Customer may have made.
+     * @param customerId Customer ID
+     * @param appointmentStartTime Appointment Start Time
+     * @param appointmentEndTime Appointment End Time
+     * @return true/false Whether it overlaps a Customer's Appointment.
+     * */
     public static boolean overlapCheck(int customerId, LocalDateTime appointmentStartTime, LocalDateTime appointmentEndTime) throws SQLException {
         ObservableList<Appointments> allAppointments = AppointmentDAO.getAllAppointments();
         LocalDateTime checkAppointmentStart;
@@ -206,7 +214,6 @@ public class Appointments {
 
             }
         }
-
         return false;
     }
 

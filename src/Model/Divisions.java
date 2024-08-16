@@ -11,15 +11,20 @@ public class Divisions {
     private String divisionName;
     private int countryId;
 
+    /** Division Constructor
+     * @param divisionId
+     * @param divisionName
+     * @param countryId
+     * */
     public Divisions(int divisionId, String divisionName, int countryId) {
         this.divisionId = divisionId;
         this.divisionName = divisionName;
         this.countryId = countryId;
     }
+
     public int getDivisionId() {
         return divisionId;
     }
-
     public void setDivisionId(int divisionId) {
         this.divisionId = divisionId;
     }
@@ -27,7 +32,6 @@ public class Divisions {
     public String getDivisionName() {
         return divisionName;
     }
-
     public void setDivisionName(String divisionName) {
         this.divisionName = divisionName;
     }
@@ -35,7 +39,6 @@ public class Divisions {
     public int getCountryId() {
         return countryId;
     }
-
     public void setCountryId(int countryId) {
         this.countryId = countryId;
     }
