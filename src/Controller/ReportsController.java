@@ -148,7 +148,6 @@ public class ReportsController implements Initializable {
         ReportsTable.refresh();
         ReportsTable.setItems(allReports);
 
-
     }
 
     /** This method controls the Contact table combo box. This includes setting the table for which
@@ -170,26 +169,6 @@ public class ReportsController implements Initializable {
         } else {
             ContactTable.setItems(AppointmentDAO.getContactAppointment(chosenContactId));
         }
-
     }
 
-    // Appointments by Customer table Combo Box
-    /**
-    public void customerTableComboBox(ActionEvent event) throws SQLException {
-        String chosenCustomerName = String.valueOf(customerTableComboBox.getValue());
-        int chosenCustomerId = CustomerDAO.getCustomerId(chosenCustomerName);
-
-        if (AppointmentDAO.getCustomerAppointment(chosenCustomerId).isEmpty()) {
-            CustomerTable.setPlaceholder(new Label(chosenCustomerName + " has no appointments."));
-            CustomerTable.refresh();
-
-            for (int i =0; i < CustomerTable.getItems().size(); i++) {
-                CustomerTable.getItems().clear();
-                CustomerTable.setPlaceholder(new Label(chosenCustomerName + " has no appointments."));
-            }
-        } else {
-            CustomerTable.setItems(AppointmentDAO.getCustomerAppointment(chosenCustomerId));
-        }
-    }
-     */
 }
