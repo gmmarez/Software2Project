@@ -46,8 +46,11 @@ public class AppointmentsController  implements Initializable {
     Stage stage;
     Parent scene;
 
+    /** This method will initialize the Appointments table in the Appointments menu.
+     * @param url url
+     * @param resourceBundle resourceBundle */
     public void initialize(URL url, ResourceBundle resourceBundle) {
-try {
+    try {
 
         AppointmentsTable.setItems(AppointmentDAO.getAllAppointments());
 
@@ -65,9 +68,10 @@ try {
     } catch(Exception e){
     System.out.println(e);
     }
-
         }
 
+    /** This method will direct the user to the Add Appointments screen.
+     * @param event Selection of the Add button. */
     @FXML
     void AppointmentsAddAppointment(ActionEvent event) throws IOException {
         // Go to Add Appointment Screen
@@ -77,6 +81,8 @@ try {
         stage.show();
     }
 
+    /** This method will direct the user to the Edit Appointments screen.
+     * @param event Selection of the Edit button. */
     @FXML
     void AppointmentsEditAppointment(ActionEvent event) throws IOException, SQLException {
         /**
@@ -110,6 +116,8 @@ try {
         }
     }
 
+    /** This method will delete a selected Appointment from the database.
+     * @param actionEvent Selection of an Appointment and Delete button. */
     @FXML
     void AppointmentsDeleteAppointment(ActionEvent actionEvent) {
         try {
@@ -129,6 +137,8 @@ try {
             alert1.showAndWait();
     }
 
+    /** This method will direct the user back to the Main Menu.
+     * @param event Selection of the Back button. */
     @FXML
     void AppointmentsBack(ActionEvent event) throws IOException {
         // Go back to Main Menu
@@ -139,14 +149,20 @@ try {
 
     }
 
+    /** This method will set all Appointments in the Appointments table.
+     * @param event All Appointments radio button. */
     public void allAppointmentsTB(ActionEvent event) throws SQLException {
         AppointmentsTable.setItems(AppointmentDAO.getAllAppointments());
     }
 
+    /** This method will set all Appointments within a month in the Appointments table.
+     * @param event Monthly Appointment radio button. */
     public void monthlyAppointmentsTB(ActionEvent event) throws SQLException {
         AppointmentsTable.setItems(AppointmentDAO.getMonthlyAppointments());
     }
 
+    /** This method will set all Appointments within a week in the APpointmetsn table.
+     * @param event Weekly Appointments radio button. */
     public void weeklyAppointmentsTB(ActionEvent event) {
         AppointmentsTable.setItems(AppointmentDAO.getWeeklyAppointments());
     }

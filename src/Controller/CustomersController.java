@@ -40,6 +40,9 @@ public class CustomersController implements Initializable {
     Stage stage;
     Parent scene;
 
+    /** This method will initialize the Customers menu screen. This includes setting the Customers table.
+     * @param url url
+     * @param resourceBundle resourceBundle */
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             ObservableList<Customers> allCustomersList = CustomerDAO.getAllCustomers();
@@ -58,7 +61,8 @@ public class CustomersController implements Initializable {
         }
     }
 
-    // Go to the Add Customer.
+    /** This method will direct the user to the Add Customers screen.
+     * @param event Selection of the Add button. */
     @FXML
     void CustomersAddCustomer(ActionEvent event) throws IOException {
         // Go to Add Customer screen
@@ -69,6 +73,9 @@ public class CustomersController implements Initializable {
     }
 
     // Grab current Customer information load it into Edit Customers.
+    /** This method will direct the user to the Edit Customer Screen. This includes that a Customer is chosen and then
+     * direct that Customer to the edit screen.
+     * @param event Selection of a CCustomer and Edit button. */
     @FXML
     void CustomersEditCustomer(ActionEvent event) throws IOException, SQLException {
 
@@ -96,7 +103,9 @@ public class CustomersController implements Initializable {
          }
     }
 
-    // Delete selected customer, delete any appointments that the customer may had.
+    /** This method will delete a selected Customer. This includes checking whether the selected Customer has
+     * associated Appointments and deleting those Appointments as well.
+     * @param actionEvent Selection of a Customer and the Delete button. */
     @FXML
     void CustomersDeleteCustomer(ActionEvent actionEvent) throws SQLException {
         try {
@@ -123,7 +132,8 @@ public class CustomersController implements Initializable {
         alert1.showAndWait();
     }
 
-    // Go to Main Menu
+    /** This method will direct the user back to the Main Menu.
+     * @param event Selection of the Back button. */
     @FXML
     void CustomersBack(ActionEvent event) throws IOException {
         // Go back to Main Menu

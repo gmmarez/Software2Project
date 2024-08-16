@@ -25,67 +25,31 @@ import java.util.ResourceBundle;
 /** This is the controller in accordance to the AddAppointments FXML file. */
 public class AddAppointmentsController implements Initializable {
 
-    @FXML
-    private Button AddAppointmentsClear;
-
-    @FXML
-    private TextField AddAppointmentAppointmentId;
-
-    @FXML
-    private TextField AddAppointmentTitle;
-
-    @FXML
-    private TextField AddAppointmentDescription;
-
-    @FXML
-    private TextField AddAppointmentLocation;
-
-    @FXML
-    private TextField AddAppointmentType;
-
-    @FXML
-    private DatePicker AddAppointmentStartTime;
-
-    @FXML
-    private TextField AddAppointmentStartHour;
-
-    @FXML
-    private DatePicker AddAppointmentEndTime;
-
-    @FXML
-    private TextField AddAppointmentEndHour;
-
-    @FXML
-    public TextField AddAppointmentCreateDate;
-
-    @FXML
-    public TextField AddAppointmentCreatedBy;
-
-    @FXML
-    public TextField AddAppointmentLastUpdate;
-
-    @FXML
-    public TextField AddAppointmentLastUpdatedBy;
-
-    @FXML
-    public ComboBox <Customers> AddAppointmentCustomerId;
-
-    @FXML
-    public ComboBox <Users> AddAppointmentUserId;
-
-    @FXML
-    public ComboBox <Contacts> AddAppointmentContactId;
-
-    @FXML
-    private Button AddAppointmentsBack;
-
-    @FXML
-    private Button AddAppointmentsAdd;
+    @FXML private Button AddAppointmentsClear;
+    @FXML private TextField AddAppointmentAppointmentId;
+    @FXML private TextField AddAppointmentTitle;
+    @FXML private TextField AddAppointmentDescription;
+    @FXML private TextField AddAppointmentLocation;
+    @FXML private TextField AddAppointmentType;
+    @FXML private DatePicker AddAppointmentStartTime;
+    @FXML private TextField AddAppointmentStartHour;
+    @FXML private DatePicker AddAppointmentEndTime;
+    @FXML private TextField AddAppointmentEndHour;
+    @FXML public TextField AddAppointmentCreateDate;
+    @FXML public TextField AddAppointmentCreatedBy;
+    @FXML public TextField AddAppointmentLastUpdate;
+    @FXML public TextField AddAppointmentLastUpdatedBy;
+    @FXML public ComboBox <Customers> AddAppointmentCustomerId;
+    @FXML public ComboBox <Users> AddAppointmentUserId;
+    @FXML public ComboBox <Contacts> AddAppointmentContactId;
+    @FXML private Button AddAppointmentsBack;
+    @FXML private Button AddAppointmentsAdd;
 
     Stage stage;
     Parent scene;
 
-    /** This is the method used to navigate back to the Appointments menu. */
+    /** This is the method used to navigate back to the Appointments menu.
+     * @param event Add Appointment Back button     */
     @FXML
     void AddAppointmentsBack(ActionEvent event) throws IOException {
         // Go back to Appointments screen
@@ -95,7 +59,8 @@ public class AddAppointmentsController implements Initializable {
         stage.show();
     }
 
-    /** This is the method used to add Customer Appointments. */
+    /** This is the method used to add Customer Appointments.
+     * @param event Add Appointment button */
     @FXML
     void AddAppointmentsAdd(ActionEvent event) {
 

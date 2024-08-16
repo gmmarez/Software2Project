@@ -38,14 +38,14 @@ public class AddCustomersController implements Initializable {
     @FXML public TextField AddCustomerLastUpdatedBy;
     @FXML public ComboBox <Divisions> AddCustomerDivisionId;
     @FXML public ComboBox <Country>AddCustomerCountryId;
-
     @FXML private Button AddCustomersBack;
-
     @FXML private Button AddCustomersAdd;
 
     Stage stage;
     Parent scene;
 
+    /** This method directs the user back to the Customers menu screen.
+     * @param event Selection of the Back button. */
     @FXML
     void AddCustomersBack(ActionEvent event) throws IOException {
 
@@ -56,6 +56,8 @@ public class AddCustomersController implements Initializable {
         stage.show();
     }
 
+    /**This method will add a customer to the database and return the user back to the Customers menu screen.
+     * @param event Selection of the Add button. */
     @FXML
     void AddCustomersAdd(ActionEvent event) {
 
@@ -108,6 +110,9 @@ public class AddCustomersController implements Initializable {
 
     }
 
+    /** This method initializes the Add Customer screen. It will also auto-populate the combo boxes for Countries.
+     * @param resourceBundle resourceBundle
+     * @param url url */
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             AddCustomerCountryId.setItems(CountryDAO.getAllCountries());
@@ -116,6 +121,9 @@ public class AddCustomersController implements Initializable {
         }
     }
 
+    /** This method will populate the Divisions combo box once a Country is selected in its own respective
+     * combo box.
+     * @param event Selection of a Country from its respective combo box. */
     public void EnableDivisions(ActionEvent event) throws SQLException {
         ObservableList <Divisions> filterDivisions = FXCollections.observableArrayList();
         AddCustomerDivisionId.setDisable(false);
@@ -128,6 +136,8 @@ public class AddCustomersController implements Initializable {
         AddCustomerDivisionId.setItems(filterDivisions);
     }
 
+    /** This method will clear all the text boxes that may have been filled out.
+     * @param event Selection of the Clear button. */
     public void AddCustomersClear(ActionEvent event) {
         AddCustomerName.clear();
         AddCustomerAddress.clear();

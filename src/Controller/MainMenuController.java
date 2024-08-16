@@ -25,7 +25,9 @@ public class MainMenuController implements Initializable {
     Stage stage;
     Parent scene;
 
-    // Goes to Customers screen
+    /** This method will direct the user to the Customers menu screen.
+     * @param event Selection of the Customers button.
+     * */
     @FXML
     void MainMenuCustomers(ActionEvent event) throws IOException {
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
@@ -34,7 +36,9 @@ public class MainMenuController implements Initializable {
         stage.show();
     }
 
-    // Goes to Appointments screen
+    /** This method will direct the user to the Appointments menu screen.
+     * @param event Selection of the Appointments button.
+     * */
     @FXML
     void MainMenuAppointments(ActionEvent event) throws IOException {
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
@@ -43,7 +47,9 @@ public class MainMenuController implements Initializable {
         stage.show();
     }
 
-    // Goes to Reports screen
+    /** This method will direct the user to the Reports screen.
+     * @param event Selection of the Reports button.
+     * */
     @FXML
     void MainMenuReports(ActionEvent event) throws IOException {
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
@@ -53,7 +59,11 @@ public class MainMenuController implements Initializable {
 
     }
 
-    // Goes back to the Login screen with LAMBDA EXPRESSION
+    /** LAMBDA EXPRESSION USAGE
+     * This method will log the user and send them back to the Login Screen. The lambda expression is used to prompt
+     * an alert to the user about the choice they are making by selected the Logout button.
+     * @param event Selection of the Logout button
+     * */
     @FXML
     void MainMenuLogout(ActionEvent event) throws IOException {
 

@@ -47,6 +47,10 @@ public class LoginController implements Initializable {
     void PasswordTextBox(ActionEvent event) {
     }
 
+    /** This method will initalize the Login screen. This inlcudes setting all text based on the user's location.
+     * @param url url
+     * @param rb resourceBundle
+     * */
     public void initialize(URL url, ResourceBundle rb) {
         try {
             Locale locale = Locale.getDefault();
@@ -69,6 +73,10 @@ public class LoginController implements Initializable {
         }
     }
 
+    /** This method will check the user's input for Username and Password and validate credentials. This will then
+     * guide the user to the appropriate result.
+     * @param event Selection of the Submit button with login credentials.
+     * */
     @FXML
     private void LoginSubmit(ActionEvent event) throws IOException {
         try {
@@ -148,7 +156,11 @@ public class LoginController implements Initializable {
         } catch(IOException exception){ exception.printStackTrace();               }
     }
 
-    // Closes entire application with LAMBDA EXPRESSION
+    /** LAMBDA EXPRESSION USAGE
+     * This method will close the entire application. It also includes the use of a lambda expression to prompt an
+     * alert to the user.
+     * @param event Selection of the Close button.
+     * */
     @FXML
     private void LoginClose(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "This will close the entire program, are you sure you want to continue?");

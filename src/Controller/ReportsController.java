@@ -64,7 +64,9 @@ public class ReportsController implements Initializable {
     public ReportsController() throws SQLException {
     }
 
-    // Goes back to Main Menu
+    /** This method will direct the user to the Main Menu screen.
+     * @param event Selection of the Back button.
+     * */
     @FXML
     void ReportsBack(ActionEvent event) throws IOException {
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
@@ -73,6 +75,13 @@ public class ReportsController implements Initializable {
         stage.show();
         }
 
+    /** LAMBDA EXPRESSION USAGE
+     * This method will initialize reports in the Reports screen. This includes the combo boxes for each of the tables
+     * and the tables themselves. This also includes the use of a lambda expression to set the Appointments by Customer
+     * table.
+     * @param url url
+     * @param resourceBundle resourceBundle
+     * */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -142,7 +151,10 @@ public class ReportsController implements Initializable {
 
     }
 
-    // Appointments by Contact table Combo Box
+    /** This method controls the Contact table combo box. This includes setting the table for which
+     * Contact has been chosen.
+     * @param event Selection of a Contact in the combo box.
+     * */
     public void contactTableComboBox(ActionEvent event) throws SQLException {
         String chosenContactName = String.valueOf(contactTableComboBox.getValue());
         int chosenContactId = ContactDAO.getContactId(chosenContactName);

@@ -20,63 +20,32 @@ import java.util.ResourceBundle;
 
 /** This is the controller in accordance to the EditAppointments FXML file. */
 public class EditAppointmentsController implements Initializable {
-    @FXML
-    private TextField EditAppointmentAppointmentId;
 
-    @FXML
-    private TextField EditAppointmentTitle;
-
-    @FXML
-    private TextField EditAppointmentDescription;
-
-    @FXML
-    private TextField EditAppointmentLocation;
-
-    @FXML
-    private TextField EditAppointmentType;
-
-    @FXML
-    private DatePicker EditAppointmentStartTime;
-
-    @FXML
-    private TextField EditAppointmentStartHour;
-
-    @FXML
-    private DatePicker EditAppointmentEndTime;
-
-    @FXML
-    private TextField EditAppointmentEndHour;
-
-    @FXML
-    public TextField EditAppointmentCreateDate;
-
-    @FXML
-    public TextField EditAppointmentCreatedBy;
-
-    @FXML
-    public TextField EditAppointmentLastUpdate;
-
-    @FXML
-    public TextField EditAppointmentLastUpdatedBy;
-
-    @FXML
-    public ComboBox <Customers> EditAppointmentCustomerId;
-
-    @FXML
-    public ComboBox <Users> EditAppointmentUserId;
-
-    @FXML
-    public ComboBox <Contacts> EditAppointmentContactId;
-
-    @FXML
-    private Button EditAppointmentsSave;
-
-    @FXML
-    private Button EditAppointmentsBack;
+    @FXML private TextField EditAppointmentAppointmentId;
+    @FXML private TextField EditAppointmentTitle;
+    @FXML private TextField EditAppointmentDescription;
+    @FXML private TextField EditAppointmentLocation;
+    @FXML private TextField EditAppointmentType;
+    @FXML private DatePicker EditAppointmentStartTime;
+    @FXML private TextField EditAppointmentStartHour;
+    @FXML private DatePicker EditAppointmentEndTime;
+    @FXML private TextField EditAppointmentEndHour;
+    @FXML public TextField EditAppointmentCreateDate;
+    @FXML public TextField EditAppointmentCreatedBy;
+    @FXML public TextField EditAppointmentLastUpdate;
+    @FXML public TextField EditAppointmentLastUpdatedBy;
+    @FXML public ComboBox <Customers> EditAppointmentCustomerId;
+    @FXML public ComboBox <Users> EditAppointmentUserId;
+    @FXML public ComboBox <Contacts> EditAppointmentContactId;
+    @FXML private Button EditAppointmentsSave;
+    @FXML private Button EditAppointmentsBack;
 
     Stage stage;
     Parent scene;
 
+    /** This method will take the selected Appointments and save all changes that have been made.
+     * @param event Selection of the Save button.
+     */
     @FXML
     void AddAppointmentsSave(ActionEvent event) {
 
@@ -153,6 +122,8 @@ public class EditAppointmentsController implements Initializable {
         } catch (SQLException | IOException exception) {System.out.println(exception);}
     }
 
+    /** This method will direct the user back to the Appointments menu.
+     * @param event Selection of the Back button. */
     @FXML
     void EditAppointmentsBack(ActionEvent event) throws IOException {
         // Go back to Appointments screen
@@ -162,7 +133,9 @@ public class EditAppointmentsController implements Initializable {
         stage.show();
     }
 
-    // Set selected appointment information
+    /** This method will set the selected Appointment data in their respective text boxes.
+     * @param selectedAppointment Selected Appointment to be edited.
+     */
     public void setAppointment(Appointments selectedAppointment) throws SQLException {
         this.EditAppointmentAppointmentId.setText(Integer.toString(selectedAppointment.getAppointmentId()));
         this.EditAppointmentTitle.setText(selectedAppointment.getAppointmentTitle());
@@ -196,6 +169,11 @@ public class EditAppointmentsController implements Initializable {
         }
     }
 
+    /** This method will initialize the Edit Appointments screen. This includes setting the customers, contact,
+     * and user data in their respective combo boxes.
+     * @param url url
+     * @param resourceBundle resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -207,4 +185,5 @@ public class EditAppointmentsController implements Initializable {
             System.out.println(e.getMessage());
         }
     }
+
 }
