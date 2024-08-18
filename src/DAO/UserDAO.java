@@ -15,6 +15,11 @@ public class UserDAO {
     public UserDAO(int userID, String userName, String userPassword) {
         super();
     }
+
+    /** This method is used when validating a User login attempt. It takes in a both a username and password.
+     * @param username Username
+     * @param password Password
+     **/
     public static int validateUser(String username, String password){
         try {
             String query = "SELECT * FROM client_schedule.users WHERE User_Name = '" + username + "' AND Password = '" + password + "'";
@@ -32,6 +37,10 @@ public class UserDAO {
         }
         return -1;
     }
+
+    /** This method is used when getting a list of all the User records in the database.
+     *@return usersObservableList All User records
+     * */
     public static ObservableList<Users> getAllUsers() throws SQLException {
         ObservableList<Users> usersObservableList = FXCollections.observableArrayList();
         String sql = "SELECT * from users";
@@ -45,7 +54,6 @@ public class UserDAO {
             Users users = new Users(userId, userName, userPassword);
             usersObservableList.add(users);
         }
-
         return usersObservableList;
     }
 

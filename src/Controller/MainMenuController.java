@@ -82,6 +82,10 @@ public class MainMenuController implements Initializable {
         });
     }
 
+    /** This is the initialize method used for the Main Menu.
+     * @param resourceBundle resourceBundle
+     * @param url url
+     * */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }

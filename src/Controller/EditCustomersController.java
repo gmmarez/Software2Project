@@ -38,6 +38,10 @@ public class EditCustomersController implements Initializable {
     Stage stage;
     Parent scene;
 
+    /** This method is used when saving the edited Customer information. It will then save this new information
+     * in the database.
+     * @param event Save button
+     * */
     @FXML
     void AddCustomersSave(ActionEvent event) {
 
@@ -91,7 +95,9 @@ public class EditCustomersController implements Initializable {
         } catch (IOException e) {System.out.println(e);}
     }
 
-    // Go back to Customers screen
+    /** This method will direct the user back to the menu when used.
+     * @param event Selection of the Back button
+     * */
     @FXML
     private void EditCustomersBack(ActionEvent event) throws IOException {
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
@@ -101,6 +107,9 @@ public class EditCustomersController implements Initializable {
 
     }
 
+    /** This method will set the selected Customer information to be edited in their respective text fields.
+     * @param selectedCustomer Selected Customer to edit.
+     * */
     public void setCustomer(Customers selectedCustomer) throws SQLException {
 
         this.EditCustomerCustomerId.setText(Integer.toString(selectedCustomer.getCustomerId()));
@@ -127,6 +136,10 @@ public class EditCustomersController implements Initializable {
 
     }
 
+    /** This is the method that will set the Divisions when the appropriate Country is selected from the
+     * combo box.
+     * @param event Selection of a Country from the respective combo box.
+     * */
     public void EnableCustomersEditDivisions(ActionEvent event) throws SQLException {
 
         ObservableList<Divisions> filterEditDivisions = FXCollections.observableArrayList();
@@ -141,6 +154,11 @@ public class EditCustomersController implements Initializable {
 
     }
 
+    /** This is the initialize method used for the Edit Customers screen. It also sets the Countries in the
+     * combo box.
+     * @param resourceBundle resourceBundle
+     * @param url url
+     * */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {

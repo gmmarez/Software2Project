@@ -56,7 +56,7 @@ public class AddCustomersController implements Initializable {
         stage.show();
     }
 
-    /**This method will add a customer to the database and return the user back to the Customers menu screen.
+    /** This method will add a customer to the database and return the user back to the Customers menu screen.
      * @param event Selection of the Add button. */
     @FXML
     void AddCustomersAdd(ActionEvent event) {
