@@ -14,6 +14,10 @@ import java.time.LocalDateTime;
 
 /** This is the DAO file in which SQL queries regarding Customers are made to the MySQL Workbench database. */
 public class CustomerDAO {
+
+    /** This method will make a SQL query to return all Customers and return it to the Customer object.
+     * @return customersObservableList All Customers
+     * */
     public static ObservableList<Customers> getAllCustomers() throws SQLException {
         ObservableList<Customers> customersObservableList = FXCollections.observableArrayList();
         try {
@@ -37,6 +41,15 @@ public class CustomerDAO {
         return customersObservableList;
     }
 
+    /** This method will add a Customer to the Customer table in the database.
+     * @param customerName
+     * @param customerAddress
+     * @param customerPostalCode
+     * @param customerPhone
+     * @param createdDate
+     * @param lastUpdated
+     * @param divisionId
+     * */
     public static void addCustomer(String customerName, String customerAddress, String customerPostalCode,
                                    String customerPhone, LocalDateTime createdDate, LocalDateTime lastUpdated,
                                    int divisionId) throws SQLException {
@@ -53,6 +66,9 @@ public class CustomerDAO {
         insertCustomer.executeUpdate();
     }
 
+    /** This method deletes a Customer record from the Customer table in the database.
+     * @param customerId Customer ID
+     * */
     public static void deleteCustomer(int customerId) {
         try {
             String sql = "DELETE FROM customers WHERE Customer_ID = ?";
@@ -62,6 +78,11 @@ public class CustomerDAO {
         } catch (SQLException e) {e.printStackTrace();}
     }
 
+    /** This method will return a Customer ID given a Customer Name
+     * @param customerName Customer Name
+     *
+     * @return customerId Customer ID
+     * */
     public static int getCustomerId(String customerName) throws SQLException {
         String sql = "SELECT * FROM customers WHERE Customer_Name = ?";
         PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
@@ -75,6 +96,16 @@ public class CustomerDAO {
         return customerId;
     }
 
+    /** This method is used when needing to make updates to Customer records in the database.
+     * @param customerId
+     * @param customerName
+     * @param customerAddress
+     * @param customerPostalCode
+     * @param customerPhone
+     * @param createdDate
+     * @param lastUpdated
+     * @param divisionId
+     * */
     public static void updateCustomer(int customerId, String customerName, String customerAddress, String customerPostalCode, String customerPhone, LocalDateTime createdDate, LocalDateTime lastUpdated, int divisionId) {
         try {
 
@@ -95,6 +126,6 @@ public class CustomerDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
+
 }

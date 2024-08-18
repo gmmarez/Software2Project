@@ -12,6 +12,11 @@ import java.sql.SQLException;
 /** This is the DAO file in which SQL queries regarding Reports are made to the MySQL Workbench database. */
 public class ReportDAO {
 
+    /** This method will return all Appointments Type per Appointments Month and total them up by
+     * using a SQL query to the database.
+     *
+     * @return reportsObservableList Appointments Type, Month, Total
+     * */
     public static ObservableList<Reports> getReportResults() throws SQLException {
 
         ObservableList<Reports> reportsObservableList = FXCollections.observableArrayList();
@@ -35,6 +40,5 @@ public class ReportDAO {
         }
         return reportsObservableList;
     }
-
 
 }

@@ -12,6 +12,10 @@ import java.time.LocalDateTime;
 
 /** This is the DAO file in which SQL queries regarding Divisions are made to the MySQL Workbench database. */
 public class DivisionDAO {
+
+    /** This method will return all Division records from the database.
+     * @return divisionsObservableList All Divisions
+     * */
     public static ObservableList<Divisions> getAllDivisions() throws SQLException {
         ObservableList<Divisions> divisionsObservableList = FXCollections.observableArrayList();
         String sql = "SELECT * from first_level_divisions";
@@ -29,6 +33,10 @@ public class DivisionDAO {
         return divisionsObservableList;
     }
 
+    /** This method will return all Divisions in a Country given a Country ID.
+     * @param countryId Country ID
+     *
+     * @return chosenCountryDivision*/
     public static ObservableList<Divisions> getCountryDivision(int countryId) {
 
         ObservableList<Divisions> chosenCountryDivision = FXCollections.observableArrayList();

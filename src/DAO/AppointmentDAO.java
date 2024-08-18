@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class AppointmentDAO {
 
     /** This method will make a SQL query to return all Appointments and return it to the Appointment object.
-     * @return All Appointments
+     * @return All Appointments All Appointments
      * */
     public static ObservableList<Appointments> getAllAppointments() throws SQLException {
         ObservableList<Appointments> appointmentsObservableList = FXCollections.observableArrayList();
@@ -106,7 +106,7 @@ public class AppointmentDAO {
     /** This method will return all Appointments given a Contact ID.
      * @param contactId
      *
-     * @return chosenCustomerAppointment
+     * @return chosenContactAppointment Selected contact's appointments
      * */
     public static ObservableList<Appointments> getContactAppointment(int contactId) {
 
@@ -144,7 +144,7 @@ public class AppointmentDAO {
     /** This method will return all Appointments given a Customer ID.
      * @param customerId
      *
-     * @return chosenCustomerAppointment
+     * @return chosenCustomerAppointment Selected customer's appointments
      * */
     public static ObservableList<Appointments> getCustomerAppointment(int customerId) {
 
@@ -213,7 +213,7 @@ public class AppointmentDAO {
     }
 
     /** This method will return all Appointments within a month.
-     * @return monthlyAppointments
+     * @return monthlyAppointments All appointments within a month
      * */
     public static ObservableList<Appointments> getMonthlyAppointments() {
         ObservableList<Appointments> monthlyAppointments = FXCollections.observableArrayList();
@@ -285,7 +285,7 @@ public class AppointmentDAO {
     /** This method will return all Appointments given a User ID.
      * @param userId
      *
-     * @return chosenUserAppointment
+     * @return chosenUserAppointment Selected user's appointments
      * */
     public static ObservableList<Appointments> getUserAppointment(int userId) {
 

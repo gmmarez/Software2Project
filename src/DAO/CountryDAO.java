@@ -10,6 +10,10 @@ import java.sql.*;
 
 /** This is the DAO file in which SQL queries regarding Countries are made to the MySQL Workbench database. */
 public class CountryDAO {
+
+    /** This method returns all Countries in the MySQL database.
+     * @return countryObservableList All Countries
+     * */
     public static ObservableList<Country> getAllCountries() throws SQLException {
         ObservableList<Country> countryObservableList = FXCollections.observableArrayList();
         String sql = "SELECT Country_ID, Country from countries";
@@ -26,6 +30,11 @@ public class CountryDAO {
         return countryObservableList;
     }
 
+    /** This method returns a Country ID given a Country Name.
+     *@param countryName Country Name
+     *
+     *@return countryId Country ID
+     * */
     public static int getCountryId(String countryName) throws SQLException {
         String sql = "SELECT * FROM countries WHERE Country = ?";
         PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
@@ -38,6 +47,5 @@ public class CountryDAO {
         }
         return countryId;
     }
-
 
 }
