@@ -78,7 +78,8 @@ public class ReportsController implements Initializable {
     /** LAMBDA EXPRESSION USAGE
      * This method will initialize reports in the Reports screen. This includes the combo boxes for each of the tables
      * and the tables themselves. This also includes the use of a lambda expression to set the Appointments by Customer
-     * table.
+     * table. This improves the code by efficiently setting the combo boxes and setting the Appointments by
+     * Customers table.
      * @param url url
      * @param resourceBundle resourceBundle
      * */

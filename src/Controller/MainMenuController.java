@@ -61,7 +61,8 @@ public class MainMenuController implements Initializable {
 
     /** LAMBDA EXPRESSION USAGE
      * This method will log the user and send them back to the Login Screen. The lambda expression is used to prompt
-     * an alert to the user about the choice they are making by selected the Logout button.
+     * an alert to the user about the choice they are making by selected the Logout button. This improves the code by
+     * more efficiently calling an alert for the user.
      * @param event Selection of the Logout button
      * */
     @FXML

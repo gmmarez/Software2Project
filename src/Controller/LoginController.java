@@ -158,7 +158,7 @@ public class LoginController implements Initializable {
 
     /** LAMBDA EXPRESSION USAGE
      * This method will close the entire application. It also includes the use of a lambda expression to prompt an
-     * alert to the user.
+     * alert to the user. This improves the code by more efficiently calling an alert for the user.
      * @param event Selection of the Close button.
      * */
     @FXML
