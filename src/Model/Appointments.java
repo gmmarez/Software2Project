@@ -212,9 +212,15 @@ public class Appointments {
                 alert.showAndWait();
                 return true;
 
+            } else if (appointmentStartTime.isEqual(checkAppointmentStart) || appointmentEndTime.isEqual(checkAppointmentEnd)); {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Appointment can't overlap an already existing appointment.(5)");
+                alert.showAndWait();
+                return true;
+
             }
-        }
-        return false;
+        } return false;
     }
 
 }
