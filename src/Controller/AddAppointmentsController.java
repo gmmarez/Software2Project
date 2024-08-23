@@ -131,6 +131,11 @@ public class AddAppointmentsController implements Initializable {
                 alert.setTitle("Error");
                 alert.setContentText("Missing User");
                 alert.show();
+            } else if (appointmentStartTime.isAfter(appointmentEndTime)) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Appointment Start Time cannot be behind Appointment End Time.");
+                alert.show();
             } else if (Appointments.withinBusinessHours(appointmentStartTime, appointmentEndTime)) {
                 return;
             } else if (Appointments.overlapCheck(customerId, appointmentStartTime, appointmentEndTime)) {
