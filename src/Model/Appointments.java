@@ -177,9 +177,8 @@ public class Appointments {
             checkAppointmentStart = appointment.getAppointmentStartTime();
             checkAppointmentEnd = appointment.getAppointmentEndTime();
 
-            // Confusion on if a totally different appointment from 2020 is causing an overlap issue even if different Customers
-            if (customerId == appointment.getCustomerId()) {
-                break;
+            if (customerId != appointment.getCustomerId()) {
+                continue;
 
             } else if (checkAppointmentStart.isEqual(appointmentStartTime) || checkAppointmentEnd.isEqual(appointmentEndTime)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -189,8 +188,6 @@ public class Appointments {
                 return true;
 
             } else if (appointmentStartTime.isAfter(checkAppointmentStart) && (appointmentStartTime.isBefore(checkAppointmentEnd))) {
-
-                System.out.println(appointment.getAppointmentId());
 
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
@@ -209,13 +206,6 @@ public class Appointments {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setContentText("Appointment can't overlap an already existing appointment.(4)");
-                alert.showAndWait();
-                return true;
-
-            } else if (appointmentStartTime.isEqual(checkAppointmentStart) || appointmentEndTime.isEqual(checkAppointmentEnd)); {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setContentText("Appointment can't overlap an already existing appointment.(5)");
                 alert.showAndWait();
                 return true;
 
