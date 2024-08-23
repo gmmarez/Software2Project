@@ -47,7 +47,7 @@ public class LoginController implements Initializable {
     void PasswordTextBox(ActionEvent event) {
     }
 
-    /** This method will initalize the Login screen. This inlcudes setting all text based on the user's location.
+    /** This method will initialize the Login screen. This includes setting all text based on the user's location.
      * @param url url
      * @param rb resourceBundle
      * */
@@ -117,21 +117,22 @@ public class LoginController implements Initializable {
                     if ((startTime.isAfter(currentTime) || startTime.isEqual(currentTimePlus15Minutes)) &&
                             (startTime.isBefore(currentTimePlus15Minutes) || startTime.isEqual(currentTime))) {
 
+                        System.out.println("Here");
+
                         areAppointments = true;
-
                         Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.setTitle(rb.getString("Upcoming Appointment"));
+                        alert.setTitle(rb.getString("UpcomingAppointment"));
                         alert.setContentText(rb.getString("Appointment") + " "  + a.getAppointmentId() + " " + rb.getString("At") + " " +  a.getAppointmentStartTime());
-                        alert.showAndWait();
+                        alert.show();
                     }
-                }
+                    else {
 
-                // If the user does NOT have any appointments within 15 minutes.
-                if (!areAppointments) {
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle(rb.getString("Upcoming Appointment"));
-                    alert.setContentText(rb.getString("NoAppointments"));
-                    alert.show();
+                        // If the user does NOT have any appointments within 15 minutes.
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle(rb.getString("UpcomingAppointment"));
+                        alert.setContentText(rb.getString("NoAppointments"));
+                        alert.show();
+                    }
                 }
 
             // User not validated to log in.
